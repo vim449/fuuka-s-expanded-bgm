@@ -1,0 +1,138 @@
+Held for Randomization
+
+9982 Others
+9983 Raidou
+9984 DDS
+9985 MJ2
+9986 MJ
+9987 SMT3
+9988 SMT1
+9989 P5
+9990 PQ
+9991 P4
+9992 P3
+9993 EP
+9994 IS
+9995 P1
+9996 Spin-Offs
+9997 SMT
+9998 Persona
+9999 Random
+
+Persona
+
+ Persona 3
+
+102 The Snow Queen (P3)
+103 Maya's Theme (P3)
+104 Persona (P3)
+105 Time Castle (P3)
+1200
+
+ Persona 1
+
+500 SEBEC Above Ground
+501 Kandori's Theme -Silence-
+502 Karma palace (PSX)
+503 Karma Palace (PSP)
+504 School Days
+505 Let Butterflies Spread Until the Dawn 
+
+ Innocent Sin
+
+550 Club zodiac IS(PSX)
+551 Gold (PSX)
+552 Kasyugayama High IS (PSX)
+553 Maya's Theme (PSX)
+554 Mt. katatsumuri (IS PSX)
+555 Club Zodiac (IS PSP)
+556 Gold (PSP)
+557 Kasugayama High IS (PSP)
+558 Maya's Theme (PSP)
+559 Mt. Katatsumuri (IS PSP)
+
+ Eternal Punishment
+
+600 Abandoned factory (PSX)
+601 Club Zodiac (EP PSX)
+602 Kasyugayama High (EP PSX)
+603 Mt. Katatsumuri (EP PSX)
+604 Abandoned Factory (PSP)
+605 Club Zodiac (EP PSP)
+606 Kasugayama High (EP PSP)
+607 Mt. Katatsumuri (EP PSP)
+608 Shiori
+
+ Persona 4
+
+650 Sauna
+651 Game
+652 Heaven
+653 Long Way
+
+ Persona 5
+
+700 Beneath the Mask
+701 Beneath the Mask (Inst)
+702 Layer Cake
+703 Life Will Change
+704 I Believe
+
+ Persona Q
+
+750 Looming Danger
+751 The Voice Someone Calls
+752 Maze Of Life
+
+Mainline
+
+ SMT1,2,if.
+
+800 Cathedral (SMT1)
+801 Disco (SMT2)
+802 3D Makai (SMT2)
+803 City Of The Makai (If)
+
+ 
+ SMT3&4
+
+850 Labyrinth of Amala
+851 Sound Test
+852 Tokyo (SMT4)
+853 Ikebukuro (SMT4)
+
+Spin Offs
+
+ Majin Tensei
+
+900 Flame Up Fragment
+901 Devil Dance
+902 Chaotic Law
+
+ Majin Tensei 2
+
+950 A.D. 1995 Story
+951 Smash Up
+952 Evolution
+953 Assault
+954 Sourpuss
+
+ Digital Devil Saga
+
+1050 Sahasrara (DDS1)
+1051 River Of Samsara (DDS1)
+1052 Mad Mart (DDS2)
+1053 Egg Of The Universe (DDS2)
+
+ Raidou 1&2
+
+1100 Tsukudo-Cho (Raidou 1)
+1101 Go! Raidou (Raidou 1)
+1102 The Summoner of Tsukigata (Raidou 2)
+1103 Adventure (Raidou 2)
+
+ Others
+
+1150 Algon HQ (SH1)
+1151 Club Ezekiel (DS)
+1152 Dragon's Belly (Jack Bros.)

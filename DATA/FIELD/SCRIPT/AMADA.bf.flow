@@ -1,0 +1,25 @@
+
+// 
+// FlowScript decompiled by AtlusScriptLib by TGE (2017)
+// In the unfortunate case of any bugs, please report them back to me.
+// 
+
+
+// 
+// Imports
+// 
+
+import( "BASE_AMADA.BF" );
+import("../Utils.flow");
+
+// 
+// Script-level variable definitions
+// 
+
+void call_next_level_hook()
+{
+	if ( GET_CNT( 9999 ) >= 9982 ) {
+		ReRandom();
+	}
+	call_next_level_unhooked();
+}

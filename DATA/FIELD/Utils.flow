@@ -1,0 +1,382 @@
+import("Music.msg");
+
+const int p1_start = 500;
+const int p1_len = 6;
+const int is_start = 550;
+const int is_len = 10;
+const int ep_start = 600;
+const int ep_len = 9;
+const int p3_start = 1200;
+const int p3_len = 4;
+const int p4_start = 650;
+const int p4_len = 4;
+const int p5_start = 700;
+const int p5_len = 4;
+const int pq_start = 750;
+const int pq_len = 3;
+const int smt1_start = 800;
+const int smt1_len = 4;
+const int smt3_start = 850;
+const int smt3_len = 4;
+const int mj_start = 900;
+const int mj_len = 3;
+const int mj2_start = 950;
+const int mj2_len = 5;
+const int dds_start = 1050;
+const int dds_len = 4;
+const int rai_start = 1100;
+const int rai_len = 4;
+const int misc_start = 1150;
+const int misc_len = 3;
+
+const int total_persona =
+    p1_len + is_len + ep_len + p3_len + p4_len + p5_len + pq_len;
+const int total_smt = smt1_len + smt3_len;
+const int total_spin = mj_len + mj2_len + dds_len + rai_len + misc_len;
+const int total_len = total_persona + total_smt + total_spin;
+
+void song_chooser(int selection) {
+  // P3
+  if (selection <= (p3_len - 1)) {
+    playRandomBGM(selection + p3_start);
+    return;
+  }
+  selection -= p3_len;
+
+  // P1
+  if (selection <= (p1_len - 1)) {
+    playRandomBGM(selection + p1_start);
+    return;
+  }
+  selection -= p1_len;
+
+  // IS
+  if (selection <= (is_len - 1)) {
+    playRandomBGM(selection + is_start);
+    return;
+  }
+  selection -= is_len;
+
+  // EP
+  if (selection <= (ep_len - 1)) {
+    playRandomBGM(selection + ep_start);
+    return;
+  }
+  selection -= ep_len;
+
+  // P4
+  if (selection <= (p4_len - 1)) {
+    playRandomBGM(selection + p4_start);
+    return;
+  }
+  selection -= p4_len;
+
+  // P5
+  if (selection <= (p5_len - 1)) {
+    playRandomBGM(selection + p5_start);
+    return;
+  }
+  selection -= p5_len;
+
+  // PQ
+  if (selection <= (pq_len - 1)) {
+    playRandomBGM(selection + pq_start);
+    return;
+  }
+  selection -= pq_len;
+
+  // SMT1
+  if (selection <= (smt1_len - 1)) {
+    playRandomBGM(selection + smt1_start);
+    return;
+  }
+  selection -= smt1_len;
+
+  // SMT3
+  if (selection <= (smt3_len - 1)) {
+    playRandomBGM(selection + smt3_start);
+    return;
+  }
+  selection -= smt3_len;
+
+  // MJ
+  if (selection <= (mj_len - 1)) {
+    playRandomBGM(selection + mj_start);
+    return;
+  }
+  selection -= mj_len;
+
+  // MJ2
+  if (selection <= (mj2_len - 1)) {
+    playRandomBGM(selection + mj2_start);
+    return;
+  }
+  selection -= mj2_len;
+
+  // DDS
+  if (selection <= (dds_len - 1)) {
+    playRandomBGM(selection + dds_start);
+    return;
+  }
+  selection -= dds_len;
+
+  // Raidou
+  if (selection <= (rai_len - 1)) {
+    playRandomBGM(selection + rai_start);
+    return;
+  }
+  selection -= rai_len;
+
+  // Others
+  if (selection <= (misc_len - 1)) {
+    playRandomBGM(selection + misc_start);
+    return;
+  }
+  selection -= misc_len;
+}
+
+void Random() {
+  int selection = AI_RND(total_len - 1);
+  if (selection == GET_CNT(1)) {
+    Random();
+  }
+  song_chooser(selection);
+  SET_CNT(9999, 9999);
+}
+
+void RandomPersona() {
+  int selection = AI_RND(total_persona - 1);
+  if (selection == GET_CNT(1)) {
+    RandomPersona();
+  }
+  song_chooser(selection);
+  SET_CNT(9999, 9998);
+}
+
+void RandomSMT() {
+  int selection = AI_RND(total_smt - 1) + total_persona;
+  if (selection == GET_CNT(1)) {
+    RandomSMT();
+  }
+  song_chooser(selection);
+  SET_CNT(9999, 9997);
+}
+
+void RandomSpin() {
+  int selection = AI_RND(total_spin - 1) + total_persona + total_spin;
+  if (selection == GET_CNT(1)) {
+    RandomSpin();
+  }
+  song_chooser(selection);
+  SET_CNT(9999, 9996);
+}
+
+void RandomP1() {
+  int randomsong = AI_RND(p1_len - 1) + p1_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomP1();
+  }
+  SET_CNT(9999, 9995);
+  playRandomBGM(randomsong);
+}
+
+void RandomIS() {
+  int randomsong = AI_RND(is_len - 1) + is_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomIS();
+  }
+  SET_CNT(9999, 9994);
+  playRandomBGM(randomsong);
+}
+
+void RandomEP() {
+  int randomsong = AI_RND(ep_len - 1) + ep_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomEP();
+  }
+  SET_CNT(9999, 9993);
+  playRandomBGM(randomsong);
+}
+
+void RandomP3() {
+  int randomsong = AI_RND(p3_len - 1) + p3_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomP3();
+  }
+  SET_CNT(9999, 9992);
+  playRandomBGM(randomsong);
+}
+
+void RandomP4() {
+  int randomsong = AI_RND(p4_len - 1) + p4_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomP4();
+  }
+  SET_CNT(9999, 9991);
+  playRandomBGM(randomsong);
+}
+
+void RandomPQ() {
+  int randomsong = AI_RND(pq_len - 1) + pq_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomPQ();
+  }
+  SET_CNT(9999, 9990);
+  playRandomBGM(randomsong);
+}
+
+void RandomP5() {
+  int randomsong = AI_RND(p5_len - 1) + p5_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomP5();
+  }
+  SET_CNT(9999, 9989);
+  playRandomBGM(randomsong);
+}
+
+void RandomSMT1() {
+  int randomsong = AI_RND(smt1_len - 1) + smt1_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomSMT1();
+  }
+  SET_CNT(9999, 9988);
+  playRandomBGM(randomsong);
+}
+
+void RandomSMT3() {
+  int randomsong = AI_RND(smt3_len - 1) + smt3_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomSMT3();
+  }
+  SET_CNT(9999, 9987);
+  playRandomBGM(randomsong);
+}
+
+void RandomMJ() {
+  int randomsong = AI_RND(mj_len - 1) + mj_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomMJ();
+  }
+  SET_CNT(9999, 9986);
+  playRandomBGM(randomsong);
+}
+
+void RandomMJ2() {
+  int randomsong = AI_RND(mj2_len - 1) + mj2_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomMJ2();
+  }
+  SET_CNT(9999, 9985);
+  playRandomBGM(randomsong);
+}
+
+void RandomDDS() {
+  int randomsong = AI_RND(dds_len - 1) + dds_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomDDS();
+  }
+  SET_CNT(9999, 9984);
+  playRandomBGM(randomsong);
+}
+
+void RandomRaidou() {
+  int randomsong = AI_RND(rai_len - 1) + rai_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomRaidou();
+  }
+  SET_CNT(9999, 9983);
+  playRandomBGM(randomsong);
+}
+
+void RandomOther() {
+  int randomsong = AI_RND(misc_len - 1) + misc_start;
+  if (randomsong == GET_CNT(1)) {
+    RandomOther();
+  }
+  SET_CNT(9999, 9982);
+  playRandomBGM(randomsong);
+}
+
+void ReRandom() {
+  switch (GET_CNT(9999)) {
+  case 9982:
+    RandomOther();
+    break;
+  case 9983:
+    RandomRaidou();
+    break;
+  case 9984:
+    RandomDDS();
+    break;
+  case 9985:
+    RandomMJ2();
+    break;
+  case 9986:
+    RandomMJ();
+    break;
+  case 9987:
+    RandomSMT3();
+    break;
+  case 9988:
+    RandomSMT1();
+    break;
+  case 9989:
+    RandomP5();
+    break;
+  case 9990:
+    RandomPQ();
+    break;
+  case 9991:
+    RandomP4();
+    break;
+  case 9992:
+    RandomP3();
+    break;
+  case 9993:
+    RandomEP();
+    break;
+  case 9994:
+    RandomIS();
+    break;
+  case 9995:
+    RandomP1();
+    break;
+  case 9996:
+    RandomSpin();
+    break;
+  case 9997:
+    RandomSMT();
+    break;
+  case 9998:
+    RandomPersona();
+    break;
+  case 9999:
+    Random();
+    break;
+  default:
+    break;
+  }
+}
+
+void playBGM(int songid) {
+  CALL_BGM(songid);
+  SET_CNT(1, songid);
+  SET_CNT(9999, 0);
+  MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+}
+
+void playRandomBGM(int songid) {
+  if (GET_CNT(9998) != 1) {
+    if (GET_CNT(1) < 500 && (GET_CNT(1) < 102 || GET_CNT(1) > 104)) {
+      SET_CNT(9999, 0);
+    } else {
+      CALL_BGM(songid);
+      SET_CNT(1, songid);
+      SET_CNT(9998, 0);
+    }
+  } else {
+    CALL_BGM(songid);
+    SET_CNT(1, songid);
+    SET_CNT(9998, 0);
+  }
+}
