@@ -104,7 +104,7 @@ void BGMorder_to_change_bgm() {
   case 2:
     SpinSMT_Music();
     break;
-  case 3:
+  case 3: 
   case 4:
     SET_CNT(9998, 1);
     Random();
@@ -1208,7 +1208,7 @@ void SpinSMT_Music3() {
     break;
   case 5:
     SpinSMT_Music2();
-    break
+    break;
   case 6:
     BGMorder_to_change_bgm();
     break;
