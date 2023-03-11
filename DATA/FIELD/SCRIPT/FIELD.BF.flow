@@ -10,8 +10,19 @@
 // 
 
 import( "BASE_FIELD.BF" );
+import( "../QuickTravel.flow" );
 import( "../Music.flow" );
 import("../Utils.flow");
+
+void field_order_party_hook()
+{
+	FUNCTION_01E4();
+	int floor = GET_FLOOR_ID();
+	if (floor < 1)
+		QuickTravelDisplay();
+	else if (floor > 1)
+		field_order_party_unhooked();
+}
 
 void order_for_huka_hook()
 {
