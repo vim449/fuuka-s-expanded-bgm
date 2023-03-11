@@ -163,7 +163,7 @@ void RandomSMT() {
 }
 
 void RandomSpin() {
-  int selection = AI_RND(total_spin - 1) + total_persona + total_spin;
+  int selection = AI_RND(total_spin - 1) + total_persona + total_smt;
   if (selection == GET_CNT(1)) {
     RandomSpin();
   }
