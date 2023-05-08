@@ -21,6 +21,7 @@ void QuickTravelDisplay()
 			PortIslandTravel();
 			return;
 		default:
+			MSG(NO_QT);
 			return;
 	}
 }
@@ -39,12 +40,6 @@ void SchoolTravel()
 	SEL_CHK_PAD(15,4);
 	int select = SEL( School );
 	CLOSE_MSG_WIN();
-	if (select < 3)
-	{
-		FADE( 3, 0 );
-		FADE_SYNC();
-		BIT_ON( 0 + 0x0400 + 0x0800 + 0x0400 + 0x0400 + 7 );
-	}
 	switch (select)
 	{
 		case 0: // School Entranceway
@@ -84,12 +79,6 @@ void SchoolTravel2()
 	SEL_CHK_PAD(15,4);
 	int select = SEL( School2 );
 	CLOSE_MSG_WIN();
-	if (select < 3)
-	{
-		FADE( 3, 0 );
-		FADE_SYNC();
-		BIT_ON( 0 + 0x0400 + 0x0800 + 0x0400 + 0x0400 + 7 );
-	}
 	switch (select)
 	{
 		case 0 : // 1st Floor, Right Hall
@@ -129,12 +118,6 @@ void SchoolTravel3()
 	SEL_CHK_PAD(15,4);
 	int select = SEL( School3 );
 	CLOSE_MSG_WIN();
-	if (select < 2)
-	{
-		FADE( 3, 0 );
-		FADE_SYNC();
-		BIT_ON( 0 + 0x0400 + 0x0800 + 0x0400 + 0x0400 + 7 );
-	}
 	switch (select)
 	{
 		case 0: // 2nd Floor, Hallway
@@ -367,7 +350,6 @@ void MallTravel()
 	{
 		FADE( 3, 0 );
 		FADE_SYNC();
-		BIT_ON( 0 + 0x0400 + 0x0800 + 0x0400 + 0x0400 + 7 );
 	}
 	switch (select)
 	{
@@ -1057,7 +1039,6 @@ void PortIslandTravel()
 	{
 		FADE( 3, 0 );
 		FADE_SYNC();
-		BIT_ON( 0 + 0x0400 + 0x0800 + 0x0400 + 0x0400 + 7 );
 	}
 	switch (select)
 	{

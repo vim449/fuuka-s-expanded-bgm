@@ -656,3 +656,6 @@
 
 [msg GOTO_STATION [Fuuka]]
 [f 0 8 65278][f 1 31][f 0 31 6 12 1 1]Are you ready?[n][f 0 4][e]
+
+[msg NO_QT]
+[f 0 8 -258][f 1 31]You can't Quick Travel here.[e]
