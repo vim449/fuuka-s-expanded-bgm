@@ -1,0 +1,893 @@
+void DormRoom()
+{
+	switch(GET_FIELD_MINOR())
+	{
+		case 1: // Your Room
+			OPEN_MSG_WIN();
+			MSG( Same );
+			CLOSE_MSG_WIN();
+			break;
+		case 2: //1st Floor, Lounge
+			if(Chk_Access_Dorm_002_003())
+			{
+				if(Chk_Access_Dorm_003_001())
+				{
+					gotoDormRoom();
+				}
+			}
+			break;
+		case 3: //2nd Floor, Hallway 
+			if(Chk_Access_Dorm_003_001())
+				{
+					gotoDormRoom();
+				}
+			break;
+		case 4: // 3rd Floor, Hallway 
+			if(Chk_Access_Dorm_004_003())
+			{
+				if(Chk_Access_Dorm_003_001())
+				{
+					gotoDormRoom();
+				}
+			}
+			break;
+		case 5: // 4th Floor, Hallway 
+			if(Chk_Access_Dorm_005_004())
+			{
+				if(Chk_Access_Dorm_004_003())
+				{
+					if(Chk_Access_Dorm_003_001())
+					{
+						gotoDormRoom();
+					}
+				}
+			}
+			break;
+		case 6: // Meeting Room 
+			if(Chk_Access_Dorm_006_005())
+			{
+				if(Chk_Access_Dorm_005_004())
+				{
+					if(Chk_Access_Dorm_004_003())
+					{
+						if(Chk_Access_Dorm_003_001())
+						{
+							gotoDormRoom();
+						}
+					}
+				}
+			}
+			break;
+		case 9: // Dorm Entrance 
+			if(Chk_Access_Dorm_009_002())
+			{
+				if(Chk_Access_Dorm_002_003())
+				{
+					if(Chk_Access_Dorm_003_001())
+					{
+						gotoDormRoom();
+					}
+				}
+			}
+			break;
+		case 14: // Shinji's Room 
+			if(Chk_Access_Dorm_014_003())
+			{
+				if(Chk_Access_Dorm_003_001())
+				{	
+					gotoDormRoom();
+				}
+			}
+			break;
+		case 15: // Vacant Room
+			if(Chk_Access_Dorm_003_001())
+			{
+				if(Chk_Access_Dorm_015_003())
+				{
+					gotoDormRoom();
+				}
+			}
+			break;
+		default:
+			No_QuickTravel();
+			break;
+	}
+	return;
+}
+
+void gotoDormRoom()
+{
+	FADE( 2, 0);
+	FADE_SYNC();
+	CALL_FIELD( 7, 1, 0, 0 );
+	return;	
+}
+
+void DormEntrance()
+{
+	switch(GET_FIELD_MINOR())
+	{
+		case 1: // Your Room
+			if(Chk_Access_Dorm_001_003())
+			{
+				if(Chk_Access_Dorm_003_002())
+				{
+					if(Chk_Access_Dorm_002_009())
+					{
+						gotoDormEntrance();
+					}
+				}
+			}
+			break;
+		case 2: //1st Floor, Lounge
+			if(Chk_Access_Dorm_002_009())
+			{
+				gotoDormEntrance();
+			}
+			break;
+		case 3: //2nd Floor, Hallway 
+			if(Chk_Access_Dorm_003_002())
+			{
+				if(Chk_Access_Dorm_002_009())
+				{
+					gotoDormEntrance();
+				}
+			}
+			break;
+		case 4: // 3rd Floor, Hallway 
+			if(Chk_Access_Dorm_004_003())
+			{
+				if(Chk_Access_Dorm_003_002())
+				{
+					if(Chk_Access_Dorm_002_009())
+					{
+						gotoDormEntrance();
+					}
+				}
+			}
+			break;
+		case 5: // 4th Floor, Hallway 
+			if(Chk_Access_Dorm_005_004())
+			{
+				if(Chk_Access_Dorm_004_003())
+				{
+					if(Chk_Access_Dorm_003_002())
+					{
+						if(Chk_Access_Dorm_002_009())
+						{
+							gotoDormEntrance();
+						}
+					}
+				}
+			}
+			break;
+		case 6: // Meeting Room 
+			if(Chk_Access_Dorm_006_005())
+			{
+				if(Chk_Access_Dorm_005_004())
+				{
+					if(Chk_Access_Dorm_004_003())
+					{
+						if(Chk_Access_Dorm_003_002())
+						{
+							if(Chk_Access_Dorm_002_009())
+							{
+								gotoDormEntrance();
+							}
+						}
+					}
+				}
+			}
+			break;
+		case 9: // Dorm Entrance 
+			OPEN_MSG_WIN();
+			MSG( Same );
+			CLOSE_MSG_WIN();
+			break;
+		case 14: // Shinji's Room 
+			if(Chk_Access_Dorm_014_003())
+			{
+				if(Chk_Access_Dorm_003_002())
+				{
+					if(Chk_Access_Dorm_002_009())
+					{	
+						gotoDormEntrance();
+					}
+				}
+			}
+			break;
+		case 15: // Vacant Room
+			if(Chk_Access_Dorm_003_002())
+			{
+				if(Chk_Access_Dorm_002_009())
+				{	
+					if(Chk_Access_Dorm_015_003())
+					{
+						gotoDormEntrance();
+					}
+				}
+			}
+			break;
+		default:
+			No_QuickTravel();
+			break;
+	}
+	return;
+}
+
+void gotoDormEntrance()
+{
+	FADE( 2, 0);
+	FADE_SYNC();
+	CALL_FIELD( 7, 9, 0, 0 );
+	return;	
+}
+
+void DormLobby()
+{
+	switch(GET_FIELD_MINOR())
+	{
+		case 1: // Your Room
+			if(Chk_Access_Dorm_001_003())
+			{
+				if(Chk_Access_Dorm_003_002())
+				{
+					gotoDormLobby();
+				}
+			}
+			break;
+		case 2: //1st Floor, Lounge
+			OPEN_MSG_WIN();
+			MSG( Same );
+			CLOSE_MSG_WIN();
+			break;
+		case 3: //2nd Floor, Hallway 
+			if(Chk_Access_Dorm_003_002())
+			{
+				gotoDormLobby();
+			}
+			break;
+		case 4: // 3rd Floor, Hallway 
+			if(Chk_Access_Dorm_004_003())
+			{
+				if(Chk_Access_Dorm_003_002())
+				{
+					gotoDormLobby();
+				}
+			}
+			break;
+		case 5: // 4th Floor, Hallway 
+			if(Chk_Access_Dorm_005_004())
+			{
+				if(Chk_Access_Dorm_004_003())
+				{
+					if(Chk_Access_Dorm_003_002())
+					{
+						gotoDormLobby();
+					}
+				}
+			}
+			break;
+		case 6: // Meeting Room 
+			if(Chk_Access_Dorm_006_005())
+			{
+				if(Chk_Access_Dorm_005_004())
+				{
+					if(Chk_Access_Dorm_004_003())
+					{
+						if(Chk_Access_Dorm_003_002())
+						{
+							gotoDormLobby();
+						}
+					}
+				}
+			}
+			break;
+		case 9: // Dorm Entrance 
+			if(Chk_Access_Dorm_009_002())
+			{
+				gotoDormLobbyEntrance();
+			}
+			break;
+		case 14: // Shinji's Room 
+			if(Chk_Access_Dorm_014_003())
+			{
+				if(Chk_Access_Dorm_003_002())
+				{
+					gotoDormLobby();
+				}
+			}
+			break;
+		case 15: // Vacant Room
+			if(Chk_Access_Dorm_003_002())
+			{
+				if(Chk_Access_Dorm_015_003())
+				{
+					gotoDormLobby();
+				}
+			}
+			break;
+		default:
+			No_QuickTravel();
+			break;
+	}
+	return;
+}
+
+void gotoDormLobby()
+{
+	FADE( 2, 0);
+	FADE_SYNC();
+	CALL_FIELD( 7, 2, 1, 0 );
+	return;	
+}
+
+void gotoDormLobbyEntrance()
+{
+	FADE( 2, 0);
+	FADE_SYNC();
+	CALL_FIELD( 7, 2, 0, 0 );
+	return;	
+}
+
+void DormFloorTwo()
+{
+	switch(GET_FIELD_MINOR())
+	{
+		case 1: // Your Room
+			if(Chk_Access_Dorm_001_003())
+			{
+				gotoDormFloorTwo();
+			}
+			break;
+		case 2: //1st Floor, Lounge
+			if(Chk_Access_Dorm_002_003())
+			{
+				gotoDormFloorTwo();
+			}
+			break;
+		case 3: //2nd Floor, Hallway 
+			OPEN_MSG_WIN();
+			MSG( Same );
+			CLOSE_MSG_WIN();
+			break;
+		case 4: // 3rd Floor, Hallway 
+			if(Chk_Access_Dorm_004_003())
+			{
+				gotoDormFloorTwo();
+			}
+			break;
+		case 5: // 4th Floor, Hallway 
+			if(Chk_Access_Dorm_005_004())
+			{
+				if(Chk_Access_Dorm_004_003())
+				{
+					gotoDormFloorTwo();
+				}
+			}
+			break;
+		case 6: // Meeting Room 
+			if(Chk_Access_Dorm_006_005())
+			{
+				if(Chk_Access_Dorm_005_004())
+				{
+					if(Chk_Access_Dorm_004_003())
+					{
+						gotoDormFloorTwo();
+					}
+				}
+			}
+			break;
+		case 9: // Dorm Entrance 
+			if(Chk_Access_Dorm_009_002())
+			{
+				if(Chk_Access_Dorm_002_003())
+				{
+					gotoDormFloorTwo();
+				}
+			}
+			break;
+		case 14: // Shinji's Room 
+			if(Chk_Access_Dorm_014_003())
+			{
+				gotoDormFloorTwo();
+			}
+			break;
+		case 15: // Vacant Room
+			if(Chk_Access_Dorm_015_003())
+			{
+				gotoDormFloorTwo();
+			}
+			break;
+		default:
+			No_QuickTravel();
+			break;
+	}
+	return;
+}
+
+void gotoDormFloorTwo()
+{
+	FADE( 2, 0);
+	FADE_SYNC();
+	CALL_FIELD( 7, 3, 1, 0 );
+	return;	
+}
+
+void DormFloorThree()
+{
+	switch(GET_FIELD_MINOR())
+	{
+		case 1: // Your Room
+			if(Chk_Access_Dorm_001_003())
+			{
+				if(Chk_Access_Dorm_003_004())
+				{	
+					gotoDormFloorThree();
+				}
+			}
+			break;
+		case 2: //1st Floor, Lounge
+			if(Chk_Access_Dorm_002_003())
+			{
+				if(Chk_Access_Dorm_003_004())
+				{	
+					gotoDormFloorThree();
+				}
+			}
+			break;
+		case 3: //2nd Floor, Hallway 
+			if(Chk_Access_Dorm_003_004())
+			{	
+				gotoDormFloorThree();
+			}
+			
+			break;
+		case 4: // 3rd Floor, Hallway 
+			OPEN_MSG_WIN();
+			MSG( Same );
+			CLOSE_MSG_WIN();
+			break;
+		case 5: // 4th Floor, Hallway 
+			if(Chk_Access_Dorm_005_004())
+			{
+				gotoDormFloorThree();
+			}
+			break;
+		case 6: // Meeting Room 
+			if(Chk_Access_Dorm_006_005())
+			{
+				if(Chk_Access_Dorm_005_004())
+				{
+					gotoDormFloorThree();
+				}
+			}
+			break;
+		case 9: // Dorm Entrance 
+			if(Chk_Access_Dorm_009_002())
+			{
+				if(Chk_Access_Dorm_002_003())
+				{
+					if(Chk_Access_Dorm_003_004())
+					{	
+						gotoDormFloorThree();
+					}
+				}
+			}
+			break;
+		case 14: // Shinji's Room 
+			if(Chk_Access_Dorm_014_003())
+			{
+				if(Chk_Access_Dorm_003_004())
+				{	
+					gotoDormFloorThree();
+				}
+			}
+			break;
+		case 15: // Vacant Room
+			if(Chk_Access_Dorm_003_004())
+			{	
+				if(Chk_Access_Dorm_015_003())
+				{
+					gotoDormFloorThree();
+				}
+			}
+			break;
+		default:
+			No_QuickTravel();
+			break;
+	}
+	return;
+}
+
+void gotoDormFloorThree()
+{
+	FADE( 2, 0);
+	FADE_SYNC();
+	CALL_FIELD( 7, 4, 1, 0 );
+	return;	
+}
+
+void DormFloorFour()
+{
+	switch(GET_FIELD_MINOR())
+	{
+		case 1: // Your Room
+			if(Chk_Access_Dorm_001_003())
+			{
+				if(Chk_Access_Dorm_003_004())
+				{	
+					if(Chk_Access_Dorm_004_005())
+					{	
+						gotoDormFloorFour();
+					}
+				}
+			}
+			break;
+		case 2: //1st Floor, Lounge
+			if(Chk_Access_Dorm_002_003())
+			{
+				if(Chk_Access_Dorm_003_004())
+				{	
+					if(Chk_Access_Dorm_004_005())
+					{	
+						gotoDormFloorFour();
+					}
+				}
+			}
+			break;
+		case 3: //2nd Floor, Hallway 
+			if(Chk_Access_Dorm_003_004())
+			{	
+				if(Chk_Access_Dorm_004_005())
+				{	
+					gotoDormFloorFour();
+				}
+			}
+			
+			break;
+		case 4: // 3rd Floor, Hallway 
+			if(Chk_Access_Dorm_004_005())
+			{	
+				gotoDormFloorFour();
+			}
+			break;
+		case 5: // 4th Floor, Hallway 
+			OPEN_MSG_WIN();
+			MSG( Same );
+			CLOSE_MSG_WIN();
+			break;
+		case 6: // Meeting Room 
+			if(Chk_Access_Dorm_006_005())
+			{
+				gotoDormFloorFour();
+			}
+			break;
+		case 9: // Dorm Entrance 
+			if(Chk_Access_Dorm_009_002())
+			{
+				if(Chk_Access_Dorm_002_003())
+				{
+					if(Chk_Access_Dorm_003_004())
+					{	
+						if(Chk_Access_Dorm_004_005())
+						{	
+							gotoDormFloorFour();
+						}
+					}
+				}
+			}
+			break;
+		case 14: // Shinji's Room 
+			if(Chk_Access_Dorm_014_003())
+			{
+				if(Chk_Access_Dorm_003_004())
+				{	
+					if(Chk_Access_Dorm_004_005())
+					{	
+						gotoDormFloorFour();
+					}
+				}
+			}
+			break;
+		case 15: // Vacant Room
+			if(Chk_Access_Dorm_003_004())
+			{	
+				if(Chk_Access_Dorm_004_005())
+				{	
+					if(Chk_Access_Dorm_015_003())
+					{
+						gotoDormFloorFour();
+					}
+				}
+			}
+			break;
+		default:
+			No_QuickTravel();
+			break;
+	}
+	return;
+}
+
+void gotoDormFloorFour()
+{
+	FADE( 2, 0);
+	FADE_SYNC();
+	CALL_FIELD( 7, 5, 0, 0 );
+	return;	
+}
+
+void MeetingRoom()
+{
+	switch(GET_FIELD_MINOR())
+	{
+		case 1: // Your Room
+			if(Chk_Access_Dorm_001_003())
+			{
+				if(Chk_Access_Dorm_003_004())
+				{	
+					if(Chk_Access_Dorm_004_005())
+					{	
+						if(Chk_Access_Dorm_005_006())
+						{
+							gotoMeetingRoom();
+						}
+					}
+				}
+			}
+			break;
+		case 2: //1st Floor, Lounge
+			if(Chk_Access_Dorm_002_003())
+			{
+				if(Chk_Access_Dorm_003_004())
+				{	
+					if(Chk_Access_Dorm_004_005())
+					{	
+						if(Chk_Access_Dorm_005_006())
+						{
+							gotoMeetingRoom();
+						}
+					}
+				}
+			}
+			break;
+		case 3: //2nd Floor, Hallway 
+			if(Chk_Access_Dorm_003_004())
+			{	
+				if(Chk_Access_Dorm_004_005())
+				{	
+					if(Chk_Access_Dorm_005_006())
+					{
+						gotoMeetingRoom();
+					}
+				}
+			}
+			
+			break;
+		case 4: // 3rd Floor, Hallway 
+			if(Chk_Access_Dorm_004_005())
+			{	
+				if(Chk_Access_Dorm_005_006())
+				{
+					gotoMeetingRoom();
+				}
+			}
+			break;
+		case 5: // 4th Floor, Hallway 
+			if(Chk_Access_Dorm_005_006())
+			{
+				gotoMeetingRoom();
+			}
+			break;
+		case 6: // Meeting Room 
+			OPEN_MSG_WIN();
+			MSG( Same );
+			CLOSE_MSG_WIN();
+			break;
+		case 9: // Dorm Entrance 
+			if(Chk_Access_Dorm_009_002())
+			{
+				if(Chk_Access_Dorm_002_003())
+				{
+					if(Chk_Access_Dorm_003_004())
+					{	
+						if(Chk_Access_Dorm_004_005())
+						{	
+							if(Chk_Access_Dorm_005_006())
+							{
+								gotoMeetingRoom();
+							}
+						}
+					}
+				}
+			}
+			break;
+		case 14: // Shinji's Room 
+			if(Chk_Access_Dorm_014_003())
+			{
+				if(Chk_Access_Dorm_003_004())
+				{	
+					if(Chk_Access_Dorm_004_005())
+					{	
+						if(Chk_Access_Dorm_005_006())
+						{
+							gotoMeetingRoom();
+						}
+					}
+				}
+			}
+			break;
+		case 15: // Vacant Room
+			if(Chk_Access_Dorm_003_004())
+			{	
+				if(Chk_Access_Dorm_004_005())
+				{	
+					if(Chk_Access_Dorm_005_006())
+					{
+						if(Chk_Access_Dorm_015_003())
+						{
+							gotoMeetingRoom();
+						}
+					}
+				}
+			}
+			break;
+		default:
+			No_QuickTravel();
+			break;
+	}
+	return;
+}
+
+void gotoMeetingRoom()
+{
+	FADE( 2, 0);
+	FADE_SYNC();
+	CALL_FIELD( 7, 6, 0, 0 );
+	return;	
+}
+
+void DormMap()
+{
+	switch(GET_FIELD_MINOR())
+	{
+		case 1: // Your Room
+			if(Chk_Access_Dorm_001_003())
+			{
+				if(Chk_Access_Dorm_003_002())
+				{
+					if(Chk_Access_Dorm_002_009())
+					{
+						if(Chk_Access_Dorm_009_MAP())
+						{
+							gotoDormMap();
+						}
+					}
+				}
+			}
+			break;
+		case 2: //1st Floor, Lounge
+			if(Chk_Access_Dorm_002_009())
+			{
+				if(Chk_Access_Dorm_009_MAP())
+				{
+					gotoDormMap();
+				}
+			}
+			break;
+		case 3: //2nd Floor, Hallway 
+			if(Chk_Access_Dorm_003_002())
+			{
+				if(Chk_Access_Dorm_002_009())
+				{
+					if(Chk_Access_Dorm_009_MAP())
+					{
+						gotoDormMap();
+					}
+				}
+			}
+			break;
+		case 4: // 3rd Floor, Hallway 
+			if(Chk_Access_Dorm_004_003())
+			{
+				if(Chk_Access_Dorm_003_002())
+				{
+					if(Chk_Access_Dorm_002_009())
+					{
+						if(Chk_Access_Dorm_009_MAP())
+						{
+							gotoDormMap();
+						}
+					}
+				}
+			}
+			break;
+		case 5: // 4th Floor, Hallway 
+			if(Chk_Access_Dorm_005_004())
+			{
+				if(Chk_Access_Dorm_004_003())
+				{
+					if(Chk_Access_Dorm_003_002())
+					{
+						if(Chk_Access_Dorm_002_009())
+						{
+							if(Chk_Access_Dorm_009_MAP())
+							{
+								gotoDormMap();
+							}
+						}
+					}
+				}
+			}
+			break;
+		case 6: // Meeting Room 
+			if(Chk_Access_Dorm_006_005())
+			{
+				if(Chk_Access_Dorm_005_004())
+				{
+					if(Chk_Access_Dorm_004_003())
+					{
+						if(Chk_Access_Dorm_003_002())
+						{
+							if(Chk_Access_Dorm_002_009())
+							{
+								if(Chk_Access_Dorm_009_MAP())
+								{
+									gotoDormMap();
+								}
+							}
+						}
+					}
+				}
+			}
+			break;
+		case 9: // Dorm Entrance 
+			if(Chk_Access_Dorm_009_MAP())
+			{
+				gotoDormMap();
+			}
+			break;
+		case 14: // Shinji's Room 
+			if(Chk_Access_Dorm_014_003())
+			{
+				if(Chk_Access_Dorm_003_002())
+				{
+					if(Chk_Access_Dorm_002_009())
+					{	
+						if(Chk_Access_Dorm_009_MAP())
+						{
+							gotoDormMap();
+						}
+					}
+				}
+			}
+			break;
+		case 15: // Vacant Room
+			if(Chk_Access_Dorm_003_002())
+			{
+				if(Chk_Access_Dorm_002_009())
+				{	
+					if(Chk_Access_Dorm_009_MAP())
+					{
+						if(Chk_Access_Dorm_015_003())
+						{
+							gotoDormMap();
+						}
+					}
+				}
+			}
+			break;
+		default:
+			No_QuickTravel();
+			break;
+	}
+	return;
+}
+
+void gotoDormMap()
+{
+	FADE( 1, 0 );
+	FADE_SYNC();
+	CALL_MAP( 5 );
+	return;	
+}

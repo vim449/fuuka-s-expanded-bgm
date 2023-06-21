@@ -1,0 +1,17 @@
+void return_to_dormitory()
+{
+    FUNCTION_0186( 15 );
+    FADE( 6, 10 );
+    FADE_SYNC();
+    
+    if ( BIT_CHK( 734 ) == 0 )
+    {
+        BIT_OFF( 3124 );
+        NEXT_DAY();
+    }
+    else 
+    {
+        CALL_FIELD( 4, 10, 2, 0 );
+    }
+
+}

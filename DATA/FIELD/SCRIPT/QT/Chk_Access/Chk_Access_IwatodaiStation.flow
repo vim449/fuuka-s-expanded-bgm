@@ -1,0 +1,198 @@
+bool Chk_Access_IwatodaiStation_001_MAP()
+{
+    if ( ( ( GET_MONTH() == 10 ) && ( GET_DAY_OF_MONTH() == 4 ) ) && ( FUNCTION_0083() == 8 ) )
+    {
+        OPEN_MSG_WIN();
+        MSG( IwatodaiStation_OUT_STOP );
+        CLOSE_MSG_WIN();
+		return 0;
+    }
+	BIT_ON( 3090 );
+	return 1;
+}
+
+bool Chk_Access_IwatodaiStation_002_MAP()
+{
+	BIT_ON( 3093 );
+	return 1;
+}
+
+bool Chk_Access_IwatodaiStation_001_002() // ( 9, 2, 0, 0 )
+{
+	int var18;
+    gVar21 = 0;
+    gVar22 = 0;
+    gVar100 = 0;
+    gVar23 = 0;
+    gVar24 = 0;
+    gVar25 = 0;
+    gVar26 = 0;
+    gVar27 = 0;
+    gVar28 = 0;
+    gVar29 = 0;
+    gVar30 = 0;
+    var18 = 0;
+    _110:
+    if ( var18 < 3 )
+    {
+        if ( FUNCTION_0173( var18 ) == 1 )
+        {
+            gVar100 = ( gVar100 + 1 );
+        }
+        var18 = ( var18 + 1 );
+        goto _110;
+    }
+    var18 = 0;
+    _114:
+    if ( var18 < 3 )
+    { 
+        if ( GET_PARTY_ID( var18 ) == 2 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar23 = 1;
+            
+            if ( GET_CUR_HP( 2 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var18 ) == 3 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar24 = 1;
+            if ( GET_CUR_HP( 3 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var18 ) == 4 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar25 = 1;
+            if ( GET_CUR_HP( 4 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var18 ) == 5 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar26 = 1;
+            if ( GET_CUR_HP( 5 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var18 ) == 7 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar27 = 1;
+            if ( GET_CUR_HP( 7 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var18 ) == 8 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar28 = 1;
+            if ( GET_CUR_HP( 8 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var18 ) == 9 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar29 = 1;
+            if ( GET_CUR_HP( 9 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var18 ) == 10 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar30 = 1;
+            if ( GET_CUR_HP( 10 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        var18 = ( var18 + 1 );
+        goto _114;
+    }
+    if ( ( ( GET_MONTH() == 10 ) && ( GET_DAY_OF_MONTH() == 4 ) ) && ( FUNCTION_0083() == 8 ) )
+    {
+        OPEN_MSG_WIN();
+        if ( gVar21 == 3 )
+        {
+            MSG( GOTO_STATION );
+            SEL_CHK_PAD( 6, 1 );
+            if ( SEL( IwatodaiStation_BOSS_SEL ) == 0 )
+            {
+                MSG( IwatodaiStation_HUKA_LETS_GO );
+                CLOSE_MSG_WIN();
+                FADE( 2, 0 );
+                FADE_SYNC();
+                BIT_ON( 297 );
+                CALL_EVENT( 266, 1, 0 );
+                CALL_SFX( 3, 0 );
+                FUNCTION_01C2();
+                FUNCTION_01C3();
+                CALL_BATTLE( 422 );
+                FUNCTION_00A6();
+                BIT_ON( 165 );
+                CALL_EVENT( 268, 1, 0 );
+                FUNCTION_0086( 0 );
+                FUNCTION_0086( 1 );
+                FUNCTION_0086( 2 );
+                ADD_MEMBER( 0, PartyMember.Ken );
+                BIT_ON( 166 );
+                CALL_EVENT( 269, 1, 0 );
+                BIT_ON( 167 );
+                CALL_EVENT( 270, 1, 0 );
+                BIT_ON( 168 );
+                CALL_EVENT( 271, 1, 0 );
+                BIT_ON( 169 );
+                CALL_MOVIE( 14 );
+                NS_MOVIE_SYNC();
+                REMOVE_MEMBER( PartyMember.Ken );
+                BIT_ON( 308 );
+                CALL_EVENT( 140, 3, 0 );
+                BIT_ON( 698 );
+                NEXT_DAY();
+                return 0;
+            }
+        }
+        else 
+        {
+            MSG( STATION_STOP );
+        }
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_IwatodaiStation_002_001() // ( 9, 1, 1, 0 )
+{
+	return 1;
+}
+
+bool Chk_Access_IwatodaiStation_001_007() // ( 9, 7, 0, 0 )
+{
+    if ( ( ( GET_MONTH() == 10 ) && ( GET_DAY_OF_MONTH() == 4 ) ) && ( FUNCTION_0083() == 8 ) )
+    {
+        OPEN_MSG_WIN();
+        MSG( IwatodaiStation_OUT_STOP );
+        CLOSE_MSG_WIN();
+		return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_IwatodaiStation_007_001() // ( 9, 1, 7, 0 )
+{
+	return 1;
+}

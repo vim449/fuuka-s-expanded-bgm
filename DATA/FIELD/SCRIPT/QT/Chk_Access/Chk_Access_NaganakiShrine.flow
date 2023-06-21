@@ -1,0 +1,13 @@
+bool Chk_Access_NaganakiShrine_001_MAP()
+{
+    if ( ( GET_MONTH() == 1 ) && ( GET_DAY_OF_MONTH() == 1 ) )
+    {
+        FADE( 1, 0 );
+        FADE_SYNC();
+        CALL_EVENT( 318, 4, 0 );
+        NEXT_DAY();
+        return 0;
+    }
+	BIT_ON( 3090 );	
+	return 1;
+}

@@ -1,0 +1,37 @@
+void boss_battle_r()
+{
+    int var9;
+    OPEN_MSG_WIN();
+    
+    if ( GET_PARTY_ID( 2 ) == 0 )
+    {
+        MSG( DUNGE_HUUKA_STOP );
+        CLOSE_MSG_WIN();
+		return;
+    }
+    else 
+    {
+        MSG( DUNGE_HUUKA_CONF );
+        SEL_CHK_PAD( 6, 1 );
+        var9 = SEL( BATTLE_SEL );
+        CLOSE_MSG_WIN();
+        
+        if ( var9 == 0 )
+        {
+            FADE( 5, 10 );
+            FADE_SYNC();
+            BIT_ON( 300 );
+            CALL_EVENT( 283, 2, 0 );
+            CALL_SFX( 3, 0 );
+            FUNCTION_01C2();
+            FUNCTION_01C3();
+            CALL_BATTLE( 424 );
+            FUNCTION_00A6();
+            BIT_ON( 186 );
+            CALL_EVENT( 286, 1, 0 );
+            NEXT_DAY();
+            return;
+        }
+
+    }
+}

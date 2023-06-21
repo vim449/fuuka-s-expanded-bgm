@@ -1,0 +1,976 @@
+bool Chk_Access_Dorm_009_MAP() // ( 5 )
+{
+	BIT_ON( 3090 );
+	return 1;
+}
+
+bool Chk_Access_Dorm_009_002() // ( 7, 2, 0, 0 )
+{
+	int var14;
+    var14 = 0;
+    if ( ( ( GET_MONTH() == 4 ) && ( GET_DAY_OF_MONTH() == 21 ) ) && ( BIT_CHK( 257 ) == 0 ) )
+    {
+        OPEN_MSG_WIN();
+        MSG( SANADA_CALLING );
+        CLOSE_MSG_WIN();
+        return 0;
+    }
+    else if ( ( FUNCTION_0083() == 4 ) || ( FUNCTION_0083() == 5 ) )
+    {
+        var14 = 1;
+        if ( ( CHECK_TIME_SPAN( 4, 21, 1, 31 ) == 1 ) && ( BIT_CHK( 3085 ) == 0 ) )
+        {
+            OPEN_MSG_WIN();
+            MSG( GOINTO_HOME );
+            CLOSE_MSG_WIN();
+            MSG_HELP( HELP_GOINTO_HOME );
+            OPEN_MSG_WIN();
+            MSG( GOINTO_HOME_OK );
+            SEL_CHK_PAD( 6, 1 );
+            if ( SEL( INTO_HOME_SEL ) != 0 )
+            {
+                CLOSE_MSG_WIN();
+                return 0;
+            }
+            CLOSE_MSG_WIN();
+            BIT_ON( 3085 );
+        }
+    }
+    if ( var14 == 1 )
+    {
+        FADE( 1, 0 );
+        FADE_SYNC();
+        NEXT_DAY();
+		return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_002_009() // ( 7, 9, 0, 0 )
+{
+    if ( ( ( GET_MONTH() == 4 ) && ( GET_DAY_OF_MONTH() == 7 ) ) || ( ( GET_MONTH() == 4 ) && ( GET_DAY_OF_MONTH() == 9 ) ) )
+    {
+        if(GET_FIELD_MINOR() == 2)
+		{
+			OPEN_MSG_WIN();
+			MSG( STOP_GO_OUT_MITSURU );
+			CLOSE_MSG_WIN();
+		}
+		else
+		{
+			OPEN_MSG_WIN();
+			MSG( STOP_GO_OUT );
+			CLOSE_MSG_WIN();
+		}
+		return 0;
+    }
+    else if ( ( ( GET_MONTH() == 4 ) && ( GET_DAY_OF_MONTH() == 8 ) ) || ( ( ( FUNCTION_0083() == 6 ) && ( GET_MONTH() == 4 ) ) && ( GET_DAY_OF_MONTH() == 19 ) ) )
+    {
+        if(GET_FIELD_MINOR() == 2)
+		{
+			OPEN_MSG_WIN();
+			MSG( STOP_GO_OUT_YUKARI );
+			CLOSE_MSG_WIN();
+		}
+		else
+		{
+			OPEN_MSG_WIN();
+			MSG( STOP_GO_OUT );
+			CLOSE_MSG_WIN();
+		}
+		return 0;
+    }
+    else if ( ( ( FUNCTION_0083() == 4 ) && ( GET_MONTH() == 4 ) ) && ( GET_DAY_OF_MONTH() == 19 ) )
+    {
+        if(GET_FIELD_MINOR() == 2)
+		{
+			OPEN_MSG_WIN();
+			MSG( STOP_GO_OUT_MITSURU_0419 );
+			CLOSE_MSG_WIN();
+		}
+		else
+		{
+			OPEN_MSG_WIN();
+			MSG( STOP_GO_OUT );
+			CLOSE_MSG_WIN();
+		}
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 4 ) && ( GET_DAY_OF_MONTH() == 18 ) )
+    {
+		OPEN_MSG_WIN();
+        MSG( STOP_GO_OUT );
+        CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( ( FUNCTION_0083() == 6 ) && ( GET_MONTH() == 9 ) ) && ( GET_DAY_OF_MONTH() == 18 ) )
+    {
+        OPEN_MSG_WIN();
+        MSG( STORM_COMING );
+        CLOSE_MSG_WIN();
+		if(GET_FIELD_MINOR() == 2)
+		{
+			OPEN_MSG_WIN();
+			MSG( STORM_COMING_JUNPEI );
+			CLOSE_MSG_WIN();
+		}
+		return 0;
+    }
+    else if ( FUNCTION_0083() == 4 )
+    {
+        if ( BIT_CHK( 3094 ) == 0 )
+        {
+            MSG_HELP( GO_OUT_OK_HELP );
+            OPEN_MSG_WIN();
+            MSG( GO_OUT_OK );
+            SEL_CHK_PAD( 6, 1 );
+            if ( SEL( GOOUT_SEL ) == 1 )
+            {
+                CLOSE_MSG_WIN();
+                return 0;
+            }
+            BIT_ON( 3094 );
+            CLOSE_MSG_WIN();
+        }
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_002_003() // ( 7, 3, 1, 0 )
+{
+	return 1;
+}
+
+bool Chk_Access_Dorm_003_002() // ( 7, 2, 1, 0 )
+{
+    if ( BIT_CHK( 3584 ) == 1 )
+    {
+        OPEN_MSG_WIN();
+        MSG( YUKARI_STOP_2F_DWNSTAIR );
+        CLOSE_MSG_WIN();
+		return 0;
+    }
+    else 
+    {
+        BIT_ON( 3118 );
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_003_001() // ( 7, 1, 0, 0 )
+{
+    if ( BIT_CHK( 3584 ) == 1 )
+    {
+        OPEN_MSG_WIN();
+        MSG( ROOM_STOP_01 );
+        CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( FUNCTION_0083() == 6 )
+    {
+        if ( BIT_CHK( 3592 ) == 1 )
+        {
+            OPEN_MSG_WIN();
+            MSG( STOP_INTO_MYROOM );
+            CLOSE_MSG_WIN();
+            return 0;
+        }
+        else if ( ( GET_MONTH() == 1 ) && ( GET_DAY_OF_MONTH() == 31 ) )
+        {
+            OPEN_MSG_WIN();
+            MSG( STOP_INTO_MYROOM_LAST_DA );
+            CLOSE_MSG_WIN();
+            return 0;
+        }
+        else if ( ( ( GET_MONTH() == 4 ) && ( GET_DAY_OF_MONTH() == 7 ) ) || ( BIT_CHK( 3086 ) == 0 ) )
+        {
+            if ( ( CHECK_TIME_SPAN( 4, 21, 1, 31 ) == 1 ) && ( BIT_CHK( 3086 ) == 0 ) )
+            {
+                OPEN_MSG_WIN();
+                MSG( GOINTO_MYROOM );
+                CLOSE_MSG_WIN();
+                MSG_HELP( HELP_GOINTO_MYROOM );
+            }
+            OPEN_MSG_WIN();
+            MSG( MyRoomQT );
+            SEL_CHK_PAD( 6, 1 );
+            if ( SEL( INTO_ROOM_SEL ) != 0 )
+            {
+                CLOSE_MSG_WIN();
+                return 0;
+            }
+            CLOSE_MSG_WIN();
+        }
+        if ( ( BIT_CHK( 3045 ) == 0 ) && ( ( CHECK_TIME_SPAN( 4, 7, 4, 20 ) == 1 ) || ( CHECK_TIME_SPAN( 3, 1, 3, 5 ) == 1 ) ) )
+        {
+            BIT_ON( 2562 );
+            OPEN_MSG_WIN();
+            if ( CHECK_TIME_SPAN( 4, 7, 4, 20 ) == 1 )
+            {
+                MSG( GOINTO_MYROOM_SLEEP );
+            }
+            else if ( CHECK_TIME_SPAN( 3, 1, 3, 5 ) == 1 )
+            {
+                MSG( GOINTO_MYROOM_LASTWEEK );
+            }
+            CLOSE_MSG_WIN();
+        }
+		if ( ( CHECK_TIME_SPAN( 4, 21, 3, 5 ) == 1 ) && ( BIT_CHK( 3086 ) == 0 ) )
+		{
+			BIT_ON( 3086 );
+		}
+		FUNCTION_0186( 15 );
+		FADE( 1, 0 );
+		FADE_SYNC();
+		if ( ( GET_MONTH() == 4 ) && ( GET_DAY_OF_MONTH() == 7 ) )
+		{
+			BIT_ON( 9 );
+			CALL_EVENT( 117, 1, 0 );
+		}
+		NEXT_DAY();
+        return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_001_003() // ( 7, 3, 0, 0 )
+{
+    if ( FUNCTION_0083() == 7 )
+    {
+        OPEN_MSG_WIN();
+        MSG( OUTDOOR_MYROOM );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_003_014() // ( 7, 14, 0, 0 )
+{
+    OPEN_MSG_WIN();
+    if ( BIT_CHK( 3584 ) == 1 )
+    {
+        MSG( ROOM_STOP_01 );
+		return 0;
+    }
+    else if ( CHECK_TIME_SPAN( 3, 1, 3, 5 ) == 1 )
+    {
+        MSG( ROOM_EMPTY );
+        SEL_CHK_PAD( 6, 1 );
+        if ( SEL( ROOM_SEL ) == 0 )
+        {
+            CLOSE_MSG_WIN();
+            FADE( 2, 0 );
+            FADE_SYNC();
+            CALL_FIELD( 7, 14, 0, 0 );
+            return 0;
+        }
+    }
+    else if ( BIT_CHK( 3079 ) == 1 )
+    {
+        MSG( ARAGAKI_NOT_INTHEROOM );
+		return 0;
+    }
+    else if ( BIT_CHK( 3080 ) == 1 )
+    {
+        MSG( ARAGAKI_DEAD );
+    }
+    else 
+    {
+        MSG( ROOM_EMPTY );
+    }
+    SEL_CHK_PAD( 6, 1 );
+    if ( SEL( ROOM_SEL ) == 0 )
+    {
+        CLOSE_MSG_WIN();
+        FADE( 2, 0 );
+        FADE_SYNC();
+        CALL_FIELD( 7, 14, 0, 0 );
+        return 0;
+    }
+    CLOSE_MSG_WIN();
+	return 0;
+	return 1;
+}
+
+bool Chk_Access_Dorm_014_003() // ( 7, 3, 5, 0 )
+{
+	return 1;
+}
+
+bool Chk_Access_Dorm_003_015_Junpei() // ( 7, 15, 0, 0 )
+{
+    OPEN_MSG_WIN();
+    if ( BIT_CHK( 3584 ) == 1 )
+    {
+        MSG( YUKARI_VENDOR_STOP_2F );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( CHECK_TIME_SPAN( 3, 1, 3, 5 ) == 1 )
+    {
+        MSG( JUNPEIS_ROOM_LASTWEEK );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( BIT_CHK( 3074 ) == 1 )
+    {
+        if ( ( GET_MONTH() == 5 ) && ( GET_DAY_OF_MONTH() == 17 ) )
+        {
+            MSG( JUNPEIS_ROOM_0517 );
+        }
+        else if ( ( GET_MONTH() == 5 ) && ( GET_DAY_OF_MONTH() == 26 ) )
+        {
+            MSG( JUNPEIS_ROOM_0526 );
+        }
+        else if ( ( GET_MONTH() == 7 ) && ( GET_DAY_OF_MONTH() == 10 ) )
+        {
+            MSG( JUNPEIS_ROOM_0710 );
+        }
+        else if ( ( GET_MONTH() == 7 ) && ( GET_DAY_OF_MONTH() == 12 ) )
+        {
+            MSG( JUNPEIS_ROOM_0712 );
+        }
+        else if ( ( GET_MONTH() == 10 ) && ( GET_DAY_OF_MONTH() == 12 ) )
+        {
+            MSG( JUNPEIS_ROOM_1012 );
+        }
+        else if ( ( GET_MONTH() == 11 ) && ( GET_DAY_OF_MONTH() == 23 ) )
+        {
+            MSG( JUNPEIS_ROOM_0710 );
+        }
+        else if ( ( GET_MONTH() == 11 ) && ( GET_DAY_OF_MONTH() == 30 ) )
+        {
+            MSG( JUNPEIS_ROOM_1130 );
+        }
+        else 
+        {
+            MSG( JUNPEI_NOT_INTHEROOM );
+        }
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else 
+    {
+        MSG( ROOM_EMPTY );
+        SEL_CHK_PAD( 6, 1 );
+        
+        if ( SEL( ROOM_SEL ) == 0 )
+        {
+            CLOSE_MSG_WIN();
+            BIT_ON( 3081 );
+            FADE( 2, 0 );
+            FADE_SYNC();
+            CALL_FIELD( 7, 15, 0, 0 );
+            return 0;
+        }
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_003_015_Amada() // ( 7, 15, 0, 0 )
+{
+    OPEN_MSG_WIN();
+    if ( BIT_CHK( 3584 ) == 1 )
+    {
+        MSG( YUKARI_VENDOR_STOP_3F );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( CHECK_TIME_SPAN( 3, 1, 3, 5 ) == 1 )
+    {
+        MSG( AMADAS_ROOM_LASTWEEK );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( CHECK_TIME_SPAN( 7, 29, 7, 30 ) == 1 )
+    {
+        MSG( AMADAS_ROOM_NOREPLY );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( CHECK_TIME_SPAN( 8, 3, 8, 5 ) == 1 )
+    {
+        MSG( AMADAS_ROOM_NOREPLY );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 8 ) && ( GET_DAY_OF_MONTH() == 18 ) )
+    {
+        MSG( AMADAS_ROOM_NOREPLY );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 8 ) && ( GET_DAY_OF_MONTH() == 20 ) )
+    {
+        MSG( AMADAS_ROOM_NOREPLY );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 8 ) && ( GET_DAY_OF_MONTH() == 22 ) )
+    {
+        MSG( AMADAS_ROOM_NOREPLY );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 8 ) && ( GET_DAY_OF_MONTH() == 24 ) )
+    {
+        MSG( AMADAS_ROOM_NOREPLY );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 9 ) && ( GET_DAY_OF_MONTH() == 6 ) )
+    {
+        MSG( AMADAS_ROOM_NOREPLY );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 9 ) && ( GET_DAY_OF_MONTH() == 8 ) )
+    {
+        MSG( AMADAS_ROOM_NOREPLY );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( CHECK_TIME_SPAN( 9, 11, 9, 12 ) == 1 )
+    {
+        MSG( AMADAS_ROOM_NOREPLY );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 9 ) && ( GET_DAY_OF_MONTH() == 18 ) )
+    {
+        MSG( AMADAS_ROOM_NOREPLY );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( CHECK_TIME_SPAN( 9, 22, 9, 23 ) == 1 )
+    {
+        MSG( AMADAS_ROOM_NOREPLY );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 9 ) && ( GET_DAY_OF_MONTH() == 27 ) )
+    {
+        MSG( MITURUS_ROOM_0927 );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 9 ) && ( GET_DAY_OF_MONTH() == 29 ) )
+    {
+        MSG( MITURUS_ROOM_0927 );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 10 ) && ( GET_DAY_OF_MONTH() == 3 ) )
+    {
+        MSG( MITURUS_ROOM_0927 );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( BIT_CHK( 3075 ) == 1 )
+    {
+        MSG( AMADA_NOT_INTHEROOM );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else 
+    {
+        MSG( ROOM_EMPTY );
+        SEL_CHK_PAD( 6, 1 );
+        
+        if ( SEL( ROOM_SEL ) == 0 )
+        {
+            CLOSE_MSG_WIN();
+            BIT_ON( 3082 );
+            FADE( 2, 0 );
+            FADE_SYNC();
+            CALL_FIELD( 7, 15, 0, 0 );
+            return 0;
+        }
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_015_003() // ( 7, 3, 4, 0 ) & ( 7, 3, 6, 0 )
+{
+    if ( BIT_CHK( 3081 ) == 1 )
+    {
+        BIT_OFF( 3081 );
+    }
+    else if ( BIT_CHK( 3082 ) == 1 )
+    {
+        BIT_OFF( 3082 );
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_015_003_NoBitOff() // ( 7, 3, 4, 0 ) when ( BIT_CHK( 3081 ) == 1 ) and BIT_OFF( 3081 ) after fast travel & ( 7, 3, 6, 0 ) when ( BIT_CHK( 3082 ) == 1 ) and BIT_OFF( 3082 ) after fast travel
+{
+	return 1;
+}
+
+bool Chk_Access_Dorm_003_004() // ( 7, 4, 1, 0 )
+{
+	return 1;
+}
+
+bool Chk_Access_Dorm_004_003() // ( 7, 3, 2, 0 )
+{
+    if ( BIT_CHK( 3584 ) == 1 )
+    {
+        OPEN_MSG_WIN();
+        MSG( YUKARI_STOP_UP );
+        CLOSE_MSG_WIN();
+		return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_004_015_Huka() // ( 7, 15, 0, 0 )
+{
+    OPEN_MSG_WIN();
+    if ( BIT_CHK( 3584 ) == 1 )
+    {
+        MSG( YUKARI_VENDOR_STOP_3F );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( CHECK_TIME_SPAN( 3, 1, 3, 5 ) == 1 )
+    {
+        MSG( HUKAS_ROOM_LASTWEEK );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 10 ) && ( GET_DAY_OF_MONTH() == 12 ) )
+    {
+        MSG( FUUKA_ROOM_01 );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( GET_MONTH() == 11 ) && ( GET_DAY_OF_MONTH() == 30 ) )
+    {
+        MSG( FUUKA_ROOM_01 );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( BIT_CHK( 3076 ) == 1 )
+    {
+        if ( ( GET_MONTH() == 7 ) && ( GET_DAY_OF_MONTH() == 13 ) )
+        {
+            MSG( FUUKA_ROOM_01 );
+        }
+        else 
+        {
+            MSG( HUKA_NOT_INTHEROOM );
+        }
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else 
+    {
+        MSG( ROOM_EMPTY );
+        SEL_CHK_PAD( 6, 1 );
+        if ( SEL( ROOM_SEL ) == 0 )
+        {
+            CLOSE_MSG_WIN();
+            BIT_ON( 3083 );
+            FADE( 2, 0 );
+            FADE_SYNC();
+            CALL_FIELD( 7, 15, 0, 0 );
+            return 0;
+        }
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_004_015_Aigis() // ( 7, 15, 0, 0 )
+{
+    OPEN_MSG_WIN();
+    if ( BIT_CHK( 3584 ) == 1 )
+    {
+        MSG( YUKARI_VENDOR_STOP_2F );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( CHECK_TIME_SPAN( 3, 1, 3, 5 ) == 1 )
+    {
+        MSG( AEGIS_ROOM_LASTWEEK );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( BIT_CHK( 3077 ) == 1 )
+    {
+        MSG( AEGIS_NOT_INTHEROOM );
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+    else 
+    {
+        MSG( ROOM_EMPTY );
+        SEL_CHK_PAD( 6, 1 );
+        
+        if ( SEL( ROOM_SEL ) == 0 )
+        {
+            CLOSE_MSG_WIN();
+            BIT_ON( 3084 );
+            FADE( 2, 0 );
+            FADE_SYNC();
+            CALL_FIELD( 7, 15, 0, 0 );
+            return 0;
+        }
+		CLOSE_MSG_WIN();
+		return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_015_004() // ( 7, 4, 4, 0 ) & ( 7, 4, 5, 0 )
+{
+    if ( BIT_CHK( 3083 ) == 1 )
+    {
+        BIT_OFF( 3083 );
+    }
+    else if ( BIT_CHK( 3084 ) == 1 )
+    {
+        BIT_OFF( 3084 );
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_015_004_NoBitOff() // ( 7, 4, 5, 0 ) when ( BIT_CHK( 3083 ) == 1 ) and BIT_OFF( 3083 ) after fast travel & ( 7, 4, 4, 0 ) when ( BIT_CHK( 3084 ) == 1 ) and BIT_OFF( 3084 ) after fast travel
+{
+	return 1;
+}
+
+bool Chk_Access_Dorm_004_005() // ( 7, 5, 0, 0 )
+{
+    if ( BIT_CHK( 3584 ) == 1 )
+    {
+	    FADE( 2, 0 );
+		FADE_SYNC();
+        BIT_ON( 15 );
+        CALL_EVENT( 123, 1, 0 );
+        CALL_FIELD( 7, 7, 2, 0 );
+        return 0;
+    }
+    else if ( BIT_CHK( 3592 ) == 1 )
+    {
+		FADE( 2, 0 );
+		FADE_SYNC();
+        CALL_FIELD( 7, 5, 5, 0 );
+        return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_005_004() // ( 7, 4, 0, 0 )
+{
+	return 1;
+}
+
+bool Chk_Access_Dorm_005_006() // ( 7, 6, 0, 0 )
+{
+    if ( !(( CHECK_TIME_SPAN( 4, 21, 1, 31 ) == 1 ) && ( BIT_CHK( 21 ) == 1 )) )
+    {
+        OPEN_MSG_WIN();
+        MSG( OPERATION_ROOM_STOP );
+        CLOSE_MSG_WIN();
+		return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_006_005() // ( 7, 5, 2, 0 )
+{
+    int var37;
+    int var81;
+    gVar21 = 0;
+    gVar22 = 0;
+    gVar100 = 0;
+    gVar23 = 0;
+    gVar24 = 0;
+    gVar25 = 0;
+    gVar26 = 0;
+    gVar27 = 0;
+    gVar28 = 0;
+    gVar29 = 0;
+    gVar30 = 0;
+    var81 = 0;
+    _1385:
+    if ( var81 < 3 )
+    {
+        if ( FUNCTION_0173( var81 ) == 1 )
+        {
+            gVar100 = ( gVar100 + 1 );
+        }
+        var81 = ( var81 + 1 );
+        goto _1385;
+    }
+    var81 = 0;
+    _1389:
+    if ( var81 < 3 )
+    { 
+        if ( GET_PARTY_ID( var81 ) == 2 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar23 = 1;
+            if ( GET_CUR_HP( 2 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var81 ) == 3 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar24 = 1;
+            if ( GET_CUR_HP( 3 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var81 ) == 4 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar25 = 1;
+            if ( GET_CUR_HP( 4 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var81 ) == 5 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar26 = 1;
+            if ( GET_CUR_HP( 5 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var81 ) == 7 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar27 = 1;
+            if ( GET_CUR_HP( 7 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var81 ) == 8 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar28 = 1;
+            if ( GET_CUR_HP( 8 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var81 ) == 9 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar29 = 1;
+            if ( GET_CUR_HP( 9 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        else if ( GET_PARTY_ID( var81 ) == 10 )
+        {
+            gVar21 = ( gVar21 + 1 );
+            gVar30 = 1;
+            if ( GET_CUR_HP( 10 ) == 0 )
+            {
+                gVar22 = ( gVar22 + 1 );
+            }
+        }
+        var81 = ( var81 + 1 );
+        goto _1389;
+    }
+    if ( ( ( GET_MONTH() == 7 ) && ( GET_DAY_OF_MONTH() == 7 ) ) && ( FUNCTION_0083() == 8 ) )
+    {
+        var37 = ( ( FUNCTION_000A( 499 ) + 100 ) / 100 );
+        OPEN_MSG_WIN();
+        if ( gVar21 == 3 )
+        {
+            MSG( GOTO_OPERATION );
+            SEL_CHK_PAD( 6, 1 );
+            if ( SEL( Dorm_BOSS_SEL ) == 0 )
+            {
+                MSG( HUKA_LETS_GO_01 );
+                CLOSE_MSG_WIN();
+                BIT_ON( 3774 );
+                FADE( 2, 0 );
+                FADE_SYNC();
+                CALL_FIELD( 34, 1, 2, 0 );
+                return 0;
+            }
+        }
+        else if ( var37 == 1 )
+        {
+            MSG( OPERATION_STOP_YUKARI );
+        }
+        else if ( var37 == 2 )
+        {
+            MSG( OPERATION_STOP_JUNPEI );
+        }
+        else if ( var37 == 3 )
+        {
+            MSG( OPERATION_STOP_MITSURU );
+        }
+        else if ( var37 == 4 )
+        {
+            MSG( OPERATION_STOP_SANADA );
+        }
+        else 
+        {
+            MSG( OPERATION_STOP_HUKA );
+        }
+        CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( ( GET_MONTH() == 11 ) && ( GET_DAY_OF_MONTH() == 3 ) ) && ( FUNCTION_0083() == 8 ) )
+    {
+        var37 = ( ( FUNCTION_000A( 699 ) + 100 ) / 100 );
+        OPEN_MSG_WIN();
+        if ( gVar21 == 3 )
+        {
+            MSG( GOTO_OPERATION );
+            SEL_CHK_PAD( 6, 1 );
+            if ( SEL( Dorm_BOSS_SEL ) == 0 )
+            {
+                CLOSE_MSG_WIN();
+                OPEN_MSG_WIN();
+                MSG( MSG1103_MITURU_01 );
+                CLOSE_MSG_WIN();
+                OPEN_MSG_WIN();
+                MSG( MSG1103_IKUTUKI_01 );
+                CLOSE_MSG_WIN();
+                OPEN_MSG_WIN();
+                MSG( MSG1103_MITURU_02 );
+                CLOSE_MSG_WIN();
+                FADE( 2, 0 );
+                FADE_SYNC();
+                BIT_ON( 182 );
+                CALL_EVENT( 282, 1, 0 );
+                CALL_SFX( 3, 0 );
+                FUNCTION_01C2();
+                FUNCTION_01C3();
+                CALL_BATTLE( 423 );
+                FUNCTION_00A6();
+                BIT_ON( 183 );
+                CALL_EVENT( 283, 1, 0 );
+                BIT_OFF( 694 );
+                BIT_ON( 695 );
+                CALL_FIELD( 37, 1, 0, 0 );
+                return 0;
+            }
+        }
+        else if ( var37 == 1 )
+        {
+            MSG( OPERATION_STOP_YUKARI );
+        }
+        else if ( var37 == 2 )
+        {
+            MSG( OPERATION_STOP_AEGIS );
+        }
+        else if ( var37 == 3 )
+        {
+            MSG( OPERATION_STOP_JUNPEI );
+        }
+        else if ( var37 == 4 )
+        {
+            MSG( OPERATION_STOP_MITSURU );
+        }
+        else if ( var37 == 5 )
+        {
+            MSG( OPERATION_STOP_SANADA );
+        }
+        else if ( var37 == 6 )
+        {
+            MSG( OPERATION_STOP_AMADA );
+        }
+        else 
+        {
+            MSG( OPERATION_STOP_HUKA );
+        }
+        CLOSE_MSG_WIN();
+		return 0;
+    }
+    else if ( ( ( GET_MONTH() == 11 ) && ( GET_DAY_OF_MONTH() == 22 ) ) && ( FUNCTION_0083() == 8 ) )
+    {
+        var37 = ( ( FUNCTION_000A( 599 ) + 100 ) / 100 );
+        OPEN_MSG_WIN();
+        if ( gVar21 == 3 )
+        {
+            MSG( GOTO_OPERATION );
+            SEL_CHK_PAD( 6, 1 );
+            if ( SEL( Dorm_BOSS_SEL ) == 0 )
+            {
+                MSG( HUKA_LETS_GO_02 );
+                CLOSE_MSG_WIN();
+                FADE( 2, 0 );
+                FADE_SYNC();
+                BIT_ON( 207 );
+                CALL_EVENT( 305, 2, 0 );
+                CALL_SFX( 3, 0 );
+                FUNCTION_01C2();
+                FUNCTION_01C3();
+                CALL_BATTLE( 425 );
+                FUNCTION_00A6();
+                BIT_ON( 209 );
+                CALL_EVENT( 306, 1, 0 );
+                BIT_ON( 210 );
+                CALL_EVENT( 306, 2, 0 );
+                BIT_ON( 211 );
+                CALL_EVENT( 307, 1, 0 );
+                BR_FRIEND_FUNCTION_0171( 5 );
+                BIT_OFF( 695 );
+                BIT_ON( 696 );
+                NEXT_DAY();
+                return 0;
+            }
+        }
+        else if ( var37 == 1 )
+        {
+            MSG( OPERATION_STOP_YUKARI );
+        }
+        else if ( var37 == 2 )
+        {
+            MSG( OPERATION_STOP_AEGIS );
+        }
+        else if ( var37 == 3 )
+        {
+            MSG( OPERATION_STOP_MITSURU );
+        }
+        else if ( var37 == 4 )
+        {
+            MSG( OPERATION_STOP_SANADA );
+        }
+        else if ( var37 == 5 )
+        {
+            MSG( OPERATION_STOP_AMADA );
+        }
+        else 
+        {
+            MSG( OPERATION_STOP_HUKA );
+        }
+        CLOSE_MSG_WIN();
+		return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_Dorm_005_007() // ( 7, 7, 0, 0 )
+{
+	return 1;
+}
+
+bool Chk_Access_Dorm_007_005() // ( 7, 5, 1, 0 )
+{
+	return 1;
+}

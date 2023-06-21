@@ -1,0 +1,4 @@
+void Open_YakushimaBeach_Win_ALL()
+{
+	Chk_Access_YakushimaBeach_001_OUT();
+}

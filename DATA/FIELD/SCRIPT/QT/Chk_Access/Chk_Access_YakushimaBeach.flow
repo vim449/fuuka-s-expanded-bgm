@@ -1,0 +1,79 @@
+bool Chk_Access_YakushimaBeach_001_OUT()
+{
+	if ( BIT_CHK( 3808 ) == 1 )
+    {
+        
+        if ( BIT_CHK( 3780 ) == 1 )
+        {
+            if(GET_FIELD_MINOR() == 1)
+			{
+				OPEN_MSG_WIN();
+				MSG( DUNGE_JYUNPEI_HAJIKI2 );
+				CLOSE_MSG_WIN();
+			}
+			else
+			{
+				OPEN_MSG_WIN();
+				MSG( Go_After_Aigis );
+				CLOSE_MSG_WIN();
+			}
+			return 0;
+        }
+        else 
+        {
+            OPEN_MSG_WIN();
+            MSG( DUNGE_JYUNPEI_HAJIKI );
+            CLOSE_MSG_WIN();
+			return 0;
+        }
+    }
+    else 
+    {
+        OPEN_MSG_WIN();
+        MSG( DUNGE_YAKUSHIMA_KAERU );
+        SEL_CHK_PAD( 6, 1 );
+        if ( SEL( YakushimaBeach_YESNO_SEL ) == 0 )
+        {
+            MSG( DUNGE_YAKUSHIMA_KAERU_RE );
+            CLOSE_MSG_WIN();
+            FADE( 1, 0 );
+            FADE_SYNC();
+            NEXT_DAY();
+            return 0;
+        }
+        else 
+        {
+            MSG( DUNGE_YAKUSHIMA_KAERU_RE_2 );
+            CLOSE_MSG_WIN();
+			return 0;
+        }
+    }
+	return 1;
+}
+
+bool Chk_Access_YakushimaBeach_001_002() // ( 33, 2, 1, 0 )
+{
+	if ( BIT_CHK( 3808 ) == 1 )
+    {
+        if( BIT_CHK( 3780 ) == 0 )
+        {
+            OPEN_MSG_WIN();
+            MSG( DUNGE_SANADA_HAJIKI );
+            CLOSE_MSG_WIN();
+			return 0;
+        }
+    }
+    else 
+    {
+        OPEN_MSG_WIN();
+        MSG( DUNGE_JYUNPE_SEISI );
+        CLOSE_MSG_WIN();
+		return 0;
+    }
+	return 1;
+}
+
+bool Chk_Access_YakushimaBeach_002_001() // ( 33, 1, 0, 0 )
+{
+	return 1;
+}

@@ -1,0 +1,2520 @@
+global( 200 ) int gVar200;
+global( 201 ) int gVar201;
+global( 202 ) int gVar202;
+global( 203 ) int gVar203;
+global( 204 ) int gVar204;
+global( 205 ) int gVar205;
+global( 206 ) int gVar206;
+global( 207 ) int gVar207;
+global( 208 ) int gVar208;
+global( 209 ) int gVar209;
+global( 210 ) int gVar210;
+global( 211 ) int gVar211;
+global( 212 ) int gVar212;
+global( 213 ) int gVar213;
+global( 214 ) int gVar214;
+global( 215 ) int gVar215;
+global( 216 ) int gVar216;
+global( 217 ) int gVar217;
+global( 218 ) int gVar218;
+global( 219 ) int gVar219;
+global( 220 ) int gVar220;
+global( 221 ) int gVar221;
+global( 222 ) int gVar222;
+global( 225 ) int gVar225;
+
+void Offering()
+{
+    OPEN_MSG_WIN();
+	MSG( TakeTime );
+	int select = SEL( Yes_No );
+	CLOSE_MSG_WIN();
+	switch (select)
+	{
+		case 0: //Yes
+			if ( ( ( GET_MONTH() == 4 ) && ( GET_DAY_OF_MONTH() == 21 ) ) && ( BIT_CHK( 257 ) == 0 ) )
+			{
+				OPEN_MSG_WIN();
+				MSG( JUNPEI_STOP_SAISEN );
+				CLOSE_MSG_WIN();
+				return;
+			}
+			else if ( ( GET_MONTH() == 1 ) && ( GET_DAY_OF_MONTH() == 1 ) )
+			{
+				OPEN_MSG_WIN();
+				MSG( SHOGATU_STOP_SAISEN );
+				CLOSE_MSG_WIN();
+				return;
+			}
+			else 
+			{
+				commu_saisen();
+			}
+			break;
+		case 1: //No
+			break;
+		default: 
+			break;
+	}
+	return;
+}
+
+void commu_saisen()
+{
+    int var30;
+    OPEN_MSG_WIN();
+    
+    if ( CHECK_TIME_SPAN( 2, 1, 3, 31 ) == 1 )
+    {
+        MSG( MONEY_OFFERING_OK );
+        CLOSE_MSG_WIN();
+        return;
+    }
+
+    
+    if ( BIT_CHK( 3135 ) == 0 )
+    {
+        MSG( MONEY_OFFERING_OK );
+        
+        if ( GET_SOCIAL_RANK( 1, 0 ) == 6 )
+        {
+            MSG( INTELLIGENCE_BASE_STOP );
+            CLOSE_MSG_WIN();
+            return;
+        }
+        else if ( BIT_CHK( 2811 ) == 0 )
+        {
+            CLOSE_MSG_WIN();
+            MSG_HELP( SAISEN_TUTO );
+            BIT_ON( 2811 );
+            OPEN_MSG_WIN();
+        }
+
+        _507:
+        
+        if ( 1 )
+        {
+            OPEN_MSG_WIN();
+            MSG( SAISEN_TUTO_CONT );
+            SEL_CHK_PAD( 6, 2 );
+            var30 = SEL( OFFERING_SEL );
+            
+            if ( var30 == 1 )
+            {
+                CLOSE_MSG_WIN();
+                MSG_HELP( SAISEN_TUTO );
+            }
+            else if ( var30 == 0 )
+            {
+                
+                if ( GET_YEN() >= 100 )
+                {
+                    BIT_ON( 3135 );
+                    REMOVE_YEN( 100 );
+                    FADE( 5, 10 );
+                    FADE_SYNC();
+                    OPEN_MSG_WIN();
+                    MSG( MONEY_OFFERING_GO );
+                    CLOSE_MSG_WIN();
+                    FUNCTION_000D( 0 );
+                    FADE_SYNC();
+                    OPEN_MSG_WIN();
+                    MSG( MONEY_OFFERING_CONT );
+                    FUNCTION_00B9( 0, 21 );
+                    CALL_SFX( 4, 3 );
+                    
+                    if ( CHECK_FATIGUE( PartyMember.Protagonist ) == 2 )
+                    {
+                        MSG( INTELLIGENCE_BASE_UP_ZEK );
+                        
+                        if ( CHANGE_SOCIAL_STAT( 0, 5 ) == 1 )
+                        {
+                            MSG( INTELLIGENCE_RANK_UP );
+                        }
+
+                    }
+                    else 
+                    {
+                        MSG( INTELLIGENCE_BASE_UP );
+                        
+                        if ( CHANGE_SOCIAL_STAT( 0, 2 ) == 1 )
+                        {
+                            MSG( INTELLIGENCE_RANK_UP );
+                        }
+
+                    }
+
+                    CLOSE_MSG_WIN();
+                    FADE( 1, 0 );
+                    FADE_SYNC();
+                    NEXT_DAY();
+                    return;
+                }
+                else 
+                {
+                    MSG( MONEY_OFFERING_NG );
+                    CLOSE_MSG_WIN();
+                    return;
+                }
+
+            }
+            else 
+            {
+                CLOSE_MSG_WIN();
+                return;
+            }
+
+            goto _507;
+        }
+
+    }
+    else 
+    {
+        MSG( MONEY_OFFERING_OVER );
+    }
+
+    CLOSE_MSG_WIN();
+}
+
+void Fortune()
+{
+    OPEN_MSG_WIN();
+	MSG( TakeTime );
+	int select = SEL( Yes_No );
+	CLOSE_MSG_WIN();
+	switch (select)
+	{
+		case 0: //Yes
+			if ( ( ( GET_MONTH() == 4 ) && ( GET_DAY_OF_MONTH() == 21 ) ) && ( BIT_CHK( 257 ) == 0 ) )
+			{
+				OPEN_MSG_WIN();
+				MSG( JUNPEI_STOP_OMIKUJI );
+				CLOSE_MSG_WIN();
+				return;
+			}
+			else if ( ( GET_MONTH() == 1 ) && ( GET_DAY_OF_MONTH() == 1 ) )
+			{
+				OPEN_MSG_WIN();
+				MSG( SHOGATU_STOP_OMIKUJI );
+				CLOSE_MSG_WIN();
+				return;
+			}
+			else 
+			{
+				commu_omikuji();
+			}
+			break;
+		case 1: //No
+			break;
+		default:
+			break;
+	}
+	return;
+}
+
+void commu_omikuji()
+{
+    int var25;
+    int var22;
+    int var24;
+    int var23;
+    
+    if ( ( GET_SL_LEVEL( 1 ) >= 1 ) && ( GET_SL_LEVEL( 1 ) < 10 ) )
+    {
+        gVar200 = 1;
+    }
+    else 
+    {
+        gVar200 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 4 ) >= 1 ) && ( GET_SL_LEVEL( 4 ) < 10 ) )
+    {
+        gVar201 = 1;
+    }
+    else 
+    {
+        gVar201 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 12 ) >= 1 ) && ( GET_SL_LEVEL( 12 ) < 10 ) )
+    {
+        gVar202 = 1;
+    }
+    else 
+    {
+        gVar202 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 13 ) >= 1 ) && ( GET_SL_LEVEL( 13 ) < 10 ) )
+    {
+        gVar203 = 1;
+    }
+    else 
+    {
+        gVar203 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 14 ) >= 1 ) && ( GET_SL_LEVEL( 14 ) < 10 ) )
+    {
+        gVar204 = 1;
+    }
+    else 
+    {
+        gVar204 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 17 ) >= 1 ) && ( GET_SL_LEVEL( 17 ) < 10 ) )
+    {
+        gVar205 = 1;
+    }
+    else 
+    {
+        gVar205 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 18 ) >= 1 ) && ( GET_SL_LEVEL( 18 ) < 10 ) )
+    {
+        gVar206 = 1;
+    }
+    else 
+    {
+        gVar206 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 19 ) >= 1 ) && ( GET_SL_LEVEL( 19 ) < 10 ) )
+    {
+        gVar207 = 1;
+    }
+    else 
+    {
+        gVar207 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 23 ) >= 1 ) && ( GET_SL_LEVEL( 23 ) < 10 ) )
+    {
+        gVar208 = 1;
+    }
+    else 
+    {
+        gVar208 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 7 ) >= 1 ) && ( GET_SL_LEVEL( 7 ) < 10 ) )
+    {
+        gVar210 = 1;
+    }
+    else 
+    {
+        gVar210 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 8 ) >= 1 ) && ( GET_SL_LEVEL( 8 ) < 10 ) )
+    {
+        gVar211 = 1;
+    }
+    else 
+    {
+        gVar211 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 6 ) >= 1 ) && ( GET_SL_LEVEL( 6 ) < 10 ) )
+    {
+        gVar212 = 1;
+    }
+    else 
+    {
+        gVar212 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 11 ) >= 1 ) && ( GET_SL_LEVEL( 11 ) < 10 ) )
+    {
+        gVar213 = 1;
+    }
+    else 
+    {
+        gVar213 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 10 ) >= 1 ) && ( GET_SL_LEVEL( 10 ) < 10 ) )
+    {
+        gVar214 = 1;
+    }
+    else 
+    {
+        gVar214 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 9 ) >= 1 ) && ( GET_SL_LEVEL( 9 ) < 10 ) )
+    {
+        gVar215 = 1;
+    }
+    else 
+    {
+        gVar215 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 27 ) >= 1 ) && ( GET_SL_LEVEL( 27 ) < 10 ) )
+    {
+        gVar209 = 1;
+    }
+    else 
+    {
+        gVar209 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 5 ) >= 1 ) && ( GET_SL_LEVEL( 5 ) < 10 ) )
+    {
+        gVar216 = 1;
+    }
+    else 
+    {
+        gVar216 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 0x10 ) >= 1 ) && ( GET_SL_LEVEL( 0x10 ) < 10 ) )
+    {
+        gVar217 = 1;
+    }
+    else 
+    {
+        gVar217 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 21 ) >= 1 ) && ( GET_SL_LEVEL( 21 ) < 10 ) )
+    {
+        gVar218 = 1;
+    }
+    else 
+    {
+        gVar218 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 24 ) >= 1 ) && ( GET_SL_LEVEL( 24 ) < 10 ) )
+    {
+        gVar219 = 1;
+    }
+    else 
+    {
+        gVar219 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 25 ) >= 1 ) && ( GET_SL_LEVEL( 25 ) < 10 ) )
+    {
+        gVar220 = 1;
+    }
+    else 
+    {
+        gVar220 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 26 ) >= 1 ) && ( GET_SL_LEVEL( 26 ) < 10 ) )
+    {
+        gVar221 = 1;
+    }
+    else 
+    {
+        gVar221 = 0;
+    }
+
+    
+    if ( ( GET_SL_LEVEL( 28 ) >= 1 ) && ( GET_SL_LEVEL( 28 ) < 10 ) )
+    {
+        gVar222 = 1;
+    }
+    else 
+    {
+        gVar222 = 0;
+    }
+
+    OPEN_MSG_WIN();
+    
+    if ( CHECK_TIME_SPAN( 4, 7, 4, 22 ) == 1 )
+    {
+        MSG( OMIKUJI_NOTYET );
+        CLOSE_MSG_WIN();
+        return;
+    }
+    else if ( CHECK_TIME_SPAN( 2, 1, 3, 31 ) == 1 )
+    {
+        MSG( SHOGATU_STOP_OMIKUJI );
+        CLOSE_MSG_WIN();
+        return;
+    }
+    else 
+    {
+        MSG( OMIKUJI_START );
+    }
+
+    
+    if ( BIT_CHK( 2810 ) == 0 )
+    {
+        CLOSE_MSG_WIN();
+        MSG_HELP( OMIKUJI_TUTO );
+        BIT_ON( 2810 );
+        OPEN_MSG_WIN();
+    }
+
+    _242:
+    
+    if ( 1 )
+    {
+        OPEN_MSG_WIN();
+        MSG( OMIKUJI_TUTO_CONT );
+        SEL_CHK_PAD( 6, 2 );
+        var25 = SEL( OMIKUJI_SEL );
+        
+        if ( var25 == 1 )
+        {
+            CLOSE_MSG_WIN();
+            MSG_HELP( OMIKUJI_TUTO );
+        }
+        else if ( var25 == 2 )
+        {
+            CLOSE_MSG_WIN();
+            return;
+        }
+        else if ( GET_YEN() < 100 )
+        {
+            MSG( OMIKUJI_MONEY_NG );
+            CLOSE_MSG_WIN();
+            return;
+        }
+        else 
+        {
+            MSG( OMIKUJI_COMMU_CHOOSE );
+            SEL_CHK_PAD( 6, 3 );
+            var22 = SEL( OMIKUJI_COMMUSEL_1 );
+            
+            if ( var22 == 3 )
+            {
+                CLOSE_MSG_WIN();
+                return;
+            }
+            else if ( var22 == 0 )
+            {
+                var24 = ( ( ( ( ( gVar210 + gVar212 ) + gVar211 ) + gVar215 ) + gVar214 ) + gVar213 );
+                
+                if ( var24 == 0 )
+                {
+                    MSG( OMIKUJI_COM_NONE );
+                    CLOSE_MSG_WIN();
+                    return;
+                }
+                else if ( var24 < 4 )
+                {
+                    commu_mem_sel_mask();
+                    SET_MASK( gVar225 );
+                    var23 = SEL( OMIKUJI_COMMUSEL_2 );
+                    
+                    if ( var23 == 6 )
+                    {
+                        CLOSE_MSG_WIN();
+                        return;
+                    }
+                    else if ( var23 == 0 )
+                    {
+                        omikuji_yukari();
+                        return;
+                    }
+                    else if ( var23 == 1 )
+                    {
+                        omikuji_huuka();
+                        return;
+                    }
+                    else if ( var23 == 2 )
+                    {
+                        omikuji_mitur();
+                        return;
+                    }
+                    else if ( var23 == 3 )
+                    {
+                        omikuji_aegis();
+                        return;
+                    }
+                    else if ( var23 == 4 )
+                    {
+                        omikuji_manag();
+                        return;
+                    }
+                    else if ( var23 == 5 )
+                    {
+                        omikuji_kaike();
+                        return;
+                    }
+
+                }
+                else 
+                {
+                    commu_mem_sel_mask_2();
+                    SET_MASK( gVar225 );
+                    var23 = SEL( OMIKUJI_COMMUSEL_3 );
+                    
+                    if ( var23 == 3 )
+                    {
+                        commu_mem_sel_mask_3();
+                        SET_MASK( gVar225 );
+                        var23 = SEL( OMIKUJI_COMMUSEL_4 );
+                        
+                        if ( var23 == 3 )
+                        {
+                            CLOSE_MSG_WIN();
+                            return;
+                        }
+                        else if ( var23 == 0 )
+                        {
+                            omikuji_aegis();
+                            return;
+                        }
+                        else if ( var23 == 1 )
+                        {
+                            omikuji_manag();
+                            return;
+                        }
+                        else if ( var23 == 2 )
+                        {
+                            omikuji_kaike();
+                            return;
+                        }
+
+                    }
+                    else if ( var23 == 0 )
+                    {
+                        omikuji_yukari();
+                        return;
+                    }
+                    else if ( var23 == 1 )
+                    {
+                        omikuji_huuka();
+                        return;
+                    }
+                    else if ( var23 == 2 )
+                    {
+                        omikuji_mitur();
+                        return;
+                    }
+
+                }
+
+            }
+            else if ( var22 == 1 )
+            {
+                var24 = ( ( ( ( ( ( ( ( gVar200 + gVar201 ) + gVar202 ) + gVar203 ) + gVar204 ) + gVar205 ) + gVar206 ) + gVar207 ) + gVar208 );
+                
+                if ( var24 == 0 )
+                {
+                    MSG( OMIKUJI_COM_NONE );
+                    CLOSE_MSG_WIN();
+                    return;
+                }
+                else if ( var24 < 4 )
+                {
+                    commu_mem_sel_mask_4();
+                    SET_MASK( gVar225 );
+                    var23 = SEL( OMIKUJI_COMMUSEL_5 );
+                    
+                    if ( var23 == 9 )
+                    {
+                        CLOSE_MSG_WIN();
+                        return;
+                    }
+                    else if ( var23 == 0 )
+                    {
+                        omikuji_class();
+                        return;
+                    }
+                    else if ( var23 == 1 )
+                    {
+                        omikuji_seito();
+                        return;
+                    }
+                    else if ( var23 == 2 )
+                    {
+                        omikuji_taiiku();
+                        return;
+                    }
+                    else if ( var23 == 3 )
+                    {
+                        omikuji_taiiku();
+                        return;
+                    }
+                    else if ( var23 == 4 )
+                    {
+                        omikuji_taiiku();
+                        return;
+                    }
+                    else if ( var23 == 5 )
+                    {
+                        omikuji_bunka();
+                        return;
+                    }
+                    else if ( var23 == 6 )
+                    {
+                        omikuji_bunka();
+                        return;
+                    }
+                    else if ( var23 == 7 )
+                    {
+                        omikuji_bunka();
+                        return;
+                    }
+                    else if ( var23 == 8 )
+                    {
+                        omikuji_douko();
+                        return;
+                    }
+
+                }
+                else 
+                {
+                    commu_mem_sel_mask_5();
+                    SET_MASK( gVar225 );
+                    var23 = SEL( OMIKUJI_COMMUSEL_6 );
+                    
+                    if ( var23 == 5 )
+                    {
+                        commu_mem_sel_mask_6();
+                        SET_MASK( gVar225 );
+                        var23 = SEL( OMIKUJI_COMMUSEL_7 );
+                        
+                        if ( var23 == 4 )
+                        {
+                            CLOSE_MSG_WIN();
+                            return;
+                        }
+                        else if ( var23 == 0 )
+                        {
+                            omikuji_bunka();
+                            return;
+                        }
+                        else if ( var23 == 1 )
+                        {
+                            omikuji_bunka();
+                            return;
+                        }
+                        else if ( var23 == 2 )
+                        {
+                            omikuji_bunka();
+                            return;
+                        }
+                        else if ( var23 == 3 )
+                        {
+                            omikuji_douko();
+                            return;
+                        }
+
+                    }
+                    else if ( var23 == 0 )
+                    {
+                        omikuji_class();
+                        return;
+                    }
+                    else if ( var23 == 1 )
+                    {
+                        omikuji_seito();
+                        return;
+                    }
+                    else if ( var23 == 2 )
+                    {
+                        omikuji_taiiku();
+                        return;
+                    }
+                    else if ( var23 == 3 )
+                    {
+                        omikuji_taiiku();
+                        return;
+                    }
+                    else if ( var23 == 4 )
+                    {
+                        omikuji_taiiku();
+                        return;
+                    }
+
+                }
+
+            }
+            else if ( var22 == 2 )
+            {
+                var24 = ( ( ( ( ( ( ( gVar209 + gVar216 ) + gVar217 ) + gVar218 ) + gVar219 ) + gVar220 ) + gVar221 ) + gVar222 );
+                
+                if ( var24 == 0 )
+                {
+                    MSG( OMIKUJI_COM_NONE );
+                    CLOSE_MSG_WIN();
+                    return;
+                }
+                else if ( var24 < 4 )
+                {
+                    commu_mem_sel_mask_7();
+                    SET_MASK( gVar225 );
+                    var23 = SEL( OMIKUJI_COMMUSEL_8 );
+                    
+                    if ( var23 == 8 )
+                    {
+                        CLOSE_MSG_WIN();
+                        return;
+                    }
+                    else if ( var23 == 0 )
+                    {
+                        omikuji_huruh();
+                        return;
+                    }
+                    else if ( var23 == 1 )
+                    {
+                        omikuji_net__();
+                        return;
+                    }
+                    else if ( var23 == 2 )
+                    {
+                        omikuji_grume();
+                        return;
+                    }
+                    else if ( var23 == 3 )
+                    {
+                        omikuji_kodom();
+                        return;
+                    }
+                    else if ( var23 == 4 )
+                    {
+                        omikuji_tanak();
+                        return;
+                    }
+                    else if ( var23 == 5 )
+                    {
+                        omikuji_hakai();
+                        return;
+                    }
+                    else if ( var23 == 6 )
+                    {
+                        omikuji_ace__();
+                        return;
+                    }
+                    else if ( var23 == 7 )
+                    {
+                        omikuji_yomei();
+                        return;
+                    }
+
+                }
+                else 
+                {
+                    var24 = ( ( gVar216 + gVar217 ) + gVar209 );
+                    
+                    if ( var24 == 0 )
+                    {
+                        commu_mem_sel_mask_9();
+                        SET_MASK( gVar225 );
+                        var23 = SEL( OMIKUJI_COMMUSEL_10 );
+                        
+                        if ( var23 == 3 )
+                        {
+                            commu_mem_sel_mask_10();
+                            SET_MASK( gVar225 );
+                            var23 = SEL( OMIKUJI_COMMUSEL_11 );
+                            
+                            if ( var23 == 2 )
+                            {
+                                CLOSE_MSG_WIN();
+                                return;
+                            }
+                            else if ( var23 == 0 )
+                            {
+                                omikuji_ace__();
+                                return;
+                            }
+                            else if ( var23 == 1 )
+                            {
+                                omikuji_yomei();
+                                return;
+                            }
+
+                        }
+                        else if ( var23 == 0 )
+                        {
+                            omikuji_kodom();
+                            return;
+                        }
+                        else if ( var23 == 1 )
+                        {
+                            omikuji_tanak();
+                            return;
+                        }
+                        else if ( var23 == 2 )
+                        {
+                            omikuji_hakai();
+                            return;
+                        }
+
+                    }
+                    else 
+                    {
+                        commu_mem_sel_mask_8();
+                        SET_MASK( gVar225 );
+                        var23 = SEL( OMIKUJI_COMMUSEL_9 );
+                        
+                        if ( var23 == 3 )
+                        {
+                            var24 = ( ( gVar218 + gVar219 ) + gVar220 );
+                            
+                            if ( var24 == 0 )
+                            {
+                                commu_mem_sel_mask_10();
+                                SET_MASK( gVar225 );
+                                var23 = SEL( OMIKUJI_COMMUSEL_11 );
+                                
+                                if ( var23 == 2 )
+                                {
+                                    CLOSE_MSG_WIN();
+                                    return;
+                                }
+                                else if ( var23 == 0 )
+                                {
+                                    omikuji_ace__();
+                                    return;
+                                }
+                                else if ( var23 == 1 )
+                                {
+                                    omikuji_yomei();
+                                    return;
+                                }
+
+                            }
+                            else 
+                            {
+                                var24 = ( gVar221 + gVar222 );
+                                
+                                if ( var24 == 0 )
+                                {
+                                    commu_mem_sel_mask_9();
+                                    SET_MASK( gVar225 );
+                                    var23 = SEL( OMIKUJI_COMMUSEL_12 );
+                                    
+                                    if ( var23 == 3 )
+                                    {
+                                        CLOSE_MSG_WIN();
+                                        return;
+                                    }
+                                    else if ( var23 == 0 )
+                                    {
+                                        omikuji_kodom();
+                                        return;
+                                    }
+                                    else if ( var23 == 1 )
+                                    {
+                                        omikuji_tanak();
+                                        return;
+                                    }
+                                    else if ( var23 == 2 )
+                                    {
+                                        omikuji_hakai();
+                                        return;
+                                    }
+
+                                }
+                                else 
+                                {
+                                    commu_mem_sel_mask_9();
+                                    SET_MASK( gVar225 );
+                                    var23 = SEL( OMIKUJI_COMMUSEL_10 );
+                                    
+                                    if ( var23 == 3 )
+                                    {
+                                        commu_mem_sel_mask_10();
+                                        SET_MASK( gVar225 );
+                                        var23 = SEL( OMIKUJI_COMMUSEL_11 );
+                                        
+                                        if ( var23 == 2 )
+                                        {
+                                            CLOSE_MSG_WIN();
+                                            return;
+                                        }
+                                        else if ( var23 == 0 )
+                                        {
+                                            omikuji_ace__();
+                                            return;
+                                        }
+                                        else if ( var23 == 1 )
+                                        {
+                                            omikuji_yomei();
+                                            return;
+                                        }
+
+                                    }
+                                    else if ( var23 == 0 )
+                                    {
+                                        omikuji_kodom();
+                                        return;
+                                    }
+                                    else if ( var23 == 1 )
+                                    {
+                                        omikuji_tanak();
+                                        return;
+                                    }
+                                    else if ( var23 == 2 )
+                                    {
+                                        omikuji_hakai();
+                                        return;
+                                    }
+
+                                }
+
+                            }
+
+                        }
+                        else if ( var23 == 0 )
+                        {
+                            omikuji_huruh();
+                            return;
+                        }
+                        else if ( var23 == 1 )
+                        {
+                            omikuji_net__();
+                            return;
+                        }
+                        else if ( var23 == 2 )
+                        {
+                            omikuji_grume();
+                            return;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        goto _242;
+    }
+
+}
+
+void Sushi()
+{
+    int var12;
+    int var11;
+    int var19;
+    int var13;
+    int var14;
+    int var15;
+    int var17;
+    int var18;
+    var12 = ( 4000 + 167 );
+    OPEN_MSG_WIN();
+    MSG( GOD_OF_HARVESTS );
+    
+    if ( ( CHECK_TIME_SPAN( 4, 21, 1, 31 ) && ( BIT_CHK( 4969 ) == 1 ) ) && ( BIT_CHK( 3181 ) == 0 ) )
+    {
+        
+        if ( FUNCTION_00C5( 1, 0 ) >= 260 )
+        {
+            BIT_ON( 3181 );
+            MSG( GET_SUSHI_1 );
+            MSG( GET_SUSHI_2 );
+            CLOSE_MSG_WIN();
+            FADE( 5, 10 );
+            FADE_SYNC();
+            FLD_FUNCTION_0138( FUNCTION_0137( 0 ), 3 );
+            var11 = FUNCTION_0139( 5, 12951 );
+            gVar38 = FUNCTION_013A( var11, 0 );
+            FLD_FUNCTION_0138( gVar38, 4 );
+            FUNCTION_0079( gVar38, 1 );
+            FUNCTION_000C( 5 );
+            FUNCTION_000D( 0 );
+            FADE_SYNC();
+            OPEN_MSG_WIN();
+            MSG( GET_SUSHI_3 );
+            CLOSE_MSG_WIN();
+            OPEN_MSG_WIN();
+            SET_MSG_VAR( 0, var12, 3 );
+            MSG( GET_SUSHI );
+            CLOSE_MSG_WIN();
+            OPEN_MSG_WIN();
+            MSG( GET_SUSHI_4 );
+            CLOSE_MSG_WIN();
+            FADE( 5, 10 );
+            FADE_SYNC();
+            SET_ITEM( 1, var12, 1 );
+            FUNCTION_0079( gVar38, 0 );
+            FUNCTION_000C( 5 );
+            FUNCTION_000D( 0 );
+            FADE_SYNC();
+        }
+        else 
+        {
+            MSG( DONT_GET_SUSHI );
+        }
+
+    }
+    else if ( ( ( GET_MONTH() == 4 ) && ( GET_DAY_OF_MONTH() == 21 ) ) && ( BIT_CHK( 257 ) == 0 ) )
+    {
+        MSG( JUNPEI_STOP_INARI );
+        CLOSE_MSG_WIN();
+        return;
+    }
+    else if ( CHECK_TIME_SPAN( 2, 1, 3, 31 ) == 1 )
+    {
+        CLOSE_MSG_WIN();
+        return;
+    }
+    else if ( BIT_CHK( 2812 ) == 0 )
+    {
+        CLOSE_MSG_WIN();
+        MSG_HELP( INARI_TUTO );
+        BIT_ON( 2812 );
+        OPEN_MSG_WIN();
+    }
+
+    _55:
+    
+    if ( 1 )
+    {
+        OPEN_MSG_WIN();
+        MSG( INARI_TUTO_CONT );
+        SEL_CHK_PAD( 6, 2 );
+        var19 = SEL( INARI_SEL );
+        
+        if ( var19 == 1 )
+        {
+            CLOSE_MSG_WIN();
+            MSG_HELP( INARI_TUTO );
+        }
+        else if ( var19 == 2 )
+        {
+            CLOSE_MSG_WIN();
+            return;
+        }
+        else if ( BIT_CHK( 350 ) == 1 )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 4 ) && ( GET_DAY_OF_MONTH() == 29 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 5 ) && ( GET_DAY_OF_MONTH() == 5 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( CHECK_TIME_SPAN( 5, 0x10, 5, 17 ) == 1 )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 5 ) && ( GET_DAY_OF_MONTH() == 25 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 5 ) && ( GET_DAY_OF_MONTH() == 30 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( CHECK_TIME_SPAN( 6, 8, 6, 12 ) == 1 )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 6 ) && ( GET_DAY_OF_MONTH() == 21 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 6 ) && ( GET_DAY_OF_MONTH() == 28 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 7 ) && ( GET_DAY_OF_MONTH() == 8 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( CHECK_TIME_SPAN( 7, 11, 7, 13 ) == 1 )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( CHECK_TIME_SPAN( 7, 19, 7, 23 ) == 1 )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 7 ) && ( GET_DAY_OF_MONTH() == 29 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 8 ) && ( GET_DAY_OF_MONTH() == 7 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( CHECK_TIME_SPAN( 8, 15, 8, 0x10 ) == 1 )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( CHECK_TIME_SPAN( 9, 5, 9, 9 ) == 1 )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 9 ) && ( GET_DAY_OF_MONTH() == 18 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( CHECK_TIME_SPAN( 10, 4, 10, 6 ) == 1 )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 10 ) && ( GET_DAY_OF_MONTH() == 12 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( CHECK_TIME_SPAN( 11, 3, 11, 5 ) == 1 )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 11 ) && ( GET_DAY_OF_MONTH() == 20 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 11 ) && ( GET_DAY_OF_MONTH() == 22 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 11 ) && ( GET_DAY_OF_MONTH() == 30 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( CHECK_TIME_SPAN( 12, 2, 12, 9 ) == 1 )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 12 ) && ( GET_DAY_OF_MONTH() == 13 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( ( GET_MONTH() == 12 ) && ( GET_DAY_OF_MONTH() == 31 ) )
+        {
+            var13 = ( FUNCTION_000A( 50 ) + 50 );
+        }
+        else if ( CHECK_FATIGUE( PartyMember.Protagonist ) >= 3 )
+        {
+            var13 = ( FUNCTION_000A( 90 ) + 10 );
+        }
+        else 
+        {
+            var13 = FUNCTION_000A( 100 );
+        }
+
+        MSG( MSG_INARI_CONT );
+        
+        if ( var13 < 10 )
+        {
+            MSG( INARI_STAMINA_UP );
+            BIT_ON( 3026 );
+            FUNCTION_01F2();
+        }
+        else if ( var13 < 20 )
+        {
+            MSG( INARI_EXP_UP );
+            BIT_ON( 3024 );
+        }
+        else if ( var13 < 30 )
+        {
+            MSG( INARI_MONEY_UP );
+            BIT_ON( 3025 );
+        }
+        else if ( var13 < 40 )
+        {
+            MSG( INARI_DROPITEM_UP );
+            BIT_ON( 3032 );
+        }
+        else if ( var13 < 50 )
+        {
+            MSG( INARI_GATTAI_JIKO_UP );
+            BIT_ON( 3037 );
+        }
+        else if ( var13 < 80 )
+        {
+            
+            if ( ( GET_MONTH() == 4 ) || ( GET_MONTH() == 5 ) )
+            {
+                var14 = FUNCTION_000A( 20 );
+            }
+            else if ( GET_MONTH() == 6 )
+            {
+                var14 = FUNCTION_000A( 30 );
+            }
+            else if ( GET_MONTH() == 7 )
+            {
+                var14 = FUNCTION_000A( 40 );
+            }
+            else if ( CHECK_TIME_SPAN( 8, 1, 8, 8 ) == 1 )
+            {
+                var14 = FUNCTION_000A( 50 );
+            }
+            else if ( CHECK_TIME_SPAN( 8, 9, 9, 2 ) == 1 )
+            {
+                var14 = FUNCTION_000A( 60 );
+            }
+            else if ( CHECK_TIME_SPAN( 9, 3, 10, 3 ) == 1 )
+            {
+                var14 = FUNCTION_000A( 80 );
+            }
+            else if ( CHECK_TIME_SPAN( 10, 4, 10, 6 ) == 1 )
+            {
+                var14 = FUNCTION_000A( 60 );
+            }
+            else if ( CHECK_TIME_SPAN( 11, 5, 11, 13 ) == 1 )
+            {
+                var14 = FUNCTION_000A( 30 );
+            }
+            else if ( CHECK_TIME_SPAN( 12, 2, 12, 30 ) == 1 )
+            {
+                var14 = FUNCTION_000A( 40 );
+            }
+            else 
+            {
+                var14 = FUNCTION_000A( 70 );
+            }
+
+            
+            if ( var14 <= 11 )
+            {
+                
+                if ( BIT_CHK( 322 ) == 0 )
+                {
+                    shojimoney_up();
+                }
+                else 
+                {
+                    MSG( INARI_YUKARI_UP );
+                    var15 = FUNCTION_000A( 100 );
+                    
+                    if ( var15 < 20 )
+                    {
+                        COMU_FUNCTION_01F1( 2, 0, 4 );
+                    }
+                    else if ( var15 < 40 )
+                    {
+                        COMU_FUNCTION_01F1( 2, 2, 4 );
+                    }
+                    else if ( var15 < 60 )
+                    {
+                        COMU_FUNCTION_01F1( 2, 1, 4 );
+                    }
+                    else if ( var15 < 80 )
+                    {
+                        COMU_FUNCTION_01F1( 2, 3, 4 );
+                    }
+                    else 
+                    {
+                        COMU_FUNCTION_01F1( 2, 4, 4 );
+                    }
+
+                }
+
+            }
+            else if ( var14 <= 21 )
+            {
+                
+                if ( BIT_CHK( 325 ) == 0 )
+                {
+                    shojimoney_up();
+                }
+                else 
+                {
+                    MSG( INARI_JUNPEI_UP );
+                    var15 = FUNCTION_000A( 100 );
+                    
+                    if ( var15 < 20 )
+                    {
+                        COMU_FUNCTION_01F1( 5, 0, 4 );
+                    }
+                    else if ( var15 < 40 )
+                    {
+                        COMU_FUNCTION_01F1( 5, 2, 4 );
+                    }
+                    else if ( var15 < 60 )
+                    {
+                        COMU_FUNCTION_01F1( 5, 1, 4 );
+                    }
+                    else if ( var15 < 80 )
+                    {
+                        COMU_FUNCTION_01F1( 5, 3, 4 );
+                    }
+                    else 
+                    {
+                        COMU_FUNCTION_01F1( 5, 4, 4 );
+                    }
+
+                }
+
+            }
+            else if ( var14 <= 31 )
+            {
+                
+                if ( BIT_CHK( 326 ) == 0 )
+                {
+                    shojimoney_up();
+                }
+                else 
+                {
+                    MSG( INARI_SANADA_UP );
+                    var15 = FUNCTION_000A( 100 );
+                    
+                    if ( var15 < 20 )
+                    {
+                        COMU_FUNCTION_01F1( 7, 0, 4 );
+                    }
+                    else if ( var15 < 40 )
+                    {
+                        COMU_FUNCTION_01F1( 7, 2, 4 );
+                    }
+                    else if ( var15 < 60 )
+                    {
+                        COMU_FUNCTION_01F1( 7, 1, 4 );
+                    }
+                    else if ( var15 < 80 )
+                    {
+                        COMU_FUNCTION_01F1( 7, 3, 4 );
+                    }
+                    else 
+                    {
+                        COMU_FUNCTION_01F1( 7, 4, 4 );
+                    }
+
+                }
+
+            }
+            else if ( var14 <= 41 )
+            {
+                
+                if ( BIT_CHK( 324 ) == 0 )
+                {
+                    shojimoney_up();
+                }
+                else 
+                {
+                    MSG( INARI_MITURU_UP );
+                    var15 = FUNCTION_000A( 100 );
+                    
+                    if ( var15 < 20 )
+                    {
+                        COMU_FUNCTION_01F1( 4, 0, 4 );
+                    }
+                    else if ( var15 < 40 )
+                    {
+                        COMU_FUNCTION_01F1( 4, 2, 4 );
+                    }
+                    else if ( var15 < 60 )
+                    {
+                        COMU_FUNCTION_01F1( 4, 1, 4 );
+                    }
+                    else if ( var15 < 80 )
+                    {
+                        COMU_FUNCTION_01F1( 4, 3, 4 );
+                    }
+                    else 
+                    {
+                        COMU_FUNCTION_01F1( 4, 4, 4 );
+                    }
+
+                }
+
+            }
+            else if ( var14 <= 51 )
+            {
+                
+                if ( BIT_CHK( 323 ) == 0 )
+                {
+                    shojimoney_up();
+                }
+                else 
+                {
+                    MSG( INARI_AEGIS__UP );
+                    var15 = FUNCTION_000A( 100 );
+                    
+                    if ( var15 < 20 )
+                    {
+                        COMU_FUNCTION_01F1( 3, 0, 4 );
+                    }
+                    else if ( var15 < 40 )
+                    {
+                        COMU_FUNCTION_01F1( 3, 2, 4 );
+                    }
+                    else if ( var15 < 60 )
+                    {
+                        COMU_FUNCTION_01F1( 3, 1, 4 );
+                    }
+                    else if ( var15 < 80 )
+                    {
+                        COMU_FUNCTION_01F1( 3, 3, 4 );
+                    }
+                    else 
+                    {
+                        COMU_FUNCTION_01F1( 3, 4, 4 );
+                    }
+
+                }
+
+            }
+            else if ( var14 <= 61 )
+            {
+                
+                if ( BIT_CHK( 329 ) == 0 )
+                {
+                    shojimoney_up();
+                }
+                else 
+                {
+                    MSG( INARI_KOROMA_UP );
+                    var15 = FUNCTION_000A( 100 );
+                    
+                    if ( var15 < 20 )
+                    {
+                        COMU_FUNCTION_01F1( 10, 0, 4 );
+                    }
+                    else if ( var15 < 40 )
+                    {
+                        COMU_FUNCTION_01F1( 10, 2, 4 );
+                    }
+                    else if ( var15 < 60 )
+                    {
+                        COMU_FUNCTION_01F1( 10, 1, 4 );
+                    }
+                    else if ( var15 < 80 )
+                    {
+                        COMU_FUNCTION_01F1( 10, 3, 4 );
+                    }
+                    else 
+                    {
+                        COMU_FUNCTION_01F1( 10, 4, 4 );
+                    }
+
+                }
+
+            }
+            else if ( var14 <= 71 )
+            {
+                
+                if ( BIT_CHK( 327 ) == 0 )
+                {
+                    shojimoney_up();
+                }
+                else 
+                {
+                    MSG( INARI_AMADA__UP );
+                    var15 = FUNCTION_000A( 100 );
+                    
+                    if ( var15 < 20 )
+                    {
+                        COMU_FUNCTION_01F1( 8, 0, 4 );
+                    }
+                    else if ( var15 < 40 )
+                    {
+                        COMU_FUNCTION_01F1( 8, 2, 4 );
+                    }
+                    else if ( var15 < 60 )
+                    {
+                        COMU_FUNCTION_01F1( 8, 1, 4 );
+                    }
+                    else if ( var15 < 80 )
+                    {
+                        COMU_FUNCTION_01F1( 8, 3, 4 );
+                    }
+                    else 
+                    {
+                        COMU_FUNCTION_01F1( 8, 4, 4 );
+                    }
+
+                }
+
+            }
+            else if ( BIT_CHK( 328 ) == 0 )
+            {
+                shojimoney_up();
+            }
+            else 
+            {
+                MSG( INARI_ARAGAK_UP );
+                var15 = FUNCTION_000A( 100 );
+                
+                if ( var15 < 20 )
+                {
+                    COMU_FUNCTION_01F1( 9, 0, 4 );
+                }
+                else if ( var15 < 40 )
+                {
+                    COMU_FUNCTION_01F1( 9, 2, 4 );
+                }
+                else if ( var15 < 60 )
+                {
+                    COMU_FUNCTION_01F1( 9, 1, 4 );
+                }
+                else if ( var15 < 80 )
+                {
+                    COMU_FUNCTION_01F1( 9, 3, 4 );
+                }
+                else 
+                {
+                    COMU_FUNCTION_01F1( 9, 4, 4 );
+                }
+
+            }
+
+        }
+        else 
+        {
+            var17 = GET_ITEM( 1, ( 4000 + 14 ) );
+            
+            if ( var17 >= 5 )
+            {
+                MSG( INARI_ITEMCHANGE_01 );
+                var18 = ( var17 - 5 );
+                SET_ITEM( 1, ( 4000 + 14 ), var18 );
+            }
+            else 
+            {
+                var17 = GET_ITEM( 1, ( 4000 + 94 ) );
+                
+                if ( var17 >= 2 )
+                {
+                    MSG( INARI_ITEMCHANGE_02 );
+                    var18 = ( var17 - 2 );
+                    SET_ITEM( 1, ( 4000 + 94 ), var18 );
+                }
+                else 
+                {
+                    var17 = GET_ITEM( 1, ( 4000 + 41 ) );
+                    
+                    if ( var17 >= 2 )
+                    {
+                        MSG( INARI_ITEMCHANGE_03 );
+                        var18 = ( var17 - 2 );
+                        SET_ITEM( 1, ( 4000 + 41 ), var18 );
+                    }
+                    else 
+                    {
+                        var17 = GET_ITEM( 1, ( 4000 + 114 ) );
+                        
+                        if ( var17 >= 3 )
+                        {
+                            MSG( INARI_ITEMCHANGE_04 );
+                            var18 = ( var17 - 3 );
+                            SET_ITEM( 1, ( 4000 + 114 ), var18 );
+                        }
+                        else 
+                        {
+                            var17 = GET_ITEM( 1, ( 4000 + 1 ) );
+                            
+                            if ( var17 >= 20 )
+                            {
+                                MSG( INARI_ITEMCHANGE_05 );
+                                var18 = ( var17 - 20 );
+                                SET_ITEM( 1, ( 4000 + 1 ), var18 );
+                            }
+                            else 
+                            {
+                                shojimoney_up();
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        CLOSE_MSG_WIN();
+        FADE( 1, 0 );
+        FADE_SYNC();
+        NEXT_DAY();
+        return;
+        goto _55;
+    }
+
+    CLOSE_MSG_WIN();
+}
+
+void ShrineMap()
+{
+	if(Chk_Access_NaganakiShrine_001_MAP())
+	{
+		FADE( 1, 0 );
+		FADE_SYNC();
+		CALL_MAP( 4 );
+	}
+	return;
+}
+
+void commu_mem_sel_mask()
+{
+    gVar225 = 0;
+    
+    if ( gVar212 == 0 )
+    {
+        gVar225 = ( gVar225 + 1 );
+    }
+
+    
+    if ( gVar210 == 0 )
+    {
+        gVar225 = ( gVar225 + 2 );
+    }
+
+    
+    if ( gVar211 == 0 )
+    {
+        gVar225 = ( gVar225 + 4 );
+    }
+
+    
+    if ( gVar215 == 0 )
+    {
+        gVar225 = ( gVar225 + 8 );
+    }
+
+    
+    if ( gVar214 == 0 )
+    {
+        gVar225 = ( gVar225 + 0x10 );
+    }
+
+    
+    if ( gVar213 == 0 )
+    {
+        gVar225 = ( gVar225 + 0x20 );
+    }
+
+}
+
+void omikuji_yukari()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 6 );
+    
+    if ( COMU_FUNCTION_00DC( 6 ) == 1 )
+    {
+        omikuji_continue_hmt();
+    }
+    else if ( ( COMU_FUNCTION_00DB( 6 ) == 1 ) && ( GET_SL_LEVEL( 6 ) >= 6 ) )
+    {
+        omikuji_continue_rvs();
+    }
+    else 
+    {
+        omikuji_continue();
+        
+        if ( COMU_FUNCTION_00DB( 6 ) == 1 )
+        {
+            MSG( OMIKUJI_CONT_YUKAR_RVS );
+        }
+        else 
+        {
+            MSG( OMIKUJI_CONT_YUKAR );
+        }
+
+    }
+
+    omikuji_nakami();
+}
+
+void omikuji_huuka()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 7 );
+    
+    if ( COMU_FUNCTION_00DC( 7 ) == 1 )
+    {
+        omikuji_continue_hmt();
+    }
+    else if ( ( COMU_FUNCTION_00DB( 7 ) == 1 ) && ( GET_SL_LEVEL( 7 ) >= 7 ) )
+    {
+        omikuji_continue_rvs();
+    }
+    else 
+    {
+        omikuji_continue();
+        
+        if ( COMU_FUNCTION_00DB( 7 ) == 1 )
+        {
+            MSG( OMIKUJI_CONT_HUUKA_RVS );
+        }
+        else 
+        {
+            MSG( OMIKUJI_CONT_HUUKA );
+        }
+
+    }
+
+    omikuji_nakami();
+}
+
+void omikuji_mitur()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 8 );
+    
+    if ( COMU_FUNCTION_00DC( 8 ) == 1 )
+    {
+        omikuji_continue_hmt();
+    }
+    else if ( ( COMU_FUNCTION_00DB( 8 ) == 1 ) && ( GET_SL_LEVEL( 8 ) >= 6 ) )
+    {
+        omikuji_continue_rvs();
+    }
+    else 
+    {
+        omikuji_continue();
+        
+        if ( COMU_FUNCTION_00DB( 8 ) == 1 )
+        {
+            MSG( OMIKUJI_CONT_MITUR_RVS );
+        }
+        else 
+        {
+            MSG( OMIKUJI_CONT_MITUR );
+        }
+
+    }
+
+    omikuji_nakami();
+}
+
+void omikuji_aegis()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 9 );
+    omikuji_continue();
+    MSG( OMIKUJI_CONT_AEGIS );
+    omikuji_nakami();
+}
+
+void omikuji_manag()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 10 );
+    
+    if ( COMU_FUNCTION_00DC( 10 ) == 1 )
+    {
+        omikuji_continue_hmt();
+    }
+    else if ( ( COMU_FUNCTION_00DB( 10 ) == 1 ) && ( GET_SL_LEVEL( 10 ) >= 7 ) )
+    {
+        omikuji_continue_rvs();
+    }
+    else 
+    {
+        omikuji_continue();
+        
+        if ( COMU_FUNCTION_00DB( 10 ) == 1 )
+        {
+            MSG( OMIKUJI_CONT_MANAG_RVS );
+        }
+        else 
+        {
+            MSG( OMIKUJI_CONT_MANAG );
+        }
+
+    }
+
+    omikuji_nakami();
+}
+
+void omikuji_kaike()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 11 );
+    
+    if ( COMU_FUNCTION_00DC( 11 ) == 1 )
+    {
+        omikuji_continue_hmt();
+    }
+    else if ( ( COMU_FUNCTION_00DB( 11 ) == 1 ) && ( GET_SL_LEVEL( 11 ) >= 5 ) )
+    {
+        omikuji_continue_rvs();
+    }
+    else 
+    {
+        omikuji_continue();
+        
+        if ( COMU_FUNCTION_00DB( 11 ) == 1 )
+        {
+            MSG( OMIKUJI_CONT_KAIKE_RVS );
+        }
+        else 
+        {
+            MSG( OMIKUJI_CONT_KAIKE );
+        }
+
+    }
+
+    omikuji_nakami();
+}
+
+void omikuji_class()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 1 );
+    omikuji_continue();
+    
+    if ( COMU_FUNCTION_00DB( 1 ) == 1 )
+    {
+        MSG( OMIKUJI_CONT_CLASS_RVS );
+    }
+    else 
+    {
+        MSG( OMIKUJI_CONT_CLASS );
+    }
+
+    omikuji_nakami();
+}
+
+void omikuji_seito()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 4 );
+    omikuji_continue();
+    MSG( OMIKUJI_CONT_SEITO );
+    omikuji_nakami();
+}
+
+void omikuji_taiiku()
+{
+    MSG( OMIKUJI_INORU );
+    
+    if ( ( GET_SL_LEVEL( 12 ) >= 1 ) && ( GET_SL_LEVEL( 12 ) < 10 ) )
+    {
+        COMU_FUNCTION_00DD( 12 );
+    }
+    else if ( ( GET_SL_LEVEL( 13 ) >= 1 ) && ( GET_SL_LEVEL( 13 ) < 10 ) )
+    {
+        COMU_FUNCTION_00DD( 13 );
+    }
+    else if ( ( GET_SL_LEVEL( 14 ) >= 1 ) && ( GET_SL_LEVEL( 14 ) < 10 ) )
+    {
+        COMU_FUNCTION_00DD( 14 );
+    }
+
+    omikuji_continue();
+    
+    if ( ( ( COMU_FUNCTION_00DB( 12 ) == 1 ) || ( COMU_FUNCTION_00DB( 13 ) == 1 ) ) || ( COMU_FUNCTION_00DB( 14 ) == 1 ) )
+    {
+        MSG( OMIKUJI_CONT_TAIIK_RVS );
+    }
+    else 
+    {
+        MSG( OMIKUJI_CONT_TAIIK );
+    }
+
+    omikuji_nakami();
+}
+
+void omikuji_bunka()
+{
+    MSG( OMIKUJI_INORU );
+    
+    if ( ( GET_SL_LEVEL( 17 ) >= 1 ) && ( GET_SL_LEVEL( 17 ) < 10 ) )
+    {
+        COMU_FUNCTION_00DD( 17 );
+    }
+    else if ( ( GET_SL_LEVEL( 18 ) >= 1 ) && ( GET_SL_LEVEL( 18 ) < 10 ) )
+    {
+        COMU_FUNCTION_00DD( 18 );
+    }
+    else if ( ( GET_SL_LEVEL( 19 ) >= 1 ) && ( GET_SL_LEVEL( 19 ) < 10 ) )
+    {
+        COMU_FUNCTION_00DD( 19 );
+    }
+
+    omikuji_continue();
+    
+    if ( ( ( COMU_FUNCTION_00DB( 17 ) == 1 ) || ( COMU_FUNCTION_00DB( 18 ) == 1 ) ) || ( COMU_FUNCTION_00DB( 19 ) == 1 ) )
+    {
+        MSG( OMIKUJI_CONT_BUNKA_RVS );
+    }
+    else 
+    {
+        MSG( OMIKUJI_CONT_BUNKA );
+    }
+
+    omikuji_nakami();
+}
+
+void omikuji_douko()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 23 );
+    omikuji_continue();
+    
+    if ( COMU_FUNCTION_00DB( 23 ) == 1 )
+    {
+        MSG( OMIKUJI_CONT_DOUKO_RVS );
+    }
+    else 
+    {
+        MSG( OMIKUJI_CONT_DOUKO );
+    }
+
+    omikuji_nakami();
+}
+
+void omikuji_huruh()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 5 );
+    omikuji_continue();
+    MSG( OMIKUJI_CONT_HURUH );
+    omikuji_nakami();
+}
+
+void omikuji_net__()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 0x10 );
+    omikuji_continue();
+    MSG( OMIKUJI_CONT_NET__ );
+    omikuji_nakami();
+}
+
+void omikuji_grume()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 27 );
+    omikuji_continue();
+    MSG( OMIKUJI_CONT_GURUM );
+    omikuji_nakami();
+}
+
+void omikuji_kodom()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 21 );
+    omikuji_continue();
+    MSG( OMIKUJI_CONT_KODOM );
+    omikuji_nakami();
+}
+
+void omikuji_tanak()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 24 );
+    omikuji_continue();
+    MSG( OMIKUJI_CONT_TANAK );
+    omikuji_nakami();
+}
+
+void omikuji_hakai()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 25 );
+    omikuji_continue();
+    
+    if ( GET_SL_LEVEL( 25 ) == 1 )
+    {
+        MSG( OMIKUJI_CONT_HAKAI );
+    }
+    else 
+    {
+        MSG( OMIKUJI_CONT_HAKAI_2 );
+    }
+
+    omikuji_nakami();
+}
+
+void omikuji_ace__()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 26 );
+    omikuji_continue();
+    MSG( OMIKUJI_CONT_ACE__ );
+    omikuji_nakami();
+}
+
+void omikuji_yomei()
+{
+    MSG( OMIKUJI_INORU );
+    COMU_FUNCTION_00DD( 28 );
+    omikuji_continue();
+    MSG( OMIKUJI_CONT_YOMEI );
+    omikuji_nakami();
+}
+
+void commu_mem_sel_mask_2()
+{
+    gVar225 = 0;
+    
+    if ( gVar212 == 0 )
+    {
+        gVar225 = ( gVar225 + 1 );
+    }
+
+    
+    if ( gVar210 == 0 )
+    {
+        gVar225 = ( gVar225 + 2 );
+    }
+
+    
+    if ( gVar211 == 0 )
+    {
+        gVar225 = ( gVar225 + 4 );
+    }
+
+}
+
+void commu_mem_sel_mask_3()
+{
+    gVar225 = 0;
+    
+    if ( gVar215 == 0 )
+    {
+        gVar225 = ( gVar225 + 1 );
+    }
+
+    
+    if ( gVar214 == 0 )
+    {
+        gVar225 = ( gVar225 + 2 );
+    }
+
+    
+    if ( gVar213 == 0 )
+    {
+        gVar225 = ( gVar225 + 4 );
+    }
+
+}
+
+void commu_mem_sel_mask_4()
+{
+    gVar225 = 0;
+    
+    if ( gVar200 == 0 )
+    {
+        gVar225 = ( gVar225 + 1 );
+    }
+
+    
+    if ( gVar201 == 0 )
+    {
+        gVar225 = ( gVar225 + 2 );
+    }
+
+    
+    if ( gVar202 == 0 )
+    {
+        gVar225 = ( gVar225 + 4 );
+    }
+
+    
+    if ( gVar203 == 0 )
+    {
+        gVar225 = ( gVar225 + 8 );
+    }
+
+    
+    if ( gVar204 == 0 )
+    {
+        gVar225 = ( gVar225 + 0x10 );
+    }
+
+    
+    if ( gVar205 == 0 )
+    {
+        gVar225 = ( gVar225 + 0x20 );
+    }
+
+    
+    if ( gVar206 == 0 )
+    {
+        gVar225 = ( gVar225 + 0x40 );
+    }
+
+    
+    if ( gVar207 == 0 )
+    {
+        gVar225 = ( gVar225 + 0x80 );
+    }
+
+    
+    if ( gVar208 == 0 )
+    {
+        gVar225 = ( gVar225 + 0x0100 );
+    }
+
+}
+
+void commu_mem_sel_mask_5()
+{
+    gVar225 = 0;
+    
+    if ( gVar200 == 0 )
+    {
+        gVar225 = ( gVar225 + 1 );
+    }
+
+    
+    if ( gVar201 == 0 )
+    {
+        gVar225 = ( gVar225 + 2 );
+    }
+
+    
+    if ( gVar202 == 0 )
+    {
+        gVar225 = ( gVar225 + 4 );
+    }
+
+    
+    if ( gVar203 == 0 )
+    {
+        gVar225 = ( gVar225 + 8 );
+    }
+
+    
+    if ( gVar204 == 0 )
+    {
+        gVar225 = ( gVar225 + 0x10 );
+    }
+
+}
+
+void commu_mem_sel_mask_6()
+{
+    gVar225 = 0;
+    
+    if ( gVar205 == 0 )
+    {
+        gVar225 = ( gVar225 + 1 );
+    }
+
+    
+    if ( gVar206 == 0 )
+    {
+        gVar225 = ( gVar225 + 2 );
+    }
+
+    
+    if ( gVar207 == 0 )
+    {
+        gVar225 = ( gVar225 + 4 );
+    }
+
+    
+    if ( gVar208 == 0 )
+    {
+        gVar225 = ( gVar225 + 8 );
+    }
+
+}
+
+void commu_mem_sel_mask_7()
+{
+    gVar225 = 0;
+    
+    if ( gVar216 == 0 )
+    {
+        gVar225 = ( gVar225 + 1 );
+    }
+
+    
+    if ( gVar217 == 0 )
+    {
+        gVar225 = ( gVar225 + 2 );
+    }
+
+    
+    if ( gVar209 == 0 )
+    {
+        gVar225 = ( gVar225 + 4 );
+    }
+
+    
+    if ( gVar218 == 0 )
+    {
+        gVar225 = ( gVar225 + 8 );
+    }
+
+    
+    if ( gVar219 == 0 )
+    {
+        gVar225 = ( gVar225 + 0x10 );
+    }
+
+    
+    if ( gVar220 == 0 )
+    {
+        gVar225 = ( gVar225 + 0x20 );
+    }
+
+    
+    if ( gVar221 == 0 )
+    {
+        gVar225 = ( gVar225 + 0x40 );
+    }
+
+    
+    if ( gVar222 == 0 )
+    {
+        gVar225 = ( gVar225 + 0x80 );
+    }
+
+}
+
+void commu_mem_sel_mask_8()
+{
+    gVar225 = 0;
+    
+    if ( gVar216 == 0 )
+    {
+        gVar225 = ( gVar225 + 1 );
+    }
+
+    
+    if ( gVar217 == 0 )
+    {
+        gVar225 = ( gVar225 + 2 );
+    }
+
+    
+    if ( gVar209 == 0 )
+    {
+        gVar225 = ( gVar225 + 4 );
+    }
+
+}
+
+void commu_mem_sel_mask_9()
+{
+    gVar225 = 0;
+    
+    if ( gVar218 == 0 )
+    {
+        gVar225 = ( gVar225 + 1 );
+    }
+
+    
+    if ( gVar219 == 0 )
+    {
+        gVar225 = ( gVar225 + 2 );
+    }
+
+    
+    if ( gVar220 == 0 )
+    {
+        gVar225 = ( gVar225 + 4 );
+    }
+
+}
+
+void commu_mem_sel_mask_10()
+{
+    gVar225 = 0;
+    
+    if ( gVar221 == 0 )
+    {
+        gVar225 = ( gVar225 + 1 );
+    }
+
+    
+    if ( gVar222 == 0 )
+    {
+        gVar225 = ( gVar225 + 2 );
+    }
+
+}
+
+void shojimoney_up()
+{
+    int var20;
+    int var21;
+    var20 = GET_YEN();
+    
+    if ( var20 > 1000000 )
+    {
+        var21 = FUNCTION_000A( 20 );
+    }
+    else if ( var20 > 500000 )
+    {
+        var21 = FUNCTION_000A( 30 );
+    }
+    else if ( var20 > 100000 )
+    {
+        var21 = FUNCTION_000A( 40 );
+    }
+    else 
+    {
+        var21 = FUNCTION_000A( 50 );
+    }
+
+    
+    if ( var21 < 21 )
+    {
+        GIVE_YEN( ( var20 * 0.20f ) );
+        MSG( INARI_SHOJIMONEY_UP1 );
+    }
+    else if ( var21 < 31 )
+    {
+        GIVE_YEN( ( var20 * 0.50f ) );
+        MSG( INARI_SHOJIMONEY_UP1 );
+    }
+    else if ( var21 < 41 )
+    {
+        GIVE_YEN( var20 );
+        MSG( INARI_SHOJIMONEY_UP2 );
+    }
+    else 
+    {
+        GIVE_YEN( ( var20 * 2 ) );
+        MSG( INARI_SHOJIMONEY_UP3 );
+    }
+
+}
+
+void omikuji_continue_hmt()
+{
+    FUNCTION_000D( 0 );
+    FADE_SYNC();
+    OPEN_MSG_WIN();
+    MSG( MSG_OMIKUJI_CONT_TOKUSHU_2 );
+    CLOSE_MSG_WIN();
+    FUNCTION_000D( 0 );
+    FADE_SYNC();
+    REMOVE_YEN( 100 );
+    OPEN_MSG_WIN();
+}
+
+void omikuji_continue_rvs()
+{
+    FUNCTION_000D( 0 );
+    FADE_SYNC();
+    OPEN_MSG_WIN();
+    MSG( MSG_OMIKUJI_CONT_TOKUSHU );
+    CLOSE_MSG_WIN();
+    FUNCTION_000D( 0 );
+    FADE_SYNC();
+    REMOVE_YEN( 100 );
+    OPEN_MSG_WIN();
+}
+
+void omikuji_continue()
+{
+    FUNCTION_000D( 0 );
+    FADE_SYNC();
+    OPEN_MSG_WIN();
+    MSG( MSG_OMIKUJI_CONT );
+    CLOSE_MSG_WIN();
+    FUNCTION_000D( 0 );
+    FADE_SYNC();
+    REMOVE_YEN( 100 );
+    OPEN_MSG_WIN();
+}
+
+void omikuji_nakami()
+{
+    int var26;
+    int var27;
+    MSG( OMIKUJI_CONTINUE );
+    
+    if ( BIT_CHK( 350 ) == 1 )
+    {
+        var26 = FUNCTION_000A( 80 );
+    }
+    else 
+    {
+        var26 = FUNCTION_000A( 100 );
+    }
+
+    
+    if ( var26 < 40 )
+    {
+        GIVE_YEN( 1000 );
+        MSG( OMIKUJI_CHUKITI );
+        MSG( OMIKUJI_CHUKITI_2 );
+    }
+    else if ( var26 < 60 )
+    {
+        GIVE_YEN( 500 );
+        MSG( OMIKUJI_SHOKITI );
+        MSG( OMIKUJI_SHOKITI_2 );
+    }
+    else if ( var26 < 80 )
+    {
+        MSG( OMIKUJI_KYO );
+        var27 = GET_YEN();
+        
+        if ( var27 < 1000 )
+        {
+            REMOVE_YEN( var27 );
+            MSG( OMIKUJI_KYO_NOMONEY );
+        }
+        else 
+        {
+            REMOVE_YEN( 1000 );
+            MSG( OMIKUJI_KYO_2 );
+        }
+
+    }
+    else if ( var26 < 90 )
+    {
+        GIVE_YEN( 10000 );
+        MSG( OMIKUJI_DAIKITI );
+        MSG( OMIKUJI_DAIKITI_2 );
+        MSG( OMIKUJI_DAIKITI_3 );
+        
+        if ( ( CHECK_FATIGUE( PartyMember.Protagonist ) == 0 ) || ( CHECK_FATIGUE( PartyMember.Protagonist ) >= 3 ) )
+        {
+            MSG( OMIKUJI_DAIKITI_3_CONT );
+            FUNCTION_00CA( 1, 2 );
+        }
+
+    }
+    else 
+    {
+        MSG( OMIKUJI_DAIKYO );
+        var27 = GET_YEN();
+        
+        if ( var27 < 5000 )
+        {
+            REMOVE_YEN( var27 );
+            MSG( OMIKUJI_KYO_NOMONEY );
+        }
+        else 
+        {
+            REMOVE_YEN( 5000 );
+            MSG( OMIKUJI_DAIKYO_2 );
+        }
+
+        MSG( OMIKUJI_DAIKYO_3 );
+        
+        if ( CHECK_FATIGUE( PartyMember.Protagonist ) < 3 )
+        {
+            MSG( OMIKUJI_DAIKYO_3_CONT );
+            FUNCTION_00CA( 1, 3 );
+        }
+
+    }
+
+    CLOSE_MSG_WIN();
+    FADE( 1, 0 );
+    FADE_SYNC();
+    NEXT_DAY();
+}

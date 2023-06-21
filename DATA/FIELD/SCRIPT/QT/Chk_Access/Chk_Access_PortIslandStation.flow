@@ -1,0 +1,21 @@
+bool Chk_Access_PortIslandStation_001_MAP() // ( 2 )
+{
+	BIT_ON( 3092 );
+	return 1;
+}
+
+bool Chk_Access_PortIslandStation_002_MAP() // ( 2 )
+{
+	BIT_ON( 3091 );
+	return 1;
+}
+
+bool Chk_Access_PortIslandStation_001_002() // ( 10, 2, 0, 0 )
+{
+	return 1;
+}
+
+bool Chk_Access_PortIslandStation_002_001() // ( 10, 1, 1, 0 )
+{
+	return 1;
+}

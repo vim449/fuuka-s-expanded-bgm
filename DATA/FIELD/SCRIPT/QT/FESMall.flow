@@ -1,0 +1,45 @@
+
+
+void FESMallAccessory()
+{
+	FADE( 2, 0 );
+	FADE_SYNC();
+	BIT_ON( 5127 );
+	CALL_FCL( 1 );
+	FUNCTION_002B();
+	BIT_OFF( 5127 );
+	CALL_FIELD( 5, 1, 1, 0 );
+}
+
+void FESMallPolice()
+{
+	FADE( 2, 0 );
+	FADE_SYNC();
+	BIT_ON( 5127 );
+	CALL_FCL( 0 );
+	FUNCTION_002B();
+	BIT_OFF( 5127 );
+	CALL_FIELD( 5, 1, 2, 0 );
+}
+
+void FESMallAntique()
+{
+	FADE( 2, 0 );
+	FADE_SYNC();
+	BIT_ON( 5127 );
+	CALL_FCL( 4 );
+	FUNCTION_002B();
+	BIT_OFF( 5127 );
+	CALL_FIELD( 5, 1, 3, 0 );
+}
+
+void FESMallDrug()
+{
+	FADE( 2, 0 );
+	FADE_SYNC();
+	BIT_ON( 5127 );
+	CALL_FCL( 2 );
+	FUNCTION_002B();
+	BIT_OFF( 5127 );
+	CALL_FIELD( 5, 1, 4, 0 );
+}
