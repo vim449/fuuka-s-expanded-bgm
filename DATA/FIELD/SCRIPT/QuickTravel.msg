@@ -96,7 +96,7 @@
 [f 0 8 -258][f 1 31]You can't Quick Travel here.[n][f 0 4][e]
 
 [msg No_Facilities]
-[f 0 8 -258][f 1 31]There are no facilities in this locaiton.[n][f 0 4][e]
+[f 0 8 -258][f 1 31]There are no facilities in this location.[n][f 0 4][e]
 
 [msg Same]
 [f 0 8 -258][f 1 31]You are already there.[n][f 0 4][e]
