@@ -5,7 +5,7 @@ version=3
 //edited by Nobodyinparticular
 
 // Settings for random battle bgm, battle tracks are picked randomly starting at the id 1000.ADX
-patch=1,EE,007CB2c0,byte,01 // Use random bgm? 0=no 1=yes
+patch=1,EE,007CB2c0,byte,00 // Use random bgm? 0=no 1=yes
 patch=1,EE,007CB2c1,byte,0F// BGM count in hexadecimal, must be greater than 0
 
 // %d.ADX

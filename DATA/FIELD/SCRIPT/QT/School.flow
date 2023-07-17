@@ -1,3 +1,5 @@
+import ( "School.msg");
+
 void SchoolEntrance()
 {
 	switch(GET_FIELD_MINOR())
@@ -1059,7 +1061,7 @@ void SchoolShop()
 		case 2: //School Entrance
 			if(Chk_Access_GekkoukanHigh_002_001())
 			{
-				gotoSchoolShop();
+				NoShop();
 			}
 			break;
 		case 3: //Classroom 2-F
@@ -1103,7 +1105,7 @@ void SchoolShop()
 			{
 				if(Chk_Access_GekkoukanHigh_011_001())
 				{
-						gotoSchoolShop();
+						NoShop();
 				}
 			}
 			break;
@@ -1114,7 +1116,7 @@ void SchoolShop()
 				{
 					if(Chk_Access_GekkoukanHigh_011_001())
 					{
-							gotoSchoolShop();
+							NoShop();
 					}
 				}
 			}
@@ -1133,5 +1135,12 @@ void gotoSchoolShop()
 	FUNCTION_002B();
 	BIT_OFF( 4639 );
 	return;
+}
+
+void NoShop()
+{
+	OPEN_MSG_WIN();
+	MSG( No_Shop );
+	CLOSE_MSG_WIN();
 }
 

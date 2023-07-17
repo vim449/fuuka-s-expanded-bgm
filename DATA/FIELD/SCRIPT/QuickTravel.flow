@@ -399,6 +399,11 @@ int SchoolTravel3()
 
 void DormTravel()
 {
+	if (GET_FIELD_MINOR() == 9)
+	{
+		DormTravelEntrance();
+		return;
+	}
 	bool selecting = true;
 	int page = 1;
 	while(selecting)
@@ -535,6 +540,40 @@ int DormTravel2()
 			break;
 	}
 	return 0;
+}
+
+void DormTravelEntrance()
+{
+	OPEN_MSG_WIN();
+	MSG( Choose );
+	FUNCTION_00B7(0);
+	FUNCTION_011C(12, Page1of1);
+	//Close menu on Circle
+	SEL_CHK_PAD(6,20);
+	//Open map on Select
+	SEL_CHK_PAD(8,6);
+	//Open shop on Start
+	SEL_CHK_PAD(11,7);
+	int select = SEL( DormEntrance );
+	CLOSE_MSG_WIN();
+	switch (select)
+	{
+		case 0: // 1st Floor, Lounge
+			DormLobby();
+			break;
+		case 1: // Town Map
+			DormMap();
+			break;
+		case 6: // Town Map (Select)
+			DormMap();
+			break;
+		case 7: //Facilities (Start)
+			No_Facilities();
+			break;
+		default:
+			break;
+	}
+	return;
 }
 
 void MallTravel()

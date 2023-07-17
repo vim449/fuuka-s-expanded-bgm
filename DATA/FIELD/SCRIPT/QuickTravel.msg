@@ -33,6 +33,10 @@
 [f 0 5 -258][f 1 31]Meeting Room[e]
 [f 0 5 -258][f 1 31]Town Map[e]
 
+[sel DormEntrance]
+[f 0 5 -258][f 1 31]Dorm Entrance[e]
+[f 0 5 -258][f 1 31]Town Map[e]
+
 [sel Mall]
 [f 0 8 -258][f 1 31]Paulownia Mall[e]
 [f 0 8 -258][f 1 31]Back Alley[e]

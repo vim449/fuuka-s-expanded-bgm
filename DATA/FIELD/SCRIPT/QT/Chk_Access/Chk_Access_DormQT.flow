@@ -25,7 +25,7 @@ bool Chk_Access_Dorm_009_002() // ( 7, 2, 0, 0 )
             CLOSE_MSG_WIN();
             MSG_HELP( HELP_GOINTO_HOME );
             OPEN_MSG_WIN();
-            MSG( GOINTO_HOME_OK );
+            MSG( EnterDormQT );
             SEL_CHK_PAD( 6, 1 );
             if ( SEL( INTO_HOME_SEL ) != 0 )
             {
@@ -38,6 +38,14 @@ bool Chk_Access_Dorm_009_002() // ( 7, 2, 0, 0 )
     }
     if ( var14 == 1 )
     {
+		OPEN_MSG_WIN();
+        MSG( EnterDormQT );
+        SEL_CHK_PAD( 6, 1 );
+        if ( SEL( INTO_HOME_SEL ) != 0 )
+        {
+            CLOSE_MSG_WIN();
+            return 0;
+        }
         FADE( 1, 0 );
         FADE_SYNC();
         NEXT_DAY();
@@ -207,13 +215,35 @@ bool Chk_Access_Dorm_003_001() // ( 7, 1, 0, 0 )
             OPEN_MSG_WIN();
             if ( CHECK_TIME_SPAN( 4, 7, 4, 20 ) == 1 )
             {
+				MSG( MyRoomQT );
+				SEL_CHK_PAD( 6, 1 );
+				if ( SEL( INTO_ROOM_SEL ) != 0 )
+				{
+					CLOSE_MSG_WIN();
+					return 0;
+				}	
                 MSG( GOINTO_MYROOM_SLEEP );
             }
             else if ( CHECK_TIME_SPAN( 3, 1, 3, 5 ) == 1 )
             {
+				MSG( MyRoomQT );
+				SEL_CHK_PAD( 6, 1 );
+				if ( SEL( INTO_ROOM_SEL ) != 0 )
+				{
+					CLOSE_MSG_WIN();
+					return 0;
+				}
                 MSG( GOINTO_MYROOM_LASTWEEK );
             }
             CLOSE_MSG_WIN();
+        }
+		OPEN_MSG_WIN();
+        MSG( MyRoomQT );
+        SEL_CHK_PAD( 6, 1 );
+        if ( SEL( INTO_ROOM_SEL ) != 0 )
+        {
+            CLOSE_MSG_WIN();
+            return 0;
         }
 		if ( ( CHECK_TIME_SPAN( 4, 21, 3, 5 ) == 1 ) && ( BIT_CHK( 3086 ) == 0 ) )
 		{
