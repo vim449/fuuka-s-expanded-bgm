@@ -34,7 +34,7 @@
 [f 0 5 -258][f 1 31]Town Map[e]
 
 [sel DormEntrance]
-[f 0 5 -258][f 1 31]Dorm Entrance[e]
+[f 0 5 -258][f 1 31]1st Floor, Lounge[e]
 [f 0 5 -258][f 1 31]Town Map[e]
 
 [sel Mall]
