@@ -122,7 +122,7 @@ void BGMorder_to_change_bgm() {
 		case 4:
 			SET_CNT(9998, 1);
 			Random();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 7:
 			BGMorder_for_huka();
@@ -168,9 +168,9 @@ void P_Music() {
 			BGMorder_to_change_bgm();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 2);
 			RandomPersona();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO); 
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO); 
 		default:
 			break;
 	}
@@ -207,9 +207,9 @@ void P_Music2() {
 			BGMorder_to_change_bgm();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 2);
 			RandomPersona();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO); 
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO); 
 		default:
 			break;
 	}
@@ -228,9 +228,9 @@ void P_Music3() {
 	int selection = SEL(P_Music3);
 	switch (selection) {
 		case 0:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 2);
 			RandomPersona();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
 			BGMorder_to_change_bgm();
@@ -245,7 +245,7 @@ void P_Music3() {
 			BGMorder_to_change_bgm();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 2);
 			RandomPersona(); 
 		default:
 			break;
@@ -280,9 +280,9 @@ void P1() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomP1();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 		default:
 			break;
 	}
@@ -304,9 +304,9 @@ void P1_2() {
 		case 1:
 			playBGM(p1_start + selection + 4);
 		case 2:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomP1();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 3:
 			P_Music();
@@ -321,9 +321,9 @@ void P1_2() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomP1();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 			default:
 			break;
@@ -358,9 +358,9 @@ void IS() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomIS();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 		default:
 			break;
 	}
@@ -395,9 +395,9 @@ void IS_2() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomIS();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 		default:
 			break;
 	}
@@ -421,9 +421,9 @@ void IS_3() {
 			playBGM(is_start + selection + 8);
 			break;
 		case 2:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomIS();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 		case 3:
 			P_Music();
 		case 4:
@@ -436,9 +436,9 @@ void IS_3() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomIS();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 	default:
 			break;
 	}
@@ -472,9 +472,9 @@ void EP() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomEP();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 		default:
 			break;
 	}
@@ -508,9 +508,9 @@ void EP_2() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomEP();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 		default:
 			break;
 	}
@@ -531,9 +531,9 @@ void EP_3() {
 		case 0:
 			playBGM(ep_start + selection + 6);
 		case 1:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomEP();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 2:
 			P_Music();
@@ -549,7 +549,7 @@ void EP_3() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomEP(); 
 	default:
 			break;
@@ -584,9 +584,9 @@ void P3() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomP3();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -606,9 +606,9 @@ void P3_2() {
 	int selection = SEL(P3_2);
 	switch (selection) {
 		case 0:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomP3();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
 			P_Music();
@@ -624,9 +624,9 @@ void P3_2() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomP3();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -661,9 +661,9 @@ void P4() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomP4();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO); 
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO); 
 		default:
 			break;
 	}
@@ -682,9 +682,9 @@ void P4_2() {
 	int selection = SEL(P4_2);
 	switch (selection) {
 		case 0:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomP4();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
 			P_Music();
@@ -701,9 +701,9 @@ void P4_2() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomP4();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 	default:
 			break;
@@ -738,9 +738,9 @@ void PQ() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomPQ();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 	default:
 			break;
 	}
@@ -760,9 +760,9 @@ void PQ_2() {
 	int selection = SEL(PQ_2);
 	switch (selection) {
 		case 0:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomPQ();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
 			P_Music();
@@ -778,9 +778,9 @@ void PQ_2() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomPQ();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 		default:
 			break;
 	}
@@ -815,9 +815,9 @@ void P5() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomP5();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -838,9 +838,9 @@ void P5_2() {
 	int selection = SEL(P5_2);
 	switch (selection) {
 		case 0:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomP5();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
 			P_Music();
@@ -857,9 +857,9 @@ void P5_2() {
 			P_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomP5();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -885,18 +885,18 @@ void SMT_Music() {
 		SMT3();
 			break;
 		case 2:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 2);
 			RandomSMT();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break; 
 		case 3:
 		case 5:
 			BGMorder_to_change_bgm();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 2);
 			RandomSMT();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		//case 4:
 		//case 5:	
@@ -931,9 +931,9 @@ void SMT1() {
 			SMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomSMT1();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -954,9 +954,9 @@ void SMT1_2() {
 	int selection = SEL(SMT1_2);
 	switch (selection) {
 		case 0:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomSMT1();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
 			SMT_Music();
@@ -973,9 +973,9 @@ void SMT1_2() {
 			SMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomSMT1();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -1010,7 +1010,7 @@ void SMT3() {
 			SMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomSMT3(); 
 	default:
 			break;
@@ -1031,9 +1031,9 @@ void SMT3_2() {
 	int selection = SEL(SMT3_2);
 	switch (selection) {
 		case 0:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomSMT3();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
 		SMT_Music();
@@ -1050,9 +1050,9 @@ void SMT3_2() {
 			SMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomSMT3();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -1093,9 +1093,9 @@ void SpinSMT_Music() {
 			BGMorder_to_change_bgm();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 2);
 			RandomSpin();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -1118,9 +1118,9 @@ void SpinSMT_Music2() {
 			Other();
 			break;
 		case 1:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 2);
 			RandomSpin();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 2:
 			BGMorder_to_change_bgm();
@@ -1136,9 +1136,9 @@ void SpinSMT_Music2() {
 			BGMorder_to_change_bgm();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 2);
 			RandomSpin();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 	}
 	CLOSE_MSG_WIN();
@@ -1171,9 +1171,9 @@ void MJ() {
 			SpinSMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomMJ();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break; 
 		default:
 			break;
@@ -1194,9 +1194,9 @@ void MJ_2() {
 	int selection = SEL(MJ_2);
 	switch (selection) {
 		case 0:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomMJ();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
 			SpinSMT_Music();
@@ -1209,9 +1209,9 @@ void MJ_2() {
 			SpinSMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomMJ();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -1247,9 +1247,9 @@ void MJ2() {
 			SpinSMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomMJ2();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 		default:
 			break;
 	}
@@ -1271,9 +1271,9 @@ void MJ2_2() {
 			playBGM(mj2_start + selection + 4);
 			break;
 		case 1:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomMJ2();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 2:
 			SpinSMT_Music();
@@ -1288,9 +1288,9 @@ void MJ2_2() {
 			SpinSMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomMJ2();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -1323,9 +1323,9 @@ void DDS() {
 			SpinSMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomDDS();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -1346,9 +1346,9 @@ void DDS_2() {
 	int selection = SEL(DDS_2);
 	switch (selection) {
 		case 0:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomDDS();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
 			SpinSMT_Music();
@@ -1364,9 +1364,9 @@ void DDS_2() {
 			SpinSMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomDDS();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -1402,9 +1402,9 @@ void Raidou() {
 			SpinSMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomRaidou();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -1425,9 +1425,9 @@ void Raidou_2() {
 	int selection = SEL(Raidou_2);
 	switch (selection) {
 		case 0:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomRaidou();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
 			SpinSMT_Music();
@@ -1443,9 +1443,9 @@ void Raidou_2() {
 			SpinSMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomRaidou();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -1481,9 +1481,9 @@ void Other() {
 			SpinSMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomOther();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -1504,9 +1504,9 @@ void Other_2() {
 	int selection = SEL(Other_2);
 	switch (selection) {
 		case 0:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomOther();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
 			SpinSMT_Music();
@@ -1521,9 +1521,9 @@ void Other_2() {
 			SpinSMT_Music();
 			break;
 		case 7:
-			SET_CNT(9998, 1);
+			SET_CNT(9998, 3);
 			RandomOther();
-			MSG(HUKA_ORDER_BGM_CHANGE_DO);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;

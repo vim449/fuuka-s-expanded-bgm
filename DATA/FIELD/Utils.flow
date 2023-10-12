@@ -77,7 +77,7 @@ void Random() {
 }
 
 void RandomPersona() {
-	if (GET_CNT(ShufflePool) != ShuffleAll) {
+	if (GET_CNT(ShuffleInit) == 2) {
 		SET_CNT(ShufflePool, ShufflePersona);
 	}
 	int selection = AI_RND(persona_games);
@@ -109,7 +109,7 @@ void RandomPersona() {
 }
 
 void RandomSMT() {
-	if (GET_CNT(ShufflePool) != ShuffleAll) {
+	if (GET_CNT(ShuffleInit) == 2) {
 		SET_CNT(ShufflePool, ShuffleSMT);
 	}
 	int selection = AI_RND(smt_games);
@@ -126,7 +126,7 @@ void RandomSMT() {
 }
 
 void RandomSpin() {
-	if (GET_CNT(ShufflePool) != ShuffleAll) {
+	if (GET_CNT(ShuffleInit) == 2) {
 		SET_CNT(ShufflePool, ShuffleSpin);
 	}
 	int selection = AI_RND(spin_games);
@@ -153,7 +153,7 @@ void RandomSpin() {
 
 void RandomP1() {
 	int randomsong = AI_RND(p1_len) + p1_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleP1);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -174,7 +174,7 @@ void RandomP1() {
 
 void RandomIS() {
 	int randomsong = AI_RND(is_len) + is_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleIS);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -195,7 +195,7 @@ void RandomIS() {
 
 void RandomEP() {
 	int randomsong = AI_RND(ep_len) + ep_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleEP);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -216,7 +216,7 @@ void RandomEP() {
 
 void RandomP3() {
 	int randomsong = AI_RND(p3_len) + p3_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleP3);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -237,7 +237,7 @@ void RandomP3() {
 
 void RandomP4() {
 	int randomsong = AI_RND(p4_len) + p4_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleP4);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -258,7 +258,7 @@ void RandomP4() {
 
 void RandomPQ() {
 	int randomsong = AI_RND(pq_len) + pq_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShufflePQ);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -279,7 +279,7 @@ void RandomPQ() {
 
 void RandomP5() {
 	int randomsong = AI_RND(p5_len) + p5_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleP5);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -300,7 +300,7 @@ void RandomP5() {
 
 void RandomSMT1() {
 	int randomsong = AI_RND(smt1_len) + smt1_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleSMT1);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -321,7 +321,7 @@ void RandomSMT1() {
 
 void RandomSMT3() {
 	int randomsong = AI_RND(smt3_len) + smt3_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleSMT3);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -342,7 +342,7 @@ void RandomSMT3() {
 
 void RandomMJ() {
 	int randomsong = AI_RND(mj_len) + mj_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleMJ);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -363,7 +363,7 @@ void RandomMJ() {
 
 void RandomMJ2() {
 	int randomsong = AI_RND(mj2_len) + mj2_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleMJ2);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -384,7 +384,7 @@ void RandomMJ2() {
 
 void RandomDDS() {
 	int randomsong = AI_RND(dds_len) + dds_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleDDS);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -405,7 +405,7 @@ void RandomDDS() {
 
 void RandomRaidou() {
 	int randomsong = AI_RND(rai_len) + rai_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleRaidou);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -426,7 +426,7 @@ void RandomRaidou() {
 
 void RandomOther() {
 	int randomsong = AI_RND(misc_len) + misc_start;
-	if (GET_CNT(ShuffleInit) == 1) {
+	if (GET_CNT(ShuffleInit) == 3) {
 		SET_CNT(ShufflePool, ShuffleOther);
 	}
 	if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
@@ -511,7 +511,7 @@ void playBGM(int songid) {
 	SET_CNT(1, songid);
 	SET_CNT(ShufflePool, 0);
 	if (GET_CNT(1) >= 500) {
-	MSG(HUKA_ORDER_BGM_CHANGE_DO);
+	MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 	}
 }
 
@@ -520,7 +520,7 @@ void playRandomBGM(int songid) {
 	SET_CNT(PreviousSong, GET_CNT(1));
 	
 	//Runs if Shuffle was Automatic
-	if (GET_CNT(ShuffleInit) != 1) {
+	if (GET_CNT(ShuffleInit) != 1 && GET_CNT(ShuffleInit) != 2 && GET_CNT(ShuffleInit) != 3) {
 		//Check's if current song isn't Fuuka's and turns off Randomization
 		if (GET_CNT(1) < 500) {
 			SET_CNT(ShufflePool, 0);
