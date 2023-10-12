@@ -81,8 +81,8 @@ Persona
  Persona Q
 
 750 Looming Danger
-751 The Voice Someone Calls
-752 Maze Of Life
+751 Maze Of Life
+752 The Voice Someone Calls
 
 Mainline
 

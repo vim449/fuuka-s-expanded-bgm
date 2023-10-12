@@ -205,39 +205,35 @@
 [msg HUKA_ORDER_BGM_CHANGE2 [Fuuka]]
 [f 0 8 65278][f 1 31]...Here are the games I have.[n]Which one do you want?[n][f 0 4][e]
 
-[msg HUKA_ORDER_BGM_CHANGE2_1of2 [Fuuka   (Page 1 of 2)]]
+[msg HUKA_ORDER_BGM_CHANGE2_1of2 [Fuuka  (Page 1 of 2)]]
 [f 0 8 65278][f 1 31]...Here are the games I have.[n]Which one do you want?[n][f 0 4][e]
 
-[msg HUKA_ORDER_BGM_CHANGE2_2of2 [Fuuka   (Page 2 of 2)]]
+[msg HUKA_ORDER_BGM_CHANGE2_2of2 [Fuuka  (Page 2 of 2)]]
 [f 0 8 65278][f 1 31]...Here are the games I have.[n]Which one do you want?[n][f 0 4][e]
 
-[msg HUKA_ORDER_BGM_CHANGE2_1of3 [Fuuka   (Page 1 of 3)]]
+[msg HUKA_ORDER_BGM_CHANGE2_1of3 [Fuuka  (Page 1 of 3)]]
 [f 0 8 65278][f 1 31]...Here are the games I have.[n]Which one do you want?[n][f 0 4][e]
 
-[msg HUKA_ORDER_BGM_CHANGE2_2of3 [Fuuka   (Page 2 of 3)]]
+[msg HUKA_ORDER_BGM_CHANGE2_2of3 [Fuuka  (Page 2 of 3)]]
 [f 0 8 65278][f 1 31]...Here are the games I have.[n]Which one do you want?[n][f 0 4][e]
 
-[msg HUKA_ORDER_BGM_CHANGE2_3of3 [Fuuka   (Page 3 of 3)]]
+[msg HUKA_ORDER_BGM_CHANGE2_3of3 [Fuuka  (Page 3 of 3)]]
 [f 0 8 65278][f 1 31]...Here are the games I have.[n]Which one do you want?[n][f 0 4][e]
 
-[msg HUKA_ORDER_BGM_CHANGE3_1of2 [Fuuka   (Page 1 of 2]]
+[msg HUKA_ORDER_BGM_CHANGE3_1of2 [Fuuka  (Page 1 of 2)]]
 [f 0 8 65278][f 1 31]...Here are the songs I have.[n]Which one do you want to hear?[n][f 0 4][e]
 
-[msg HUKA_ORDER_BGM_CHANGE3_2of2 [Fuuka   (Page 2 of 2]]
+[msg HUKA_ORDER_BGM_CHANGE3_2of2 [Fuuka  (Page 2 of 2)]]
 [f 0 8 65278][f 1 31]...Here are the songs I have.[n]Which one do you want to hear?[n][f 0 4][e]
 
-[msg HUKA_ORDER_BGM_CHANGE3_1of3 [Fuuka   (Page 1 of 3]]
+[msg HUKA_ORDER_BGM_CHANGE3_1of3 [Fuuka  (Page 1 of 3]]
 [f 0 8 65278][f 1 31]...Here are the songs I have.[n]Which one do you want to hear?[n][f 0 4][e]
 
-[msg HUKA_ORDER_BGM_CHANGE3_2of3 [Fuuka   (Page 2 of 3]]
+[msg HUKA_ORDER_BGM_CHANGE3_2of3 [Fuuka  (Page 2 of 3]]
 [f 0 8 65278][f 1 31]...Here are the songs I have.[n]Which one do you want to hear?[n][f 0 4][e]
 
-[msg HUKA_ORDER_BGM_CHANGE3_3of3 [Fuuka   (Page 3 of 3]]
+[msg HUKA_ORDER_BGM_CHANGE3_3of3 [Fuuka  (Page 3 of 3]]
 [f 0 8 65278][f 1 31]...Here are the songs I have.[n]Which one do you want to hear?[n][f 0 4][e]
-
-[msg BASE_HUKA_ORDER_BGM_CHANGE_DO [Fuuka]]
-[f 0 8 65278][f 1 31]There you go.[n][f 0 4][e]
-[f 0 8 65278][f 1 31]If you want to listen to something[n]else, please let me know.[n][f 0 4][e]
 
 [msg Fuuka_Tutorial]
 [f 0 8 65278][f 1 31][f 2 2 65535 65535][f 2 3 65535 1]You can press Left or Right on the D-Pad to go to the[n]Previous or Next Page.[n][f 0 4][e]
