@@ -308,7 +308,7 @@ void RandomSMT1() {
 			Random();
 		}
 		else if (GET_CNT(ShufflePool) == ShuffleSMT) {
-			RandomPersona();
+			RandomSMT();
 		}
 		else {
 			RandomSMT1();
@@ -329,7 +329,7 @@ void RandomSMT3() {
 			Random();
 		}
 		else if (GET_CNT(ShufflePool) == ShuffleSMT) {
-			RandomPersona();
+			RandomSMT();
 		}
 		else {
 			RandomSMT3();
@@ -350,7 +350,7 @@ void RandomMJ() {
 			Random();
 		}
 		else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-			RandomPersona();
+			RandomSpin();
 		}
 		else {
 			RandomMJ();
@@ -371,7 +371,7 @@ void RandomMJ2() {
 			Random();
 		}
 		else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-			RandomPersona();
+			RandomSpin();
 		}
 		else {
 			RandomMJ2();
@@ -392,7 +392,7 @@ void RandomDDS() {
 			Random();
 		}
 		else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-			RandomPersona();
+			RandomSpin();
 		}
 		else {
 			RandomDDS();
@@ -413,7 +413,7 @@ void RandomRaidou() {
 			Random();
 		}
 		else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-			RandomPersona();
+			RandomSpin();
 		}
 		else {
 			RandomRaidou();
@@ -434,7 +434,7 @@ void RandomOther() {
 			Random();
 		}
 		else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-			RandomPersona();
+			RandomSpin();
 		}
 		else {
 			RandomOther();
