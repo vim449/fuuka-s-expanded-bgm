@@ -9,7 +9,7 @@
 // Imports
 // 
 
-import( "BASE_KOROMARU.BF" );
+import( "KOROMARU.BF" );
 import("../Utils.flow");
 
 // 
