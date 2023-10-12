@@ -1,0 +1,24 @@
+
+// 
+// FlowScript decompiled by AtlusScriptLib by TGE (2017)
+// In the unfortunate case of any bugs, please report them back to me.
+// 
+
+
+// 
+// Imports
+// 
+
+import( "FIELD.BF" );
+import( "../Music.flow" );
+import("../Utils.flow");
+
+void order_for_huka_hook()
+{
+	BGMorder_for_huka();
+}
+
+void order_to_change_bgm_hook()
+{
+	BGMorder_to_change_bgm();
+}
