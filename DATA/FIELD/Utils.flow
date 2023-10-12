@@ -50,7 +50,7 @@ const int rai_len = 4;
 const int misc_start = 1150;
 const int misc_len = 3;
 
-const int series = 3
+const int series = 3;
 const int persona_games = 7;
 const int smt_games = 2;
 const int spin_games = 5;
@@ -58,7 +58,7 @@ const int spin_games = 5;
 void Random() {
 	int selection = AI_RND(series - 1);
 	SET_CNT(ShufflePool, ShuffleAll);
-	switch (selection)
+	switch (selection) {
 		case 0:
 			RandomPersona();
 			return;
@@ -70,6 +70,7 @@ void Random() {
 			return;
 		default:
 			return;
+	}
 }
 
 void RandomPersona() {
@@ -77,7 +78,7 @@ void RandomPersona() {
 		SET_CNT(ShufflePool, ShufflePersona);
 	}
 	int selection = AI_RND(persona_games - 1);
-	switch (selection)
+	switch (selection) {
 		case 0:
 			RandomP1();
 			return;
@@ -109,7 +110,7 @@ void RandomSMT() {
 		SET_CNT(ShufflePool, ShuffleSMT);
 	}
 	int selection = AI_RND(smt_games - 1);
-	switch (selection)
+	switch (selection) {
 		case 0:
 			RandomSMT1();
 			return;
@@ -126,7 +127,7 @@ void RandomSpin() {
 		SET_CNT(ShufflePool, ShuffleSpin);
 	}
 	int selection = AI_RND(spin_games - 1);
-	switch (selection)
+	switch (selection) {
 		case 0:
 			RandomMJ();
 			return;
@@ -154,7 +155,7 @@ void RandomP1() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShufflePersona {
+	else if (GET_CNT(ShufflePool) == ShufflePersona) {
 		if (randomsong == GET_CNT(1)) {
 			RandomPersona();
 		}	
@@ -175,7 +176,7 @@ void RandomIS() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShufflePersona {
+	else if (GET_CNT(ShufflePool) == ShufflePersona) {
 		if (randomsong == GET_CNT(1)) {
 			RandomPersona();
 		}	
@@ -196,7 +197,7 @@ void RandomEP() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShufflePersona {
+	else if (GET_CNT(ShufflePool) == ShufflePersona) {
 		if (randomsong == GET_CNT(1)) {
 			RandomPersona();
 		}	
@@ -217,7 +218,7 @@ void RandomP3() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShufflePersona {
+	else if (GET_CNT(ShufflePool) == ShufflePersona) {
 		if (randomsong == GET_CNT(1)) {
 			RandomPersona();
 		}	
@@ -238,7 +239,7 @@ void RandomP4() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShufflePersona {
+	else if (GET_CNT(ShufflePool) == ShufflePersona) {
 		if (randomsong == GET_CNT(1)) {
 			RandomPersona();
 		}	
@@ -259,14 +260,14 @@ void RandomPQ() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShufflePersona {
+	else if (GET_CNT(ShufflePool) == ShufflePersona) {
 		if (randomsong == GET_CNT(1)) {
 			RandomPersona();
 		}	
 	}
 	else {
 		if (randomsong == GET_CNT(1)) {
-			RandomPq();
+			RandomPQ();
 		}
 		SET_CNT(ShufflePool, ShuffleP5);
 	}
@@ -280,7 +281,7 @@ void RandomP5() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShufflePersona {
+	else if (GET_CNT(ShufflePool) == ShufflePersona) {
 		if (randomsong == GET_CNT(1)) {
 			RandomPersona();
 		}	
@@ -301,7 +302,7 @@ void RandomSMT1() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShuffleSMT {
+	else if (GET_CNT(ShufflePool) == ShuffleSMT) {
 		if (randomsong == GET_CNT(1)) {
 			RandomSMT();
 		}	
@@ -322,7 +323,7 @@ void RandomSMT3() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShuffleSMT {
+	else if (GET_CNT(ShufflePool) == ShuffleSMT) {
 		if (randomsong == GET_CNT(1)) {
 			RandomSMT();
 		}	
@@ -343,7 +344,7 @@ void RandomMJ() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShuffleSpin {
+	else if (GET_CNT(ShufflePool) == ShuffleSpin) {
 		if (randomsong == GET_CNT(1)) {
 			RandomSpin();
 		}	
@@ -364,7 +365,7 @@ void RandomMJ2() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShuffleSpin {
+	else if (GET_CNT(ShufflePool) == ShuffleSpin) {
 		if (randomsong == GET_CNT(1)) {
 			RandomSpin();
 		}	
@@ -385,7 +386,7 @@ void RandomDDS() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShuffleSpin {
+	else if (GET_CNT(ShufflePool) == ShuffleSpin) {
 		if (randomsong == GET_CNT(1)) {
 			RandomSpin();
 		}	
@@ -406,7 +407,7 @@ void RandomRaidou() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShuffleSpin {
+	else if (GET_CNT(ShufflePool) == ShuffleSpin) {
 		if (randomsong == GET_CNT(1)) {
 			RandomSpin();
 		}	
@@ -427,7 +428,7 @@ void RandomOther() {
 			Random();
 		}
 	}
-	else if (GET_CNT(ShufflePool) == ShuffleSpin {
+	else if (GET_CNT(ShufflePool) == ShuffleSpin) {
 		if (randomsong == GET_CNT(1)) {
 			RandomSpin();
 		}	

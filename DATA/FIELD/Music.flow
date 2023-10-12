@@ -94,7 +94,7 @@ void BGMorder_to_change_bgm() {
 	
 	if ( BIT_CHK( 9998 ) == 0 )
 		{
-			ShowTutorial();
+			ShowFuukaTutorial();
 		}
 	MSG(BGMHUKA_ORDER_BGM_CHANGE);
 
