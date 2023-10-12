@@ -83,7 +83,7 @@ void BGMorder_for_huka() {
 	FUNCTION_00B7(0);
 }
 
-void ShowTutorial()
+void ShowFuukaTutorial()
 {
 	MSG_HELP( Fuuka_Tutorial );
 	BIT_ON( 9998 );
@@ -305,7 +305,7 @@ void P1_2() {
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 3:
-			P_Music()
+			P_Music();
 			break;
 		case 4:
 			P1();
