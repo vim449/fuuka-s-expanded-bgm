@@ -16,7 +16,7 @@ import("../Utils.flow");
 //
 
 void call_next_level_hook() {
-  if (GET_CNT(9999) >= 9982) {
+  if (GET_CNT(9999) > 0) {
     ReRandom();
   }
   call_next_level_unhooked();
