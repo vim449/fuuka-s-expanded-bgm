@@ -23,11 +23,11 @@ Persona
 
  Persona 3
 
-102 The Snow Queen (P3)
-103 Maya's Theme (P3)
-104 Persona (P3)
-105 Time Castle (P3)
-1200
+1200 The Snow Queen (P3)
+1201 Maya's Theme (P3)
+1202 Persona (P3)
+1203 Time Castle (P3)
+1204
 
  Persona 1
 
