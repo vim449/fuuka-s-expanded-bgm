@@ -1,0 +1,621 @@
+import ("Record.msg");
+
+void MallRecord()
+{
+	if (GET_MONTH() < 6)
+	{
+		
+		OPEN_MSG_WIN();
+		MSG( Record_Closed );
+		CLOSE_MSG_WIN();
+		return;
+	}
+	else if ((GET_MONTH() == 6) && (GET_DAY_OF_MONTH() < 11))
+	{
+		OPEN_MSG_WIN();
+		MSG( Record_Closed );
+		CLOSE_MSG_WIN();
+		return;
+	}
+	else if ((GET_MONTH() == 6) && (GET_DAY_OF_MONTH() == 11) && (FUNCTION_0083() < 6))
+	{
+		OPEN_MSG_WIN();
+		MSG( Closed_Day );
+		CLOSE_MSG_WIN();
+		return;
+	}
+	else
+	{
+		RecordShop();
+		return;
+	}
+	return;
+}
+
+void RecordShop()
+{
+	OPEN_MSG_WIN();
+	MSG( Shop_Greeting );
+	MSG( Shop_Choose_Series );
+	//Close menu on Circle
+	SEL_CHK_PAD(6,20);
+	int select = SEL( Record );
+	CLOSE_MSG_WIN();
+	switch (select)
+	{
+		case 0: // Persona
+			PersonaShop();
+			break;
+		case 1: // SMT
+			SMTShop();
+			break;
+		case 2: // Spin-Offs
+			SpinShop();
+			break;
+		default:
+			break;
+	}
+	return;
+}
+
+void RecordShopReturn()
+{
+	OPEN_MSG_WIN();
+	MSG( Shop_Greeting2 );
+	MSG( Shop_Choose_Series );
+	//Close menu on Circle
+	SEL_CHK_PAD(6,20);
+	int select = SEL( Record );
+	CLOSE_MSG_WIN();
+	switch (select)
+	{
+		case 0: // Persona
+			PersonaShop();
+			break;
+		case 1: // SMT
+			SMTShop();
+			break;
+		case 2: // Spin-Offs
+			SpinShop();
+			break;
+		default:
+			break;
+	}
+	return;
+}
+
+void PersonaShop()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = PersonaShop1();
+				break;
+			case 2:
+				page = PersonaShop2();
+				break;
+			 default:
+				break;
+		}
+	}
+	return;
+}
+
+int PersonaShop1()
+{
+	OPEN_MSG_WIN();
+	MSG( ShopChoose1of2 );
+	//Close menu on Circle
+	SEL_CHK_PAD(6,20);
+	//Next Page on D-Pad Right
+	SEL_CHK_PAD(13,4);
+	//Previous Page on D-Pad Left
+	SEL_CHK_PAD(15,5);
+	int select = SEL( PersonaShop1 );
+	CLOSE_MSG_WIN();
+	switch (select)
+	{
+		case 0: // Persona 1
+			if (BIT_CHK(579) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(579);
+					ShopAgain();
+				}
+			}
+			break;
+		case 1: // Persona 2 IS
+			if (BIT_CHK(580) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(580);
+					ShopAgain();
+				}
+			}
+			break;
+		case 2: // Persona 2 EP
+			if (BIT_CHK(581) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(581);
+					ShopAgain();
+				}
+			}
+			break;
+		case 3: // Persona 3
+			if (BIT_CHK(582) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(582);
+					ShopAgain();
+				}
+			}
+			break;
+		case 4: // Next Page (D-Pad Right)
+			return 2;
+		case 5: //Previous Page (D-Pad Left)
+			return 2;
+		default:
+			ShopAgain();
+			break;
+	}
+	return 0;
+}
+
+int PersonaShop2()
+{
+	OPEN_MSG_WIN();
+	MSG( ShopChoose2of2 );
+	//Close menu on Circle
+	SEL_CHK_PAD(6,20);
+	//Next Page on D-Pad Right
+	SEL_CHK_PAD(13,4);
+	//Previous Page on D-Pad Left
+	SEL_CHK_PAD(15,5);
+	int select = SEL( PersonaShop2 );
+	CLOSE_MSG_WIN();
+	switch (select)
+	{
+		case 0: // Persona 4
+			if (BIT_CHK(583) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(583);
+					ShopAgain();
+				}
+			}
+			break;
+		case 1: // Persona Q
+			if (BIT_CHK(584) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(584);
+					ShopAgain();
+				}
+			}
+			break;
+		case 2: // Persona 5
+			if (BIT_CHK(585) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(585);
+					ShopAgain();
+				}
+			}
+			break;
+		case 4: // Next Page (D-Pad Right)
+			return 1;
+		case 5: //Previous Page (D-Pad Left)
+			return 1;
+		default:
+			ShopAgain();
+			break;
+	}
+	return 0;
+}
+
+void SMTShop()
+{
+	OPEN_MSG_WIN();
+	MSG( ShopChoose1of1 );
+	//Close menu on Circle
+	SEL_CHK_PAD(6,20);
+	int select = SEL( SMTShop );
+	CLOSE_MSG_WIN();
+	switch (select)
+	{
+		case 0: // SMT 1,2, & if...
+			if (BIT_CHK(586) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(586);
+					ShopAgain();
+				}
+			}
+			break;
+		case 1: // SMT 3 & 4
+			if (BIT_CHK(587) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(587);
+					ShopAgain();
+				}
+			}
+			break;
+		default:
+			ShopAgain();
+			break;
+	}
+	return;
+}
+
+void SpinShop()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = SpinShop1();
+				break;
+			case 2:
+				page = SpinShop2();
+				break;
+			 default:
+				break;
+		}
+	}
+	return;
+}
+
+int SpinShop1()
+{
+	OPEN_MSG_WIN();
+	MSG( ShopChoose1of2 );
+	//Close menu on Circle
+	SEL_CHK_PAD(6,20);
+	//Next Page on D-Pad Right
+	SEL_CHK_PAD(13,4);
+	//Previous Page on D-Pad Left
+	SEL_CHK_PAD(15,5);
+	int select = SEL( SpinShop1 );
+	CLOSE_MSG_WIN();
+	switch (select)
+	{
+		case 0: // Majin Tensei 1
+			if (BIT_CHK(588) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(588);
+					ShopAgain();
+				}
+			}
+			break;
+		case 1: // Majin Tensei 2
+			if (BIT_CHK(589) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(589);
+					ShopAgain();
+				}
+			}
+			break;
+		case 2: // Digital Devil Saga
+			if (BIT_CHK(590) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(590);
+					ShopAgain();
+				}
+			}
+			break;
+		case 4: // Next Page (D-Pad Right)
+			return 2;
+		case 5: //Previous Page (D-Pad Left)
+			return 2;
+		default:
+			ShopAgain();
+			break;
+	}
+	return 0;
+}
+
+int SpinShop2()
+{
+	OPEN_MSG_WIN();
+	MSG( ShopChoose2of2 );
+	//Close menu on Circle
+	SEL_CHK_PAD(6,20);
+	//Next Page on D-Pad Right
+	SEL_CHK_PAD(13,4);
+	//Previous Page on D-Pad Left
+	SEL_CHK_PAD(15,5);
+	int select = SEL( SpinShop2 );
+	CLOSE_MSG_WIN();
+	switch (select)
+	{
+		case 0: // Raidou 1 & 2
+			if (BIT_CHK(591) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(591);
+					ShopAgain();
+				}
+			}
+			break;
+		case 1: // Others
+			if (BIT_CHK(592) == 1) {
+				OPEN_MSG_WIN();
+				MSG( Already_Own );
+				CLOSE_MSG_WIN();
+				ShopAgain();
+				break;
+			}
+			else {
+				if (GET_YEN() < 2000) {
+					OPEN_MSG_WIN();
+					MSG( Broke );
+					CLOSE_MSG_WIN();
+					break;
+				}
+				else {
+					REMOVE_YEN(2000);
+					OPEN_MSG_WIN();
+					MSG( Thanks );
+					CLOSE_MSG_WIN();
+					BIT_ON(592);
+					ShopAgain();
+				}
+			}
+			break;
+		case 4: // Next Page (D-Pad Right)
+			return 1;
+		case 5: //Previous Page (D-Pad Left)
+			return 1;
+		default:
+			ShopAgain();
+			break;
+	}
+	return 0;
+}
+
+void ShopAgain()
+{
+	OPEN_MSG_WIN();
+	MSG( KeepShopping );
+	//Close menu on Circle
+	SEL_CHK_PAD(6,20);
+	int select = SEL( ShopAgain );
+	CLOSE_MSG_WIN();
+	switch (select)
+	{
+		case 0: // Yes
+			RecordShopReturn();
+			break;
+		case 1: // No
+			break;
+		default:
+			break;
+	}
+	return;
+}

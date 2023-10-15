@@ -243,3 +243,6 @@
 [f 0 8 65278][f 1 31][f 2 2 65535 65535][f 2 3 65535 1]You can press Left or Right on the D-Pad to go to the[n]Previous or Next Page.[n][f 0 4][e]
 [f 0 8 65278][f 1 31][f 2 2 65535 65535][f 2 3 65535 1]You can press Select to shuffle all[n]songs in the current section.[n][f 0 4][e]
 [f 0 8 65278][f 1 31][f 2 2 65535 65535][f 2 3 65535 1]You can press Start to return to the previous section.[n][f 0 4][e]
+
+[msg No_Music [Fuuka]]
+[f 0 8 65278][f 1 31]You don't own any soundtracks.[n][f 0 4][e]

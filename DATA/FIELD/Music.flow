@@ -92,6 +92,14 @@ void ShowFuukaTutorial()
 
 void BGMorder_to_change_bgm() {
 	
+	if (AnySongs() != true)
+	{
+		OPEN_MSG_WIN();
+		MSG(No_Music);
+		CLOSE_MSG_WIN();
+		FUNCTION_00B7(0);
+		return;
+	}
 	if ( BIT_CHK( 9998 ) == 0 )
 	{
 		CLOSE_MSG_WIN();
@@ -134,7 +142,34 @@ void BGMorder_to_change_bgm() {
 	FUNCTION_00B7(0);
 }
 
-void P_Music() {
+void P_Music()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = P_Music1();
+				break;
+			case 2:
+				page = P_Music2();
+				break;
+			case 3:
+				page = P_Music3();
+				break;
+			 default:
+				break;
+		}
+	}
+	return;
+}
+
+int P_Music1() {
 	MSG(HUKA_ORDER_BGM_CHANGE2_1of3);
 
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
@@ -159,11 +194,9 @@ void P_Music() {
 			P3();
 			break;
 		case 4:
-			P_Music2();
-			break;
+			return 2;
 		case 5:
-			P_Music2();
-			break;
+			return 3;
 		case 6:
 			BGMorder_to_change_bgm();
 			break;
@@ -171,14 +204,16 @@ void P_Music() {
 			SET_CNT(9998, 2);
 			RandomPersona();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO); 
+			break;
 		default:
 			break;
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void P_Music2() {
+int P_Music2() {
 	MSG(HUKA_ORDER_BGM_CHANGE2_2of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -198,26 +233,26 @@ void P_Music2() {
 			P5();
 			break;
 		case 4:
-			P_Music();
-			break;
+			return 3;
 		case 5:
-			P_Music();
-			break;
+			return 1;
 		case 6:
 			BGMorder_to_change_bgm();
 			break;
 		case 7:
 			SET_CNT(9998, 2);
 			RandomPersona();
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO); 
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void P_Music3() {
+int P_Music3() {
 	MSG(HUKA_ORDER_BGM_CHANGE2_3of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -236,25 +271,50 @@ void P_Music3() {
 			BGMorder_to_change_bgm();
 			break;
 		case 4:
-			P_Music();
-			break; // loop back to start of menu
+			return 1; // loop back to start of menu
 		case 5:
-			P_Music2();
-			break;
+			return 2;
 		case 6:
 			BGMorder_to_change_bgm();
 			break;
 		case 7:
 			SET_CNT(9998, 2);
-			RandomPersona(); 
+			RandomPersona();
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO); 
+			break;			
 		default:
 			break;
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void P1() {
+void P1()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = P1_1();
+				break;
+			case 2:
+				page = P1_2();
+				break;
+			 default:
+				break;
+		}
+	}
+	return;
+}
+
+int P1_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -271,11 +331,9 @@ void P1() {
 			playBGM(p1_start + selection);
 			break;
 		case 4:
-			P1_2();
-			break;
+			return 2;
 		case 5:
-			P1_2();
-			break;
+			return 2;
 		case 6:
 			P_Music();
 			break;
@@ -283,14 +341,16 @@ void P1() {
 			SET_CNT(9998, 3);
 			RandomP1();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void P1_2() {
+int P1_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -312,11 +372,9 @@ void P1_2() {
 			P_Music();
 			break;
 		case 4:
-			P1();
-			break;
+			return 1;
 		case 5:
-			P1();
-			break;
+			return 1;
 		case 6:
 			P_Music();
 			break;
@@ -325,14 +383,42 @@ void P1_2() {
 			RandomP1();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-			default:
+		default:
 			break;
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void IS() {
+void IS()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = IS_1();
+				break;
+			case 2:
+				page = IS_2();
+				break;
+			case 3:
+				page = IS_3();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int IS_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -349,11 +435,9 @@ void IS() {
 			playBGM(is_start + selection);
 			break;
 		case 4:
-			IS_2(); // create new menu
-			break;
+			return 2;
 		case 5:
-			IS_3();
-			break;
+			return 3;
 		case 6:
 			P_Music();
 			break;
@@ -361,15 +445,17 @@ void IS() {
 			SET_CNT(9998, 3);
 			RandomIS();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void IS_2() {
+int IS_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -386,11 +472,9 @@ void IS_2() {
 			playBGM(is_start + selection + 4);
 			break;
 		case 4:
-			IS_3(); // create new menu
-			break;
+			return 3;
 		case 5:
-			IS();
-			break;
+			return 1;
 		case 6:
 			P_Music();
 			break;
@@ -398,15 +482,17 @@ void IS_2() {
 			SET_CNT(9998, 3);
 			RandomIS();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void IS_3() {
+int IS_3() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_3of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -427,11 +513,9 @@ void IS_3() {
 		case 3:
 			P_Music();
 		case 4:
-			IS(); // create new menu
-			break;
+			return 1; // create new menu
 		case 5:
-			IS_2();
-			break;
+			return 2;
 		case 6:
 			P_Music();
 			break;
@@ -439,14 +523,43 @@ void IS_3() {
 			SET_CNT(9998, 3);
 			RandomIS();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 	default:
 			break;
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void EP() {
+void EP()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = EP_1();
+				break;
+			case 2:
+				page = EP_2();
+				break;
+			case 3:
+				page = EP_3();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int EP_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -463,11 +576,9 @@ void EP() {
 			playBGM(ep_start + selection);
 			break;
 		case 4:
-			EP_2(); // create new menu
-			break;
+			return 2;
 		case 5:
-			EP_3();
-			break;
+			return 3;
 		case 6:
 			P_Music();
 			break;
@@ -475,14 +586,16 @@ void EP() {
 			SET_CNT(9998, 3);
 			RandomEP();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void EP_2() {
+int EP_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -499,11 +612,9 @@ void EP_2() {
 			playBGM(ep_start + selection + 4);
 			break;
 		case 4:
-			EP_3(); // create new menu
-			break;
+			return 3;
 		case 5:
-			EP();
-			break;
+			return 1;
 		case 6:
 			P_Music();
 			break;
@@ -511,14 +622,16 @@ void EP_2() {
 			SET_CNT(9998, 3);
 			RandomEP();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void EP_3() {
+int EP_3() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_3of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -540,25 +653,50 @@ void EP_3() {
 			break;
 		//case 3:
 		case 4:
-		EP(); // create new menu
-			break;
+			return 2;
 		case 5:
-		EP_2();
-			break;
+			return 1;
 		case 6:
 			P_Music();
 			break;
 		case 7:
 			SET_CNT(9998, 3);
-			RandomEP(); 
+			RandomEP();
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 	default:
 			break;
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void P3() {
+void P3()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = P3_1();
+				break;
+			case 2:
+				page = P3_2();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int P3_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -575,11 +713,9 @@ void P3() {
 			playBGM(p3_start + selection);
 			break;
 		case 4:
-			P3_2(); // create new menu
-			break;
+			return 2;
 		case 5:
-			P3_2();
-			break;
+			return 2;
 		case 6:
 			P_Music();
 			break;
@@ -593,9 +729,10 @@ void P3() {
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void P3_2() {
+int P3_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -615,11 +752,9 @@ void P3_2() {
 		//case 2:
 		//case 3:
 		case 4:
-			P3(); // create new menu
-			break;
+			return 1;
 		case 5:
-			P3();
-			break;
+			return 1;
 		case 6:
 			P_Music();
 			break;
@@ -633,9 +768,34 @@ void P3_2() {
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void P4() {
+void P4()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = P4_1();
+				break;
+			case 2:
+				page = P4_2();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int P4_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -652,26 +812,26 @@ void P4() {
 			playBGM(p4_start + selection);
 			break;
 		case 4:
-			P4_2(); // create new menu
-			break;
+			return 2;
 		case 5:
-			P4_2();
-			break;
+			return 2;
 		case 6:
 			P_Music();
 			break;
 		case 7:
 			SET_CNT(9998, 3);
 			RandomP4();
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO); 
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void P4_2() {
+int P4_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -692,11 +852,9 @@ void P4_2() {
 		//case 2:
 		//case 3:
 		case 4:
-			P4(); // create new menu
-			break;
+			return 1;
 		case 5:
-			P4();
-			break;
+			return 1;
 		case 6:
 			P_Music();
 			break;
@@ -710,9 +868,34 @@ void P4_2() {
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void PQ() {
+void PQ()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = PQ_1();
+				break;
+			case 2:
+				page = PQ_2();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int PQ_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -729,11 +912,9 @@ void PQ() {
 			break;
 		//case 3:
 		case 4:
-			PQ_2(); // create new menu
-			break;
+			return 2;
 		case 5:
-			PQ_2();
-			break;
+			return 2;
 		case 6:
 			P_Music();
 			break;
@@ -741,15 +922,17 @@ void PQ() {
 			SET_CNT(9998, 3);
 			RandomPQ();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-	default:
+			break;
+		default:
 			break;
 	}
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void PQ_2() {
+int PQ_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -769,11 +952,9 @@ void PQ_2() {
 			break;
 		//case 2:
 		case 4:
-			PQ(); // create new menu
-			break;
+			return 1;
 		case 5:
-			PQ();
-			break;
+			return 1;
 		case 6:
 			P_Music();
 			break;
@@ -781,15 +962,41 @@ void PQ_2() {
 			SET_CNT(9998, 3);
 			RandomPQ();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void P5() {
+void P5()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = P5_1();
+				break;
+			case 2:
+				page = P5_2();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int P5_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -806,11 +1013,9 @@ void P5() {
 			playBGM(p5_start + selection);
 			break;
 		case 4:
-			P5_2(); // create new menu
-			break;
+			return 2;
 		case 5:
-			P5_2();
-			break;
+			return 2;
 		case 6:
 			P_Music();
 			break;
@@ -825,9 +1030,10 @@ void P5() {
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void P5_2() {
+int P5_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -848,11 +1054,9 @@ void P5_2() {
 		//case 2:
 		//case 3:
 		case 4:
-			P5(); // create new menu
-			break;
+			return 1;
 		case 5:
-			P5();
-			break;
+			return 1;
 		case 6:
 			P_Music();
 			break;
@@ -866,6 +1070,7 @@ void P5_2() {
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
 void SMT_Music() {
@@ -879,10 +1084,10 @@ void SMT_Music() {
 	int selection = SEL(SMT_Music);
 	switch (selection) {
 		case 0:
-		SMT1();
+			SMT1();
 			break;
 		case 1:
-		SMT3();
+			SMT3();
 			break;
 		case 2:
 			SET_CNT(9998, 2);
@@ -903,9 +1108,34 @@ void SMT_Music() {
 		default:
 			break;
 	}
+	return;
 }
 
-void SMT1() {
+void SMT1()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = SMT1_1();
+				break;
+			case 2:
+				page = SMT1_2();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int SMT1_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -922,11 +1152,9 @@ void SMT1() {
 			playBGM(smt1_start + selection);
 			break;
 		case 4:
-			SMT1_2(); // create new menu
-			break;
+			return 2;
 		case 5:
-			SMT1_2();
-			break;
+			return 2;
 		case 6:
 			SMT_Music();
 			break;
@@ -941,9 +1169,10 @@ void SMT1() {
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void SMT1_2() {
+int SMT1_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -964,11 +1193,9 @@ void SMT1_2() {
 		//case 2:
 		//case 3:
 		case 4:
-			SMT1(); // create new menu
-			break;
+			return 1;
 		case 5:
-			SMT1();
-			break;
+			return 1;
 		case 6:
 			SMT_Music();
 			break;
@@ -982,9 +1209,34 @@ void SMT1_2() {
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void SMT3() {
+void SMT3()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = SMT3_1();
+				break;
+			case 2:
+				page = SMT3_2();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int SMT3_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1001,26 +1253,26 @@ void SMT3() {
 			playBGM(smt3_start + selection);
 			break;
 		case 4:
-			SMT3_2(); // create new menu
-			break;
+			return 2;
 		case 5:
-			SMT3_2();
-			break;
+			return 2;
 		case 6:
 			SMT_Music();
 			break;
 		case 7:
 			SET_CNT(9998, 3);
-			RandomSMT3(); 
-	default:
+			RandomSMT3();
+			break;
+		default:
 			break;
 	}
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void SMT3_2() {
+int SMT3_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1036,16 +1288,14 @@ void SMT3_2() {
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
-		SMT_Music();
+			SMT_Music();
 			break;
 		//case 2:
 		//case 3:
 		case 4:
-			SMT3(); // create new menu
-			break;
+			return 1;
 		case 5:
-			SMT3();
-			break;
+			return 1;
 		case 6:
 			SMT_Music();
 			break;
@@ -1059,9 +1309,34 @@ void SMT3_2() {
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void SpinSMT_Music() {
+void SpinSMT_Music()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = SpinSMT_Music_1();
+				break;
+			case 2:
+				page = SpinSMT_Music_2();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int SpinSMT_Music_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE2_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1084,11 +1359,9 @@ void SpinSMT_Music() {
 			Raidou();
 			break;
 		case 4:
-			SpinSMT_Music2();
-			break;
+			return 2;
 		case 5:
-			SpinSMT_Music2();
-			break;
+			return 2;
 		case 6:
 			BGMorder_to_change_bgm();
 			break;
@@ -1102,9 +1375,10 @@ void SpinSMT_Music() {
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void SpinSMT_Music2() {
+int SpinSMT_Music_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE2_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1127,11 +1401,9 @@ void SpinSMT_Music2() {
 			break;
 		//case 3:
 		case 4:
-			SpinSMT_Music();
-			break;
+			return 1;
 		case 5:
-			SpinSMT_Music();
-			break;
+			return 1;
 		case 6:
 			BGMorder_to_change_bgm();
 			break;
@@ -1143,9 +1415,34 @@ void SpinSMT_Music2() {
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void MJ() {
+void MJ()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = MJ_1();
+				break;
+			case 2:
+				page = MJ_2();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int MJ_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1162,11 +1459,9 @@ void MJ() {
 			break;
 		//case 3:
 		case 4:
-			MJ_2(); // create new menu
-			break;
+			return 2;
 		case 5:
-			MJ_2();
-			break;
+			return 2;
 		case 6:
 			SpinSMT_Music();
 			break;
@@ -1181,9 +1476,10 @@ void MJ() {
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void MJ_2() {
+int MJ_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1202,9 +1498,10 @@ void MJ_2() {
 			SpinSMT_Music();
 			break;
 		//case 2:
+		case 4:
+			return 1;
 		case 5:
-			MJ();
-			break;
+			return 1;
 		case 6:
 			SpinSMT_Music();
 			break;
@@ -1219,9 +1516,34 @@ void MJ_2() {
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void MJ2() {
+void MJ2()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = MJ2_1();
+				break;
+			case 2:
+				page = MJ2_2();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int MJ2_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1238,11 +1560,9 @@ void MJ2() {
 			playBGM(mj2_start + selection);
 			break;
 		case 4:
-			MJ2_2();
-			break;
+			return 2;
 		case 5:
-			MJ2_2();
-			break;
+			return 2;
 		case 6:
 			SpinSMT_Music();
 			break;
@@ -1250,14 +1570,16 @@ void MJ2() {
 			SET_CNT(9998, 3);
 			RandomMJ2();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void MJ2_2() {
+int MJ2_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1279,11 +1601,9 @@ void MJ2_2() {
 			SpinSMT_Music();
 		//case 3:
 		case 4:
-			MJ();
-			break;
+			return 1;
 		case 5:
-			MJ();
-			break;
+			return 1;
 		case 6:
 			SpinSMT_Music();
 			break;
@@ -1298,9 +1618,34 @@ void MJ2_2() {
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void DDS() {
+void DDS()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = DDS_1();
+				break;
+			case 2:
+				page = DDS_2();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int DDS_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1316,9 +1661,10 @@ void DDS() {
 		case 3:
 			playBGM(dds_start + selection);
 			break;
+		case 4:
+			return 2;
 		case 5:
-			DDS_2();
-			break;
+			return 2;
 		case 6:
 			SpinSMT_Music();
 			break;
@@ -1333,9 +1679,10 @@ void DDS() {
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void DDS_2() {
+int DDS_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1355,11 +1702,9 @@ void DDS_2() {
 			break;
 		//case 2:
 		case 4:
-			DDS(); // create new menu
-			break;
+			return 1;
 		case 5:
-			DDS();
-			break;
+			return 1;
 		case 6:
 			SpinSMT_Music();
 			break;
@@ -1374,9 +1719,34 @@ void DDS_2() {
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void Raidou() {
+void Raidou()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = Raidou_1();
+				break;
+			case 2:
+				page = Raidou_2();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int Raidou_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1393,11 +1763,9 @@ void Raidou() {
 			playBGM(rai_start + selection);
 			break;
 		case 4:
-			Raidou_2();
-			break;
+			return 2;
 		case 5:
-			Raidou_2();
-			break;
+			return 2;
 		case 6:
 			SpinSMT_Music();
 			break;
@@ -1412,9 +1780,10 @@ void Raidou() {
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void Raidou_2() {
+int Raidou_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1434,11 +1803,9 @@ void Raidou_2() {
 			break;
 		//case 2:
 		case 4:
-			Raidou(); // create new menu
-			break;
+			return 1;
 		case 5:
-			Raidou();
-			break;
+			return 1;
 		case 6:
 			SpinSMT_Music();
 			break;
@@ -1453,9 +1820,34 @@ void Raidou_2() {
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void Other() {
+void Other()
+{
+	bool selecting = true;
+	int page = 1;
+	while(selecting)
+	{
+		switch(page)
+		{	
+			case 0:
+				selecting = false;
+				break;
+			case 1:
+				page = Other_1();
+				break;
+			case 2:
+				page = Other_2();
+				break;
+			default:
+				break;
+		}
+	}
+	return;
+}
+
+int Other_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1472,11 +1864,9 @@ void Other() {
 			break;
 		//case 3:
 		case 4:
-			Other_2();
-			break;
+			return 2;
 		case 5:
-			Other_2();
-			break;
+			return 2;
 		case 6:
 			SpinSMT_Music();
 			break;
@@ -1491,9 +1881,10 @@ void Other() {
 
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
 }
 
-void Other_2() {
+int Other_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1512,11 +1903,9 @@ void Other_2() {
 			SpinSMT_Music();
 			break;
 		case 4:
-			Other(); // create new menu
-			break;
+			return 1;
 		case 5:
-			Other();
-			break;
+			return 1;
 		case 6:
 			SpinSMT_Music();
 			break;
@@ -1530,4 +1919,14 @@ void Other_2() {
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
+	return 0;
+}
+
+bool AnySongs() {
+	if ((BIT_CHK(579) == 0) && (BIT_CHK(580) == 0) && (BIT_CHK(581) == 0) && (BIT_CHK(582) == 0) && (BIT_CHK(583) == 0) && 
+		(BIT_CHK(584) == 0) && (BIT_CHK(585) == 0) && (BIT_CHK(586) == 0) && (BIT_CHK(587) == 0) && (BIT_CHK(588) == 0) && 
+		(BIT_CHK(589) == 0) && (BIT_CHK(590) == 0) && (BIT_CHK(591) == 0) && (BIT_CHK(592) == 0)) {
+			return false;
+		}
+	return true;
 }

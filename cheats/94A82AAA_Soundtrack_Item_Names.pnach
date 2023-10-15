@@ -1,0 +1,133 @@
+//// Write all strings we need
+// Persona 1 Soundtrack string
+patch=0,EE,009E0000,word,73726550
+patch=0,EE,009E0004,word,20616E6F
+patch=0,EE,009E0008,word,6F532031
+patch=0,EE,009E000C,word,74646E75
+patch=0,EE,009E0010,word,6B636172
+
+// Persona 2: Innocent Sin Soundtrack string
+patch=0,EE,009E0020,word,73726550
+patch=0,EE,009E0024,word,20616E6F
+patch=0,EE,009E0028,word,49203A32
+patch=0,EE,009E002C,word,636F6E6E
+patch=0,EE,009E0030,word,20746E65
+patch=0,EE,009E0034,word,206E6953
+patch=0,EE,009E0038,word,6E756F53
+patch=0,EE,009E003C,word,61727464
+patch=0,EE,009E0040,word,00006B63
+
+// Persona 2: Eternal Punishment Soundtrack string
+patch=0,EE,009E0050,word,73726550
+patch=0,EE,009E0054,word,20616E6F
+patch=0,EE,009E0058,word,45203A32
+patch=0,EE,009E005C,word,6E726574
+patch=0,EE,009E0060,word,50206C61
+patch=0,EE,009E0064,word,73696E75
+patch=0,EE,009E0068,word,6E656D68
+patch=0,EE,009E006C,word,6F532074
+patch=0,EE,009E0070,word,74646E75
+patch=0,EE,009E0074,word,6B636172
+
+// Persona 3 Soundtrack string
+patch=0,EE,009E0080,word,73726550
+patch=0,EE,009E0084,word,20616E6F
+patch=0,EE,009E0088,word,6F532033
+patch=0,EE,009E008C,word,74646E75
+patch=0,EE,009E0090,word,6B636172
+
+// Persona 4 Soundtrack string
+patch=0,EE,009E00A0,word,73726550
+patch=0,EE,009E00A4,word,20616E6F
+patch=0,EE,009E00A8,word,6F532034
+patch=0,EE,009E00AC,word,74646E75
+patch=0,EE,009E00B0,word,6B636172
+
+// Persona Q Soundtrack string
+patch=0,EE,009E00C0,word,73726550
+patch=0,EE,009E00C4,word,20616E6F
+patch=0,EE,009E00C8,word,6F532051
+patch=0,EE,009E00CC,word,74646E75
+patch=0,EE,009E00D0,word,6B636172
+
+// Persona 5 Soundtrack string
+patch=0,EE,009E00E0,word,73726550
+patch=0,EE,009E00E4,word,20616E6F
+patch=0,EE,009E00E8,word,6F532035
+patch=0,EE,009E00EC,word,74646E75
+patch=0,EE,009E00F0,word,6B636172
+
+// SMT 1,2, & if... Soundtrack string
+patch=0,EE,009E0100,word,20544D53
+patch=0,EE,009E0104,word,32202C31
+patch=0,EE,009E0108,word,2026202C
+patch=0,EE,009E010C,word,2E2E6669
+patch=0,EE,009E0110,word,6F53202E
+patch=0,EE,009E0114,word,74646E75
+patch=0,EE,009E0118,word,6B636172
+
+// SMT 3 & 4 Soundtrack string
+patch=0,EE,009E0120,word,20544D53
+patch=0,EE,009E0124,word,20262033
+patch=0,EE,009E0128,word,6F532034
+patch=0,EE,009E012C,word,74646E75
+patch=0,EE,009E0130,word,6B636172
+
+// Majin Tensei 1 Soundtrack string
+patch=0,EE,009E0140,word,696A614D
+patch=0,EE,009E0144,word,6554206E
+patch=0,EE,009E0148,word,6965736E
+patch=0,EE,009E014C,word,53203120
+patch=0,EE,009E0150,word,646E756F
+patch=0,EE,009E0154,word,63617274
+patch=0,EE,009E0158,word,0000006B
+
+// Majin Tensei 2 Soundtrack string
+patch=0,EE,009E0160,word,696A614D
+patch=0,EE,009E0164,word,6554206E
+patch=0,EE,009E0168,word,6965736E
+patch=0,EE,009E016C,word,53203220
+patch=0,EE,009E0170,word,646E756F
+patch=0,EE,009E0174,word,63617274
+patch=0,EE,009E0178,word,0000006B
+
+// Digital Devil Saga Soundtrack string
+patch=0,EE,009E0180,word,69676944
+patch=0,EE,009E0184,word,206C6174
+patch=0,EE,009E0188,word,69766544
+patch=0,EE,009E018C,word,6153206C
+patch=0,EE,009E0190,word,53206167
+patch=0,EE,009E0194,word,646E756F
+patch=0,EE,009E0198,word,63617274
+patch=0,EE,009E019C,word,0000006B
+
+// Raidou 1 & 2 Soundtrack string
+patch=0,EE,009E01A0,word,64696152
+patch=0,EE,009E01A4,word,3120756F
+patch=0,EE,009E01A8,word,32202620
+patch=0,EE,009E01AC,word,756F5320
+patch=0,EE,009E01B0,word,7274646E
+patch=0,EE,009E01B4,word,006B6361
+
+// Others Soundtrack string
+patch=0,EE,009E01C0,word,6568744F
+patch=0,EE,009E01C4,word,53207372
+patch=0,EE,009E01C8,word,646E756F
+patch=0,EE,009E01CC,word,63617274
+patch=0,EE,009E01D0,word,0000006B
+
+//// Point unused key items to these strings
+patch=1,EE,005e2f6c,word,009e0000 // Persona 1 Soundtrack address
+patch=1,EE,005e2f70,word,009e0020 // Persona 2: Innocent Sin Soundtrack address
+patch=1,EE,005e2f74,word,009e0050 // Persona 2: Eternal Punishment Soundtrack address
+patch=1,EE,005e2f78,word,009e0080 // Persona 3 Soundtrack address
+patch=1,EE,005e2f7c,word,009e00a0 // Persona 4 Soundtrack address
+patch=1,EE,005e2f80,word,009e00c0 // Persona Q Soundtrack address
+patch=1,EE,005e2f84,word,009e00e0 // Persona 5 Soundtrack address
+patch=1,EE,005e2f88,word,009e0100 // SMT 1,2, & if... Soundtrack address
+patch=1,EE,005e2f8c,word,009e0120 // SMT 3 & 4 Soundtrack address
+patch=1,EE,005e2f90,word,009e0140 // Majin Tensei 1 Soundtrack address
+patch=1,EE,005e2f94,word,009e0160 // Majin Tensei 2 Soundtrack address
+patch=1,EE,005e2f98,word,009e0180 // Digital Devil Saga Soundtrack address
+patch=1,EE,005e2f9c,word,009e01a0 // Raidou 1 & 2 Soundtrack address
+patch=1,EE,005e2fa0,word,009e01c0 // Others Soundtrack address

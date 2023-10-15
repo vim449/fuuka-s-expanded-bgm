@@ -1,0 +1,15 @@
+import( "f008.BF" );
+import( "../../Record.flow" );
+
+void comu_record_shop_hook()
+{
+	MallRecord();
+}
+
+void f008_001_init_hook()
+{
+	if ( BIT_CHK( 9997 ) == 0 ) {
+		BIT_ON( 9997 );
+	}
+	f008_001_init_unhooked();
+}
