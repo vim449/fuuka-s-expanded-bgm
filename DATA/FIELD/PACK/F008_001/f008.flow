@@ -1,5 +1,5 @@
 import( "f008.BF" );
-import( "../../Record.flow" );
+import( "../../Records/Record.flow" );
 
 void comu_record_shop_hook()
 {
