@@ -118,13 +118,43 @@ void BGMorder_to_change_bgm() {
 	int selection = SEL(BGMBGM_SEL);
 	switch (selection) {
 		case 0:
-			P_Music();
+			if (PersonaSongs() != true)
+			{
+				OPEN_MSG_WIN();
+				MSG(No_PersonaMusic);
+				CLOSE_MSG_WIN();
+				FUNCTION_00B7(0);
+				return;
+			}
+			else {
+				P_Music();
+			}
 			break;
 		case 1:
-			SMT_Music();
+			if (PersonaSongs() != true)
+			{
+				OPEN_MSG_WIN();
+				MSG(No_SMTMusic);
+				CLOSE_MSG_WIN();
+				FUNCTION_00B7(0);
+				return;
+			}
+			else {
+				SMT_Music();
+			}
 			break;
 		case 2:
-			SpinSMT_Music();
+		1	if (PersonaSongs() != true)
+			{
+				OPEN_MSG_WIN();
+				MSG(No_SpinMusic);
+				CLOSE_MSG_WIN();
+				FUNCTION_00B7(0);
+				return;
+			}
+			else {
+				SpinSMT_Music();
+			}
 			break;
 		case 3: //Skip to case 4
 		case 4:
@@ -1926,6 +1956,28 @@ bool AnySongs() {
 	if ((BIT_CHK(579) == 0) && (BIT_CHK(580) == 0) && (BIT_CHK(581) == 0) && (BIT_CHK(582) == 0) && (BIT_CHK(583) == 0) && 
 		(BIT_CHK(584) == 0) && (BIT_CHK(585) == 0) && (BIT_CHK(586) == 0) && (BIT_CHK(587) == 0) && (BIT_CHK(588) == 0) && 
 		(BIT_CHK(589) == 0) && (BIT_CHK(590) == 0) && (BIT_CHK(591) == 0) && (BIT_CHK(592) == 0)) {
+			return false;
+		}
+	return true;
+}
+
+bool PersonaSongs() {
+	if ((BIT_CHK(579) == 0) && (BIT_CHK(580) == 0) && (BIT_CHK(581) == 0) && (BIT_CHK(582) == 0) && (BIT_CHK(583) == 0) && 
+		(BIT_CHK(584) == 0) && (BIT_CHK(585) == 0)) {
+			return false;
+		}
+	return true;
+}
+
+bool SMTSongs() {
+	if ((BIT_CHK(586) == 0) && (BIT_CHK(587) == 0)) {
+			return false;
+		}
+	return true;
+}
+
+bool SpinSongs() {
+	if ((BIT_CHK(588) == 0) && (BIT_CHK(589) == 0) && (BIT_CHK(590) == 0) && (BIT_CHK(591) == 0) && (BIT_CHK(592) == 0)) {
 			return false;
 		}
 	return true;

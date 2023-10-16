@@ -246,3 +246,12 @@
 
 [msg No_Music [Fuuka]]
 [f 0 8 65278][f 1 31]You don't own any soundtracks.[n][f 0 4][e]
+
+[msg NoPersona_Music [Fuuka]]
+[f 0 8 65278][f 1 31]You don't own any Persona soundtracks.[n][f 0 4][e]
+
+[msg NoSMT_Music [Fuuka]]
+[f 0 8 65278][f 1 31]You don't own any SMT soundtracks.[n][f 0 4][e]
+
+[msg NoSpin_Music [Fuuka]]
+[f 0 8 65278][f 1 31]You don't own any SMT Spin-Off soundtracks.[n][f 0 4][e]
