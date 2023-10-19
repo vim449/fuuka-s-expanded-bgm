@@ -1,0 +1,4 @@
+gametitle=Shin Megami Tensei: Persona 3 FES (U)(SLUS-21621)
+comment=Speeds up the navi message. 
+author=Alexankitty
+patch=1,EE,003A9434,word,28630007 //Fix navi message speed

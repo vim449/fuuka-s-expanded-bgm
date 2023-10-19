@@ -205,35 +205,26 @@
 [msg HUKA_ORDER_BGM_CHANGE2 [Fuuka]]
 [f 0 8 65278][f 1 31]...Here are the games I have.[n]Which one do you want?[n][f 0 4][e]
 
-[msg HUKA_ORDER_BGM_CHANGE2_1of2 [Fuuka  (Page 1 of 2)]]
-[f 0 8 65278][f 1 31]...Here are the games I have.[n]Which one do you want?[n][f 0 4][e]
-
-[msg HUKA_ORDER_BGM_CHANGE2_2of2 [Fuuka  (Page 2 of 2)]]
-[f 0 8 65278][f 1 31]...Here are the games I have.[n]Which one do you want?[n][f 0 4][e]
-
-[msg HUKA_ORDER_BGM_CHANGE2_1of3 [Fuuka  (Page 1 of 3)]]
-[f 0 8 65278][f 1 31]...Here are the games I have.[n]Which one do you want?[n][f 0 4][e]
-
-[msg HUKA_ORDER_BGM_CHANGE2_2of3 [Fuuka  (Page 2 of 3)]]
-[f 0 8 65278][f 1 31]...Here are the games I have.[n]Which one do you want?[n][f 0 4][e]
-
-[msg HUKA_ORDER_BGM_CHANGE2_3of3 [Fuuka  (Page 3 of 3)]]
-[f 0 8 65278][f 1 31]...Here are the games I have.[n]Which one do you want?[n][f 0 4][e]
-
-[msg HUKA_ORDER_BGM_CHANGE3_1of2 [Fuuka  (Page 1 of 2)]]
+[msg HUKA_ORDER_BGM_CHANGE3 [Fuuka]]
 [f 0 8 65278][f 1 31]...Here are the songs I have.[n]Which one do you want to hear?[n][f 0 4][e]
 
-[msg HUKA_ORDER_BGM_CHANGE3_2of2 [Fuuka  (Page 2 of 2)]]
-[f 0 8 65278][f 1 31]...Here are the songs I have.[n]Which one do you want to hear?[n][f 0 4][e]
+[msg BGMPage1of1]
+[f 0 8 65278][f 1 31]  Page 1 of 1.[n][f 0 21 9999][e]
 
-[msg HUKA_ORDER_BGM_CHANGE3_1of3 [Fuuka  (Page 1 of 3]]
-[f 0 8 65278][f 1 31]...Here are the songs I have.[n]Which one do you want to hear?[n][f 0 4][e]
+[msg BGMPage1of2]
+[f 0 8 65278][f 1 31]  Page 1 of 2.[n][f 0 21 9999][e]
 
-[msg HUKA_ORDER_BGM_CHANGE3_2of3 [Fuuka  (Page 2 of 3]]
-[f 0 8 65278][f 1 31]...Here are the songs I have.[n]Which one do you want to hear?[n][f 0 4][e]
+[msg BGMPage2of2]
+[f 0 8 65278][f 1 31]  Page 2 of 2.[n][f 0 21 9999][e]
 
-[msg HUKA_ORDER_BGM_CHANGE3_3of3 [Fuuka  (Page 3 of 3]]
-[f 0 8 65278][f 1 31]...Here are the songs I have.[n]Which one do you want to hear?[n][f 0 4][e]
+[msg BGMPage1of3]
+[f 0 8 65278][f 1 31]  Page 1 of 3.[n][f 0 21 9999][e]
+
+[msg BGMPage2of3]
+[f 0 8 65278][f 1 31]  Page 2 of 3.[n][f 0 21 9999][e]
+
+[msg BGMPage3of3]
+[f 0 8 65278][f 1 31]  Page 3 of 3.[n][f 0 21 9999][e]
 
 [msg BASE_HUKA_ORDER_BGM_CHANGE_DO [Fuuka]]
 [f 0 8 65278][f 1 31]There you go.[n][f 0 4][e]

@@ -119,7 +119,7 @@ void BGMorder_to_change_bgm() {
 	}
 	OPEN_MSG_WIN();
 	MSG(BGMHUKA_ORDER_BGM_CHANGE);
-
+	FUNCTION_011C(13, BGMPage1of1);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(8, 4);	// shuffle current menu, select
 	//SEL_CHK_PAD(13, 5); // next page, d-pad right
@@ -179,6 +179,7 @@ void BGMorder_to_change_bgm() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 }
@@ -211,8 +212,8 @@ void P_Music()
 }
 
 int P_Music1() {
-	MSG(HUKA_ORDER_BGM_CHANGE2_1of3);
-
+	MSG(HUKA_ORDER_BGM_CHANGE2);
+	FUNCTION_011C(13, BGMPage1of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -249,13 +250,15 @@ int P_Music1() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int P_Music2() {
-	MSG(HUKA_ORDER_BGM_CHANGE2_2of3);
+	MSG(HUKA_ORDER_BGM_CHANGE2);
+	FUNCTION_011C(13, BGMPage2of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -288,13 +291,15 @@ int P_Music2() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int P_Music3() {
-	MSG(HUKA_ORDER_BGM_CHANGE2_3of3);
+	MSG(HUKA_ORDER_BGM_CHANGE2);
+	FUNCTION_011C(13, BGMPage3of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -326,6 +331,7 @@ int P_Music3() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -356,7 +362,8 @@ void P1()
 }
 
 int P1_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -386,13 +393,15 @@ int P1_1() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int P1_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -427,6 +436,7 @@ int P1_2() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -460,7 +470,8 @@ void IS()
 }
 
 int IS_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of3);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -491,13 +502,15 @@ int IS_1() {
 			break;
 	}
 
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int IS_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of3);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -527,14 +540,15 @@ int IS_2() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int IS_3() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_3of3);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage3of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -568,6 +582,7 @@ int IS_3() {
 	default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -601,7 +616,8 @@ void EP()
 }
 
 int EP_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of3);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -631,13 +647,15 @@ int EP_1() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int EP_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of3);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -667,13 +685,15 @@ int EP_2() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int EP_3() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_3of3);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage3of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -708,6 +728,7 @@ int EP_3() {
 	default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -738,7 +759,8 @@ void P3()
 }
 
 int P3_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -768,13 +790,15 @@ int P3_1() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int P3_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -807,6 +831,7 @@ int P3_2() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -837,7 +862,8 @@ void P4()
 }
 
 int P4_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -867,13 +893,15 @@ int P4_1() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int P4_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -907,6 +935,7 @@ int P4_2() {
 	default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -937,7 +966,8 @@ void PQ()
 }
 
 int PQ_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -967,14 +997,15 @@ int PQ_1() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int PQ_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1007,7 +1038,7 @@ int PQ_2() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1038,7 +1069,8 @@ void P5()
 }
 
 int P5_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1068,14 +1100,15 @@ int P5_1() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int P5_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1109,6 +1142,7 @@ int P5_2() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1116,6 +1150,7 @@ int P5_2() {
 
 void SMT_Music() {
 	MSG(HUKA_ORDER_BGM_CHANGE2);
+	FUNCTION_011C(13, BGMPage1of1);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	//SEL_CHK_PAD(13, 4); // next page, d-pad right
 	//SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1149,6 +1184,9 @@ void SMT_Music() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
+	CLOSE_MSG_WIN();
+	FUNCTION_00B7(0);
 	return;
 }
 
@@ -1177,7 +1215,8 @@ void SMT1()
 }
 
 int SMT1_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1207,14 +1246,15 @@ int SMT1_1() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int SMT1_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1248,6 +1288,7 @@ int SMT1_2() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1278,7 +1319,8 @@ void SMT3()
 }
 
 int SMT3_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1307,14 +1349,15 @@ int SMT3_1() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int SMT3_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1348,6 +1391,7 @@ int SMT3_2() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1378,7 +1422,8 @@ void SpinSMT_Music()
 }
 
 int SpinSMT_Music_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE2_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE2);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1414,13 +1459,15 @@ int SpinSMT_Music_1() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int SpinSMT_Music_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE2_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE2);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1456,6 +1503,7 @@ int SpinSMT_Music_2() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1486,7 +1534,8 @@ void MJ()
 }
 
 int MJ_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1516,14 +1565,15 @@ int MJ_1() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int MJ_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1556,7 +1606,7 @@ int MJ_2() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1587,7 +1637,8 @@ void MJ2()
 }
 
 int MJ2_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1617,13 +1668,15 @@ int MJ2_1() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int MJ2_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1658,7 +1711,7 @@ int MJ2_2() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1689,7 +1742,8 @@ void DDS()
 }
 
 int DDS_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1719,14 +1773,15 @@ int DDS_1() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int DDS_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1759,7 +1814,7 @@ int DDS_2() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1790,7 +1845,8 @@ void Raidou()
 }
 
 int Raidou_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1820,14 +1876,15 @@ int Raidou_1() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int Raidou_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1860,7 +1917,7 @@ int Raidou_2() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1891,7 +1948,8 @@ void Other()
 }
 
 int Other_1() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1921,14 +1979,15 @@ int Other_1() {
 		default:
 			break;
 	}
-
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
 }
 
 int Other_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
+	MSG(HUKA_ORDER_BGM_CHANGE3);
+	FUNCTION_011C(13, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1960,6 +2019,7 @@ int Other_2() {
 		default:
 			break;
 	}
+	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;

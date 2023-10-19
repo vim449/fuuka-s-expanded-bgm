@@ -1,0 +1,32 @@
+gametitle=Shin Megami Tensei: Persona 3 FES (U)(SLUS-21621)
+comment=Allows dismissing of Navi messages from FlowScript
+author=Alexankitty
+//Adds new flowscript functions
+//FUNCTION_0005()-> void DISMISS_NAVI()
+patch=1,EE,007B92D8,word,006791E8 //Set the function pointer to the actual function address.
+patch=1,EE,007B92DC,word,00000000 //Set parameters to 0
+patch=1,EE,006791e8,word,27bdfff0
+patch=1,EE,006791ec,word,ffbf0000
+patch=1,EE,006791f0,word,8f8fb98c
+patch=1,EE,006791f4,word,8def0000
+patch=1,EE,006791f8,word,8def0004
+patch=1,EE,006791fc,word,25e40028
+patch=1,EE,00679200,word,0c0f2518
+patch=1,EE,00679208,word,dfbf0000
+patch=1,EE,0067920c,word,27bd0010
+patch=1,EE,00679210,word,03e00008
+patch=1,EE,00679214,word,00000000
+
+// Assembly
+//addiu sp,-0x10 // take 0x10 bytes off the stack
+//sd ra,(sp) //store return address
+//lw t7,-0x4674(gp)
+//lw t7,(t7)
+//lw t7,0x4(t7)
+//addiu a0,t7,0x28
+//jal 0x003C9460 //dismiss that bitch
+//nop
+//ld ra,(sp) //load the return address
+//addiu sp,0x10
+//jr ra //peace out
+//nop
