@@ -1,6 +1,17 @@
 import("Music.msg");
 
+const int PersonaStartID = 579;
+const int PersonaEndID = 585;
+const int SMTStartID = 586;
+const int SMTEndID = 587;
+const int SpinStartID = 588;
+const int SpinEndID = 592;
+
 void BGMorder_for_huka() {
+	//Enable Music for Answer
+	if (FUNCTION_01E9() == 1) {
+		AnswerMusic();
+	}
 	// Mask some	Random stuff out
 	int mask = 0;
 	if (FUNCTION_018B(6, 339) == 0) {
@@ -144,7 +155,7 @@ void BGMorder_to_change_bgm() {
 			}
 			break;
 		case 2:
-		1	if (PersonaSongs() != true)
+			if (PersonaSongs() != true)
 			{
 				OPEN_MSG_WIN();
 				MSG(No_SpinMusic);
@@ -1125,7 +1136,7 @@ void SMT_Music() {
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break; 
 		case 3:
-		case 5:
+		case 6:
 			BGMorder_to_change_bgm();
 			break;
 		case 7:
@@ -1441,6 +1452,8 @@ int SpinSMT_Music_2() {
 			SET_CNT(9998, 2);
 			RandomSpin();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
+		default:
 			break;
 	}
 	CLOSE_MSG_WIN();
@@ -1953,32 +1966,46 @@ int Other_2() {
 }
 
 bool AnySongs() {
-	if ((BIT_CHK(579) == 0) && (BIT_CHK(580) == 0) && (BIT_CHK(581) == 0) && (BIT_CHK(582) == 0) && (BIT_CHK(583) == 0) && 
-		(BIT_CHK(584) == 0) && (BIT_CHK(585) == 0) && (BIT_CHK(586) == 0) && (BIT_CHK(587) == 0) && (BIT_CHK(588) == 0) && 
-		(BIT_CHK(589) == 0) && (BIT_CHK(590) == 0) && (BIT_CHK(591) == 0) && (BIT_CHK(592) == 0)) {
-			return false;
+	for (int i = PersonaStartID; i <= SpinEndID; i++) {
+		if (BIT_CHK(i)) {
+			return true;
 		}
-	return true;
+	}
+	return false;
 }
 
 bool PersonaSongs() {
-	if ((BIT_CHK(579) == 0) && (BIT_CHK(580) == 0) && (BIT_CHK(581) == 0) && (BIT_CHK(582) == 0) && (BIT_CHK(583) == 0) && 
-		(BIT_CHK(584) == 0) && (BIT_CHK(585) == 0)) {
-			return false;
+	for (int i = PersonaStartID; i <= PersonaEndID; i++) {
+		if (BIT_CHK(i)) {
+			return true;
 		}
-	return true;
+	}
+	return false;
 }
 
 bool SMTSongs() {
-	if ((BIT_CHK(586) == 0) && (BIT_CHK(587) == 0)) {
-			return false;
+	if ((BIT_CHK(SMTStartID) == 1) || (BIT_CHK(SMTEndID) == 1)) {
+			return true;
 		}
-	return true;
+	return false;
 }
 
 bool SpinSongs() {
-	if ((BIT_CHK(588) == 0) && (BIT_CHK(589) == 0) && (BIT_CHK(590) == 0) && (BIT_CHK(591) == 0) && (BIT_CHK(592) == 0)) {
-			return false;
+	for (int i = SpinStartID; i <= SpinEndID; i++) {
+		if (BIT_CHK(i)) {
+			return true;
 		}
-	return true;
+	}
+	return false;
+}
+
+
+void AnswerMusic() {
+	if (!BIT_CHK(579)) {
+		for (int i = 579; i <= 592; i++) {
+			if (!BIT_CHK(i)) {
+				BIT_ON(i);
+			 }
+		}
+	}
 }
