@@ -1,6 +1,15 @@
 import("Music.msg");
 
+const int PersonaStartID = 579;
+const int PersonaEndID = 585;
+const int SMTStartID = 586;
+const int SMTEndID = 587;
+const int SpinStartID = 588;
+const int SpinEndID = 592;
+
 void BGMorder_for_huka() {
+	//Enable Music for Answer
+	AnswerMusic();
 	// Mask some	Random stuff out
 	int mask = 0;
 	if (FUNCTION_018B(6, 339) == 0) {
@@ -92,6 +101,14 @@ void ShowFuukaTutorial()
 
 void BGMorder_to_change_bgm() {
 	
+	if (AnySongs() != true)
+	{
+		OPEN_MSG_WIN();
+		MSG(No_Music);
+		CLOSE_MSG_WIN();
+		FUNCTION_00B7(0);
+		return;
+	}
 	if ( BIT_CHK( 9998 ) == 0 )
 	{
 		CLOSE_MSG_WIN();
@@ -110,13 +127,43 @@ void BGMorder_to_change_bgm() {
 	int selection = SEL(BGMBGM_SEL);
 	switch (selection) {
 		case 0:
-			P_Music();
+			if (PersonaSongs() != true)
+			{
+				OPEN_MSG_WIN();
+				MSG(No_PersonaMusic);
+				CLOSE_MSG_WIN();
+				FUNCTION_00B7(0);
+				return;
+			}
+			else {
+				P_Music();
+			}
 			break;
 		case 1:
-			SMT_Music();
+			if (PersonaSongs() != true)
+			{
+				OPEN_MSG_WIN();
+				MSG(No_SMTMusic);
+				CLOSE_MSG_WIN();
+				FUNCTION_00B7(0);
+				return;
+			}
+			else {
+				SMT_Music();
+			}
 			break;
 		case 2:
-			SpinSMT_Music();
+			if (PersonaSongs() != true)
+			{
+				OPEN_MSG_WIN();
+				MSG(No_SpinMusic);
+				CLOSE_MSG_WIN();
+				FUNCTION_00B7(0);
+				return;
+			}
+			else {
+				SpinSMT_Music();
+			}
 			break;
 		case 3: //Skip to case 4
 		case 4:
@@ -234,7 +281,8 @@ int P_Music2() {
 		case 7:
 			SET_CNT(9998, 2);
 			RandomPersona();
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO); 
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
@@ -332,6 +380,7 @@ int P1_1() {
 			SET_CNT(9998, 3);
 			RandomP1();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
@@ -373,7 +422,7 @@ int P1_2() {
 			RandomP1();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-			default:
+		default:
 			break;
 	}
 	CLOSE_MSG_WIN();
@@ -435,6 +484,7 @@ int IS_1() {
 			SET_CNT(9998, 3);
 			RandomIS();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
@@ -471,6 +521,7 @@ int IS_2() {
 			SET_CNT(9998, 3);
 			RandomIS();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
@@ -511,6 +562,7 @@ int IS_3() {
 			SET_CNT(9998, 3);
 			RandomIS();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 	default:
 			break;
 	}
@@ -573,6 +625,7 @@ int EP_1() {
 			SET_CNT(9998, 3);
 			RandomEP();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
@@ -608,6 +661,7 @@ int EP_2() {
 			SET_CNT(9998, 3);
 			RandomEP();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
@@ -646,7 +700,9 @@ int EP_3() {
 			break;
 		case 7:
 			SET_CNT(9998, 3);
-			RandomEP(); 
+			RandomEP();
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 	default:
 			break;
 	}
@@ -804,7 +860,8 @@ int P4_1() {
 		case 7:
 			SET_CNT(9998, 3);
 			RandomP4();
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO); 
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
@@ -904,7 +961,8 @@ int PQ_1() {
 			SET_CNT(9998, 3);
 			RandomPQ();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-	default:
+			break;
+		default:
 			break;
 	}
 
@@ -943,6 +1001,7 @@ int PQ_2() {
 			SET_CNT(9998, 3);
 			RandomPQ();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
@@ -1075,7 +1134,7 @@ void SMT_Music() {
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break; 
 		case 3:
-		case 5:
+		case 6:
 			BGMorder_to_change_bgm();
 			break;
 		case 7:
@@ -1088,6 +1147,7 @@ void SMT_Music() {
 		default:
 			break;
 	}
+	return;
 }
 
 void SMT1()
@@ -1151,7 +1211,7 @@ int SMT1_1() {
 	return 0;
 }
 
-void SMT1_2() {
+int SMT1_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1240,8 +1300,9 @@ int SMT3_1() {
 			break;
 		case 7:
 			SET_CNT(9998, 3);
-			RandomSMT3(); 
-	default:
+			RandomSMT3();
+			break;
+		default:
 			break;
 	}
 
@@ -1266,7 +1327,7 @@ int SMT3_2() {
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		case 1:
-		SMT_Music();
+			SMT_Music();
 			break;
 		//case 2:
 		//case 3:
@@ -1356,7 +1417,7 @@ int SpinSMT_Music_1() {
 	return 0;
 }
 
-int SpinSMT_Music2() {
+int SpinSMT_Music_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE2_2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1390,6 +1451,8 @@ int SpinSMT_Music2() {
 			RandomSpin();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
+		default:
+			break;
 	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
@@ -1420,7 +1483,7 @@ void MJ()
 	return;
 }
 
-void MJ_1() {
+int MJ_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3_1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
@@ -1548,6 +1611,7 @@ int MJ2_1() {
 			SET_CNT(9998, 3);
 			RandomMJ2();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		default:
 			break;
 	}
@@ -1897,4 +1961,49 @@ int Other_2() {
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
+}
+
+bool AnySongs() {
+	for (int i = PersonaStartID; i <= SpinEndID; i++) {
+		if (BIT_CHK(i)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool PersonaSongs() {
+	for (int i = PersonaStartID; i <= PersonaEndID; i++) {
+		if (BIT_CHK(i)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool SMTSongs() {
+	if ((BIT_CHK(SMTStartID) == 1) || (BIT_CHK(SMTEndID) == 1)) {
+			return true;
+		}
+	return false;
+}
+
+bool SpinSongs() {
+	for (int i = SpinStartID; i <= SpinEndID; i++) {
+		if (BIT_CHK(i)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+
+void AnswerMusic() {
+	if (!BIT_CHK(579)) {
+		for (int i = 579; i <= 592; i++) {
+			if (!BIT_CHK(i)) {
+				BIT_ON(i);
+			 }
+		}
+	}
 }
