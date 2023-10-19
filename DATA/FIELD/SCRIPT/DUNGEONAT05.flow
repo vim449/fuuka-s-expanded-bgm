@@ -2,7 +2,7 @@ import( "DUNGEONAT05.bf" );
 import("../Utils.flow");
 
 void dng_init_00_hook() {
-	if (GET_CNT(ShufflePool) != 0) {
+	if ((GET_CNT(ShufflePool) != 0) && (GET_CNT(1) >= 500)) {
 		musicNavi();
 	}
 	dng_init_00_unhooked();
