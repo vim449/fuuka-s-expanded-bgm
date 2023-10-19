@@ -1,0 +1,9 @@
+import( "DUNGEONAT01.bf" );
+import("../Utils.flow");
+
+void dng_init_00_hook() {
+	if (GET_CNT(ShufflePool) != 0) {
+		musicNavi();
+	}
+	dng_init_00_unhooked();
+}

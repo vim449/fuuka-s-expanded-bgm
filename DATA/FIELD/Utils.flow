@@ -684,10 +684,221 @@ void playRandomBGM(int songid) {
 			CALL_BGM(songid);
 			SET_CNT(1, songid);
 			SET_CNT(ShuffleInit, 0);
+			musicNavi();
 		}
 	} else {
 		CALL_BGM(songid);
 		SET_CNT(1, songid);
 		SET_CNT(ShuffleInit, 0);
+		musicNavi();
+	}
+}
+
+void musicNavi() {
+	switch (GET_CNT(1)) {
+		case 500:
+			FUNCTION_011C(6, sebec);
+			break;
+		case 501:
+			FUNCTION_011C(6, kandori);
+			break;
+		case 502:
+			FUNCTION_011C(6, karmaPSX);
+			break;
+		case 503:
+			FUNCTION_011C(6, karmaPSP);
+			break;
+		case 504:
+			FUNCTION_011C(6, school);
+			break;
+		case 505:
+			FUNCTION_011C(6, butterfly);
+			break;
+		case 550:
+			FUNCTION_011C(6, zodiacISPSX);
+			break;
+		case 551:
+			FUNCTION_011C(6, goldPSX);
+			break;
+		case 552:
+			FUNCTION_011C(6, kasuISPSX);
+			break;
+		case 553:
+			FUNCTION_011C(6, mayaPSX);
+			break;
+		case 554:
+			FUNCTION_011C(6, katatISPSX);
+			break;
+		case 555:
+			FUNCTION_011C(6, zodiacISPSP);
+			break;
+		case 556:
+			FUNCTION_011C(6, goldPSP);
+			break;
+		case 557:
+			FUNCTION_011C(6, kasuISPSP);
+			break;
+		case 558:
+			FUNCTION_011C(6, mayaPSP);
+			break;
+		case 559:
+			FUNCTION_011C(6, katatISPSP);
+			break;
+		case 600:
+			FUNCTION_011C(6, factoryPSX);
+			break;
+		case 601:
+			FUNCTION_011C(6, zodiacEPPSX);
+			break;
+		case 602:
+			FUNCTION_011C(6, kasuEPPSX);
+			break;
+		case 603:
+			FUNCTION_011C(6, katatEPPSX);
+			break;
+		case 604:
+			FUNCTION_011C(6, factoryPSP);
+			break;
+		case 605:
+			FUNCTION_011C(6, zodiacEPPSP);
+			break;
+		case 606:
+			FUNCTION_011C(6, kasuEPPSP);
+			break;
+		case 607:
+			FUNCTION_011C(6, katatEPPSP);
+			break;
+		case 608:
+			FUNCTION_011C(6, shiori);
+			break;
+		case 650:
+			FUNCTION_011C(6, sauna);
+			break;
+		case 651:
+			FUNCTION_011C(6, game);
+			break;
+		case 652:
+			FUNCTION_011C(6, heaven);
+			break;
+		case 653:
+			FUNCTION_011C(6, longWay);
+			break;
+		case 700:
+			FUNCTION_011C(6, beneathMask);
+			break;
+		case 701:
+			FUNCTION_011C(6, maskInst);
+			break;
+		case 702:
+			FUNCTION_011C(6, cake);
+			break;
+		case 703:
+			FUNCTION_011C(6, life);
+			break;
+		case 704:
+			FUNCTION_011C(6, believe);
+			break;
+		case 750:
+			FUNCTION_011C(6, danger);
+			break;
+		case 751:
+			FUNCTION_011C(6, maze);
+			break;
+		case 752:
+			FUNCTION_011C(6, voice);
+			break;
+		case 800:
+			FUNCTION_011C(6, cathedral);
+			break;
+		case 801:
+			FUNCTION_011C(6, disco);
+			break;
+		case 802:
+			FUNCTION_011C(6, makai);
+			break;
+		case 803:
+			FUNCTION_011C(6, cityMakai);
+			break;
+		case 850:
+			FUNCTION_011C(6, amala);
+			break;
+		case 851:
+			FUNCTION_011C(6, soundTest);
+			break;
+		case 852:
+			FUNCTION_011C(6, tokyo);
+			break;
+		case 853:
+			FUNCTION_011C(6, ikebukuro);
+			break;
+		case 900:
+			FUNCTION_011C(6, flame);
+			break;
+		case 901:
+			FUNCTION_011C(6, devil);
+			break;
+		case 902:
+			FUNCTION_011C(6, chaotic);
+			break;
+		case 950:
+			FUNCTION_011C(6, ad);
+			break;
+		case 951:
+			FUNCTION_011C(6, smash);
+			break;
+		case 952:
+			FUNCTION_011C(6, evolution);
+			break;
+		case 953:
+			FUNCTION_011C(6, assault);
+			break;
+		case 954:
+			FUNCTION_011C(6, sourpuss);
+			break;
+		case 1050:
+			FUNCTION_011C(6, sahasrara);
+			break;
+		case 1051:
+			FUNCTION_011C(6, samsara);
+			break;
+		case 1052:
+			FUNCTION_011C(6, madMart);
+			break;
+		case 1053:
+			FUNCTION_011C(6, egg);
+			break;
+		case 1100:
+			FUNCTION_011C(6, tsukudo);
+			break;
+		case 1101:
+			FUNCTION_011C(6, go);
+			break;
+		case 1102:
+			FUNCTION_011C(6, tsukigata);
+			break;
+		case 1103:
+			FUNCTION_011C(6, adventure);
+			break;
+		case 1150:
+			FUNCTION_011C(6, algon);
+			break;
+		case 1151:
+			FUNCTION_011C(6, ezekiel);
+			break;
+		case 1152:
+			FUNCTION_011C(6, belly);
+			break;
+		case 1200:
+			FUNCTION_011C(6, snow);
+			break;
+		case 1201:
+			FUNCTION_011C(6, mayaP3);
+			break;
+		case 1202:
+			FUNCTION_011C(6, persona);
+			break;
+		case 1203:
+			FUNCTION_011C(6, castle);
+			break;
 	}
 }
