@@ -246,6 +246,7 @@
 
 [msg No_Music [Fuuka]]
 [f 0 8 65278][f 1 31]You don't own any soundtracks.[n][f 0 4][e]
+[f 0 8 65278][f 1 31]You should buy some from Power Records at the mall.[n][f 0 4][e]
 
 [msg No_PersonaMusic [Fuuka]]
 [f 0 8 65278][f 1 31]You don't own any Persona soundtracks.[n][f 0 4][e]
