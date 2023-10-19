@@ -33,7 +33,7 @@ Persona
 
 500 SEBEC Above Ground
 501 Kandori's Theme -Silence-
-502 Karma palace (PSX)
+502 Karma Palace (PSX)
 503 Karma Palace (PSP)
 504 School Days
 505 Let Butterflies Spread Until the Dawn 
@@ -42,7 +42,7 @@ Persona
 
 550 Club zodiac IS(PSX)
 551 Gold (PSX)
-552 Kasyugayama High IS (PSX)
+552 Kasugayama High IS (PSX)
 553 Maya's Theme (PSX)
 554 Mt. katatsumuri (IS PSX)
 555 Club Zodiac (IS PSP)
@@ -55,7 +55,7 @@ Persona
 
 600 Abandoned factory (PSX)
 601 Club Zodiac (EP PSX)
-602 Kasyugayama High (EP PSX)
+602 Kasugayama High (EP PSX)
 603 Mt. Katatsumuri (EP PSX)
 604 Abandoned Factory (PSP)
 605 Club Zodiac (EP PSP)
