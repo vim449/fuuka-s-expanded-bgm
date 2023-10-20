@@ -47,7 +47,7 @@
 
 [sel Record]
 [f 0 8 -258][f 1 31]Persona[e]
-[f 0 8 -258][f 1 31]SMT[e]
+[f 0 8 -258][f 1 31]Shin Megami Tensei[e]
 [f 0 8 -258][f 1 31]SMT Spin-Offs[e]
 
 [sel PersonaShop1]
