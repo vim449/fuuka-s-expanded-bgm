@@ -2044,9 +2044,11 @@ bool PersonaSongs() {
 }
 
 bool SMTSongs() {
-	if ((BIT_CHK(SMTStartID) == 1) || (BIT_CHK(SMTEndID) == 1)) {
+	for (int i = SMTStartID; i <= SMTEndID; i++) {
+		if (BIT_CHK(i)) {
 			return true;
 		}
+	}
 	return false;
 }
 
