@@ -9,7 +9,7 @@ const int SpinEndID = 592;
 
 void BGMorder_for_huka() {
 	//Enable Music for Answer
-	if (FUNCTION_01E9() == 1) {
+	if (FUNCTION_01E9() == 0) {
 		AnswerMusic();
 	}
 	// Mask some	Random stuff out
@@ -121,13 +121,14 @@ void BGMorder_to_change_bgm() {
 	while (stayOpen) {
 		OPEN_MSG_WIN();
 		MSG(BGMHUKA_ORDER_BGM_CHANGE);
-		FUNCTION_011C(18, BGMPage1of1);
 		SEL_CHK_PAD(6, 99); // Exit menu, circle
 		SEL_CHK_PAD(8, 4);	// shuffle current menu, select
 		//SEL_CHK_PAD(13, 5); // next page, d-pad right
 		//SEL_CHK_PAD(15, 6); // prev page, d-pad left
-
+		FUNCTION_011C(18, BGMPage1of1);
 		int selection = SEL(BGMBGM_SEL);
+		FUNCTION_0005();
+		FUNCTION_00B7(0);
 		switch (selection) {
 			case 0:
 				if (PersonaSongs() != true)
@@ -139,6 +140,8 @@ void BGMorder_to_change_bgm() {
 					return;
 				}
 				else {
+					FUNCTION_0005();
+					FUNCTION_00B7(0);
 					stayOpen = P_Music();
 				}
 				break;
@@ -152,6 +155,8 @@ void BGMorder_to_change_bgm() {
 					return;
 				}
 				else {
+					FUNCTION_0005();
+					FUNCTION_00B7(0);
 					stayOpen = SMT_Music();
 				}
 				break;
@@ -165,6 +170,8 @@ void BGMorder_to_change_bgm() {
 					return;
 				}
 				else {
+					FUNCTION_0005();
+					FUNCTION_00B7(0);
 					stayOpen = SpinSMT_Music();
 				}
 				break;
@@ -173,15 +180,14 @@ void BGMorder_to_change_bgm() {
 				SET_CNT(9998, 1);
 				Random();
 				MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+				stayOpen = 0;
 				break;
 			default:
 				stayOpen = 0;
 				break;
 		}
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
 }
 
 int P_Music()
@@ -225,7 +231,7 @@ int P_Music1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(P_Music);
-
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			return P1();
@@ -249,7 +255,6 @@ int P_Music1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -265,6 +270,7 @@ int P_Music2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(P_Music2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			return P4();
@@ -286,7 +292,6 @@ int P_Music2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -302,6 +307,7 @@ int P_Music3() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(P_Music3);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			SET_CNT(9998, 2);
@@ -324,7 +330,6 @@ int P_Music3() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -366,6 +371,7 @@ int P1_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(P1);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -388,7 +394,6 @@ int P1_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -404,6 +409,7 @@ int P1_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(P1_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -431,7 +437,6 @@ int P1_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -476,6 +481,7 @@ int IS_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(IS);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -498,7 +504,6 @@ int IS_1() {
 			break;
 	}
 
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -514,6 +519,7 @@ int IS_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(IS_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -535,7 +541,6 @@ int IS_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -551,6 +556,7 @@ int IS_3() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(IS_3);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -576,7 +582,6 @@ int IS_3() {
 	default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -621,6 +626,7 @@ int EP_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(EP);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -642,7 +648,6 @@ int EP_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -658,6 +663,7 @@ int EP_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(EP_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -679,7 +685,6 @@ int EP_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -695,6 +700,7 @@ int EP_3() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(EP_3);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			playBGM(ep_start + selection + 6);
@@ -720,7 +726,6 @@ int EP_3() {
 	default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -762,6 +767,7 @@ int P3_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(P3);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -783,7 +789,6 @@ int P3_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -799,6 +804,7 @@ int P3_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(P3_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			SET_CNT(9998, 3);
@@ -823,7 +829,6 @@ int P3_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -865,6 +870,7 @@ int P4_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(P4);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -886,7 +892,6 @@ int P4_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -902,6 +907,7 @@ int P4_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(P4_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			SET_CNT(9998, 3);
@@ -926,7 +932,6 @@ int P4_2() {
 	default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -968,6 +973,7 @@ int PQ_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(PQ);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -989,7 +995,6 @@ int PQ_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1005,6 +1010,7 @@ int PQ_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(PQ_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			SET_CNT(9998, 3);
@@ -1028,7 +1034,6 @@ int PQ_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1070,6 +1075,7 @@ int P5_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(P5);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -1091,7 +1097,6 @@ int P5_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1107,6 +1112,7 @@ int P5_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(P5_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			SET_CNT(9998, 3);
@@ -1131,7 +1137,6 @@ int P5_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1174,6 +1179,7 @@ int SMT_Music1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(SMT_Music);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			return SMT1();
@@ -1197,7 +1203,6 @@ int SMT_Music1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1239,6 +1244,7 @@ int SMT1_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(SMT1);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -1260,7 +1266,6 @@ int SMT1_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1276,6 +1281,7 @@ int SMT1_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(SMT1_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			SET_CNT(9998, 3);
@@ -1300,7 +1306,6 @@ int SMT1_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1342,6 +1347,7 @@ int SMT3_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(SMT3);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -1362,7 +1368,6 @@ int SMT3_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1378,6 +1383,7 @@ int SMT3_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(SMT3_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			SET_CNT(9998, 3);
@@ -1402,7 +1408,6 @@ int SMT3_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1446,6 +1451,7 @@ int SpinSMT_Music_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(SpinSMT_Music);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			return MJ();
@@ -1469,7 +1475,6 @@ int SpinSMT_Music_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1485,6 +1490,7 @@ int SpinSMT_Music_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(SpinSMT_Music2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			return Other();
@@ -1510,7 +1516,6 @@ int SpinSMT_Music_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1552,6 +1557,7 @@ int MJ_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(MJ);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -1573,7 +1579,6 @@ int MJ_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1589,6 +1594,7 @@ int MJ_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(MJ_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			SET_CNT(9998, 3);
@@ -1612,7 +1618,6 @@ int MJ_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1654,6 +1659,7 @@ int MJ2_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(MJ2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -1675,7 +1681,6 @@ int MJ2_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1691,6 +1696,7 @@ int MJ2_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(MJ2_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			playBGM(mj2_start + selection + 4);
@@ -1717,7 +1723,6 @@ int MJ2_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1759,6 +1764,7 @@ int DDS_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(DDS);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -1780,7 +1786,6 @@ int DDS_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1796,6 +1801,7 @@ int DDS_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(DDS_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			SET_CNT(9998, 3);
@@ -1819,7 +1825,6 @@ int DDS_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1861,6 +1866,7 @@ int Raidou_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(Raidou);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -1882,7 +1888,6 @@ int Raidou_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1898,6 +1903,7 @@ int Raidou_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(Raidou_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			SET_CNT(9998, 3);
@@ -1921,7 +1927,6 @@ int Raidou_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -1963,6 +1968,7 @@ int Other_1() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(Other);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 		case 1:
@@ -1984,7 +1990,6 @@ int Other_1() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -2000,6 +2005,7 @@ int Other_2() {
 	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
 
 	int selection = SEL(Other_2);
+	FUNCTION_0005();
 	switch (selection) {
 		case 0:
 			SET_CNT(9998, 3);
@@ -2022,7 +2028,6 @@ int Other_2() {
 		default:
 			break;
 	}
-	FUNCTION_0005();
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
