@@ -6,28 +6,21 @@ patch=0,EE,009E0008,word,6F532031
 patch=0,EE,009E000C,word,74646E75
 patch=0,EE,009E0010,word,6B636172
 
-// Persona 2: Innocent Sin Soundtrack string
+// Persona 2: IS Soundtrack string
 patch=0,EE,009E0020,word,73726550
 patch=0,EE,009E0024,word,20616E6F
 patch=0,EE,009E0028,word,49203A32
-patch=0,EE,009E002C,word,636F6E6E
-patch=0,EE,009E0030,word,20746E65
-patch=0,EE,009E0034,word,206E6953
-patch=0,EE,009E0038,word,6E756F53
-patch=0,EE,009E003C,word,61727464
-patch=0,EE,009E0040,word,00006B63
+patch=0,EE,009E002C,word,6F532053
+patch=0,EE,009E0030,word,74646E75
+patch=0,EE,009E0034,word,6B636172
 
-// Persona 2: Eternal Punishment Soundtrack string
+// Persona 2: EP Soundtrack string
 patch=0,EE,009E0050,word,73726550
 patch=0,EE,009E0054,word,20616E6F
 patch=0,EE,009E0058,word,45203A32
-patch=0,EE,009E005C,word,6E726574
-patch=0,EE,009E0060,word,50206C61
-patch=0,EE,009E0064,word,73696E75
-patch=0,EE,009E0068,word,6E656D68
-patch=0,EE,009E006C,word,6F532074
-patch=0,EE,009E0070,word,74646E75
-patch=0,EE,009E0074,word,6B636172
+patch=0,EE,009E005C,word,6F532050
+patch=0,EE,009E0060,word,74646E75
+patch=0,EE,009E0064,word,6B636172
 
 // Persona 3 Soundtrack string
 patch=0,EE,009E0080,word,73726550
@@ -91,15 +84,11 @@ patch=0,EE,009E0170,word,646E756F
 patch=0,EE,009E0174,word,63617274
 patch=0,EE,009E0178,word,0000006B
 
-// Digital Devil Saga Soundtrack string
-patch=0,EE,009E0180,word,69676944
-patch=0,EE,009E0184,word,206C6174
-patch=0,EE,009E0188,word,69766544
-patch=0,EE,009E018C,word,6153206C
-patch=0,EE,009E0190,word,53206167
-patch=0,EE,009E0194,word,646E756F
-patch=0,EE,009E0198,word,63617274
-patch=0,EE,009E019C,word,0000006B
+// DDS Soundtrack string
+patch=0,EE,009E0180,word,20534444
+patch=0,EE,009E0184,word,6E756F53
+patch=0,EE,009E0188,word,61727464
+patch=0,EE,009E018C,word,00006B63
 
 // Raidou 1 & 2 Soundtrack string
 patch=0,EE,009E01A0,word,64696152
@@ -116,18 +105,18 @@ patch=0,EE,009E01C8,word,646E756F
 patch=0,EE,009E01CC,word,63617274
 patch=0,EE,009E01D0,word,0000006B
 
-//// Point unused key items to these strings
-patch=1,EE,005e2f6c,word,009e0000 // Persona 1 Soundtrack address
-patch=1,EE,005e2f70,word,009e0020 // Persona 2: Innocent Sin Soundtrack address
-patch=1,EE,005e2f74,word,009e0050 // Persona 2: Eternal Punishment Soundtrack address
-patch=1,EE,005e2f78,word,009e0080 // Persona 3 Soundtrack address
-patch=1,EE,005e2f7c,word,009e00a0 // Persona 4 Soundtrack address
-patch=1,EE,005e2f80,word,009e00c0 // Persona Q Soundtrack address
-patch=1,EE,005e2f84,word,009e00e0 // Persona 5 Soundtrack address
-patch=1,EE,005e2f88,word,009e0100 // SMT 1,2, & if... Soundtrack address
-patch=1,EE,005e2f8c,word,009e0120 // SMT 3 & 4 Soundtrack address
-patch=1,EE,005e2f90,word,009e0140 // Majin Tensei 1 Soundtrack address
-patch=1,EE,005e2f94,word,009e0160 // Majin Tensei 2 Soundtrack address
-patch=1,EE,005e2f98,word,009e0180 // Digital Devil Saga Soundtrack address
-patch=1,EE,005e2f9c,word,009e01a0 // Raidou 1 & 2 Soundtrack address
-patch=1,EE,005e2fa0,word,009e01c0 // Others Soundtrack address
+//// Point unused key items to these strings (67-127 unused ones)
+patch=1,EE,005e2f6c,word,009e0000 // Persona 1 Soundtrack string address
+patch=1,EE,005e2f70,word,009e0020 // Persona 2: IS Soundtrack string address
+patch=1,EE,005e2f74,word,009e0050 // Persona 2: EP Soundtrack string address
+patch=1,EE,005e2f78,word,009e0080 // Persona 3 Soundtrack string address
+patch=1,EE,005e2f7c,word,009e00a0 // Persona 4 Soundtrack string address
+patch=1,EE,005e2f80,word,009e00c0 // Persona Q Soundtrack string address
+patch=1,EE,005e2f84,word,009e00e0 // Persona 5 Soundtrack string address
+patch=1,EE,005e2f88,word,009e0100 // SMT 1,2, & if... Soundtrack string address
+patch=1,EE,005e2f8c,word,009e0120 // SMT 3 & 4 Soundtrack string address
+patch=1,EE,005e2f90,word,009e0140 // Majin Tensei 1 Soundtrack string address
+patch=1,EE,005e2f94,word,009e0160 // Majin Tensei 2 Soundtrack string address
+patch=1,EE,005e2f98,word,009e0180 // DDS Soundtrack string address
+patch=1,EE,005e2f9c,word,009e01a0 // Raidou 1 & 2 Soundtrack string address
+patch=1,EE,005e2fa0,word,009e01c0 // Others Soundtrack string address
