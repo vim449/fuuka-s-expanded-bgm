@@ -52,8 +52,10 @@ void RecordShop()
 
 		//Close menu on Circle
 		SEL_CHK_PAD(6,20);
-		FUNCTION_011C(13, RecordPage1of1);
+		FUNCTION_011C(18, RecordPage1of1);
 		int select = SEL( Record );
+		FUNCTION_0005();
+		FUNCTION_00B7(0);
 		CLOSE_MSG_WIN();
 		
 		switch (select)
@@ -72,8 +74,6 @@ void RecordShop()
 				break;
 		}
 	}
-	FUNCTION_0005();
-	FUNCTION_00B7(0);
 	return;
 }
 
@@ -115,8 +115,10 @@ int PersonaShop1()
 	SEL_CHK_PAD(13,4);
 	//Previous Page on D-Pad Left
 	SEL_CHK_PAD(15,5);
-	FUNCTION_011C(13, RecordPage1of2);
+	FUNCTION_011C(18, RecordPage1of2);
 	int select = SEL( PersonaShop1 );
+	FUNCTION_0005();
+	FUNCTION_00B7(0);
 	CLOSE_MSG_WIN();
 	switch (select)
 	{
@@ -155,8 +157,6 @@ int PersonaShop1()
 			return shopAgain();
 			break;
 	}
-	FUNCTION_0005();
-	FUNCTION_00B7(0);
 	return 0;
 }
 
@@ -170,8 +170,10 @@ int PersonaShop2()
 	SEL_CHK_PAD(13,4);
 	//Previous Page on D-Pad Left
 	SEL_CHK_PAD(15,5);
-	FUNCTION_011C(13, RecordPage2of2);
+	FUNCTION_011C(18, RecordPage2of2);
 	int select = SEL( PersonaShop2 );
+	FUNCTION_0005();
+	FUNCTION_00B7(0);
 	CLOSE_MSG_WIN();
 	switch (select)
 	{
@@ -210,8 +212,6 @@ int PersonaShop2()
 			return shopAgain();
 			break;
 	}
-	FUNCTION_0005();
-	FUNCTION_00B7(0);
 	return 0;
 }
 
@@ -221,8 +221,10 @@ int SMTShop()
 	MSG( ShopChoose1of1 );
 	//Close menu on Circle
 	SEL_CHK_PAD(6,20);
-	FUNCTION_011C(13, RecordPage1of1);
+	FUNCTION_011C(18, RecordPage1of1);
 	int select = SEL( SMTShop );
+	FUNCTION_0005();
+	FUNCTION_00B7(0);
 	CLOSE_MSG_WIN();
 	switch (select)
 	{
@@ -257,8 +259,6 @@ int SMTShop()
 			return shopAgain();
 			break;
 	}
-	FUNCTION_0005();
-	FUNCTION_00B7(0);
 	return 0;
 }
 
@@ -300,8 +300,10 @@ int SpinShop1()
 	SEL_CHK_PAD(13,4);
 	//Previous Page on D-Pad Left
 	SEL_CHK_PAD(15,5);
-	FUNCTION_011C(13, RecordPage1of2);
+	FUNCTION_011C(18, RecordPage1of2);
 	int select = SEL( SpinShop1 );
+	FUNCTION_0005();
+	FUNCTION_00B7(0);
 	CLOSE_MSG_WIN();
 	switch (select)
 	{
@@ -340,8 +342,6 @@ int SpinShop1()
 			return shopAgain();
 			break;
 	}
-	FUNCTION_0005();
-	FUNCTION_00B7(0);
 	return 0;
 }
 
@@ -355,8 +355,10 @@ int SpinShop2()
 	SEL_CHK_PAD(13,4);
 	//Previous Page on D-Pad Left
 	SEL_CHK_PAD(15,5);
-	FUNCTION_011C(13, RecordPage2of2);
+	FUNCTION_011C(18, RecordPage2of2);
 	int select = SEL( SpinShop2 );
+	FUNCTION_0005();
+	FUNCTION_00B7(0);
 	CLOSE_MSG_WIN();
 	switch (select)
 	{
@@ -395,8 +397,6 @@ int SpinShop2()
 			return shopAgain();
 			break;
 	}
-	FUNCTION_0005();
-	FUNCTION_00B7(0);
 	return 0;
 }
 

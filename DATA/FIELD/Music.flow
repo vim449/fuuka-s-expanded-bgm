@@ -121,7 +121,7 @@ void BGMorder_to_change_bgm() {
 	while (stayOpen) {
 		OPEN_MSG_WIN();
 		MSG(BGMHUKA_ORDER_BGM_CHANGE);
-		FUNCTION_011C(13, BGMPage1of1);
+		FUNCTION_011C(18, BGMPage1of1);
 		SEL_CHK_PAD(6, 99); // Exit menu, circle
 		SEL_CHK_PAD(8, 4);	// shuffle current menu, select
 		//SEL_CHK_PAD(13, 5); // next page, d-pad right
@@ -217,7 +217,7 @@ int P_Music()
 
 int P_Music1() {
 	MSG(HUKA_ORDER_BGM_CHANGE2);
-	FUNCTION_011C(13, BGMPage1of3);
+	FUNCTION_011C(18, BGMPage1of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -257,7 +257,7 @@ int P_Music1() {
 
 int P_Music2() {
 	MSG(HUKA_ORDER_BGM_CHANGE2);
-	FUNCTION_011C(13, BGMPage2of3);
+	FUNCTION_011C(18, BGMPage2of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -294,7 +294,7 @@ int P_Music2() {
 
 int P_Music3() {
 	MSG(HUKA_ORDER_BGM_CHANGE2);
-	FUNCTION_011C(13, BGMPage3of3);
+	FUNCTION_011C(18, BGMPage3of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -358,7 +358,7 @@ int P1()
 
 int P1_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -396,7 +396,7 @@ int P1_1() {
 
 int P1_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -468,7 +468,7 @@ int IS()
 
 int IS_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of3);
+	FUNCTION_011C(18, BGMPage1of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -506,7 +506,7 @@ int IS_1() {
 
 int IS_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of3);
+	FUNCTION_011C(18, BGMPage2of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -543,7 +543,7 @@ int IS_2() {
 
 int IS_3() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage3of3);
+	FUNCTION_011C(18, BGMPage3of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -613,7 +613,7 @@ int EP()
 
 int EP_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of3);
+	FUNCTION_011C(18, BGMPage1of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -650,7 +650,7 @@ int EP_1() {
 
 int EP_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of3);
+	FUNCTION_011C(18, BGMPage2of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -687,7 +687,7 @@ int EP_2() {
 
 int EP_3() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage3of3);
+	FUNCTION_011C(18, BGMPage3of3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -754,7 +754,7 @@ int P3()
 
 int P3_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -791,7 +791,7 @@ int P3_1() {
 
 int P3_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -857,7 +857,7 @@ int P4()
 
 int P4_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -894,7 +894,7 @@ int P4_1() {
 
 int P4_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -960,7 +960,7 @@ int PQ()
 
 int PQ_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -997,7 +997,7 @@ int PQ_1() {
 
 int PQ_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1062,7 +1062,7 @@ int P5()
 
 int P5_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1099,7 +1099,7 @@ int P5_1() {
 
 int P5_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1166,7 +1166,7 @@ int SMT_Music()
 
 int SMT_Music1() {
 	MSG(HUKA_ORDER_BGM_CHANGE2);
-	FUNCTION_011C(13, BGMPage1of1);
+	FUNCTION_011C(18, BGMPage1of1);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	//SEL_CHK_PAD(13, 4); // next page, d-pad right
 	//SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1231,7 +1231,7 @@ int SMT1()
 
 int SMT1_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1268,7 +1268,7 @@ int SMT1_1() {
 
 int SMT1_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1334,7 +1334,7 @@ int SMT3()
 
 int SMT3_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1370,7 +1370,7 @@ int SMT3_1() {
 
 int SMT3_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1438,7 +1438,7 @@ int SpinSMT_Music()
 
 int SpinSMT_Music_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE2);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1477,7 +1477,7 @@ int SpinSMT_Music_1() {
 
 int SpinSMT_Music_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE2);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1544,7 +1544,7 @@ int MJ()
 
 int MJ_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1581,7 +1581,7 @@ int MJ_1() {
 
 int MJ_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1646,7 +1646,7 @@ int MJ2()
 
 int MJ2_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1683,7 +1683,7 @@ int MJ2_1() {
 
 int MJ2_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1751,7 +1751,7 @@ int DDS()
 
 int DDS_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1788,7 +1788,7 @@ int DDS_1() {
 
 int DDS_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1853,7 +1853,7 @@ int Raidou()
 
 int Raidou_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1890,7 +1890,7 @@ int Raidou_1() {
 
 int Raidou_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1955,7 +1955,7 @@ int Other()
 
 int Other_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage1of2);
+	FUNCTION_011C(18, BGMPage1of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
@@ -1992,7 +1992,7 @@ int Other_1() {
 
 int Other_2() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(13, BGMPage2of2);
+	FUNCTION_011C(18, BGMPage2of2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
