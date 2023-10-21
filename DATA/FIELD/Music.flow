@@ -237,7 +237,7 @@ int P_Music1() {
 	FUNCTION_0005();
 	switch (selection) {
 		case 0:
-			if (!BIT_CHK(579) {
+			if (!BIT_CHK(579)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -246,7 +246,7 @@ int P_Music1() {
 				return P1();
 			}
 		case 1:
-			if (!BIT_CHK(580) {
+			if (!BIT_CHK(580)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -255,7 +255,7 @@ int P_Music1() {
 				return IS();
 			}
 		case 2:
-			if (!BIT_CHK(581) {
+			if (!BIT_CHK(581)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -264,7 +264,7 @@ int P_Music1() {
 				return EP();
 			}
 		case 3:
-			if (!BIT_CHK(582) {
+			if (!BIT_CHK(582)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -304,7 +304,7 @@ int P_Music2() {
 	FUNCTION_0005();
 	switch (selection) {
 		case 0:
-			if (!BIT_CHK(583) {
+			if (!BIT_CHK(583)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -313,7 +313,7 @@ int P_Music2() {
 				return P4();
 			}
 		case 1:
-			if (!BIT_CHK(584) {
+			if (!BIT_CHK(584)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -322,7 +322,7 @@ int P_Music2() {
 				return PQ();
 			}
 		case 2:
-			if (!BIT_CHK(585) {
+			if (!BIT_CHK(585)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -1235,7 +1235,7 @@ int SMT_Music1() {
 	FUNCTION_0005();
 	switch (selection) {
 		case 0:
-			if (!BIT_CHK(586) {
+			if (!BIT_CHK(586)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -1244,7 +1244,7 @@ int SMT_Music1() {
 				return SMT1();
 			}
 		case 1:
-			if (!BIT_CHK(587) {
+			if (!BIT_CHK(587)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -1521,7 +1521,7 @@ int SpinSMT_Music_1() {
 	FUNCTION_0005();
 	switch (selection) {
 		case 0:
-			if (!BIT_CHK(588) {
+			if (!BIT_CHK(588)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -1530,7 +1530,7 @@ int SpinSMT_Music_1() {
 				return MJ();
 			}
 		case 1:
-			if (!BIT_CHK(589) {
+			if (!BIT_CHK(589)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -1539,7 +1539,7 @@ int SpinSMT_Music_1() {
 				return MJ2();
 			}
 		case 2:
-			if (!BIT_CHK(590) {
+			if (!BIT_CHK(590)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -1548,7 +1548,7 @@ int SpinSMT_Music_1() {
 				return DDS();
 			}
 		case 3:
-			if (!BIT_CHK(591) {
+			if (!BIT_CHK(591)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;
@@ -1588,7 +1588,7 @@ int SpinSMT_Music_2() {
 	FUNCTION_0005();
 	switch (selection) {
 		case 0:
-			if (!BIT_CHK(592) {
+			if (!BIT_CHK(592)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
 				return 4;

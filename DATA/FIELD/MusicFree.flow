@@ -135,6 +135,7 @@ void BGMorder_to_change_bgm() {
 					MSG(No_PersonaMusic);
 					CLOSE_MSG_WIN();
 					FUNCTION_00B7(0);
+					stayOpen = 0;
 					return;
 				}
 				else {
@@ -144,12 +145,13 @@ void BGMorder_to_change_bgm() {
 				}
 				break;
 			case 1:
-				if (PersonaSongs() != true)
+				if (SMTSongs() != true)
 				{
 					OPEN_MSG_WIN();
 					MSG(No_SMTMusic);
 					CLOSE_MSG_WIN();
 					FUNCTION_00B7(0);
+					stayOpen = 0;
 					return;
 				}
 				else {
@@ -159,12 +161,13 @@ void BGMorder_to_change_bgm() {
 				}
 				break;
 			case 2:
-				if (PersonaSongs() != true)
+				if (SpinSongs() != true)
 				{
 					OPEN_MSG_WIN();
 					MSG(No_SpinMusic);
 					CLOSE_MSG_WIN();
 					FUNCTION_00B7(0);
+					stayOpen = 0;
 					return;
 				}
 				else {
@@ -232,13 +235,41 @@ int P_Music1() {
 	FUNCTION_0005();
 	switch (selection) {
 		case 0:
-			return P1();
+			if (!BIT_CHK(579)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return P1();
+			}
 		case 1:
-			return IS();
+			if (!BIT_CHK(580)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return IS();
+			}
 		case 2:
-			return EP();
+			if (!BIT_CHK(581)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return EP();
+			}
 		case 3:
-			return P3();
+			if (!BIT_CHK(582)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return P3();
+			}
 		case 4:
 			return 2;
 		case 5:
@@ -271,11 +302,32 @@ int P_Music2() {
 	FUNCTION_0005();
 	switch (selection) {
 		case 0:
-			return P4();
+			if (!BIT_CHK(583)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return P4();
+			}
 		case 1:
-			return PQ();
+			if (!BIT_CHK(584)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return PQ();
+			}
 		case 2:
-			return P5();
+			if (!BIT_CHK(585)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return P5();
+			}
 		case 4:
 			return 3;
 		case 5:
@@ -564,6 +616,7 @@ int IS_3() {
 			SET_CNT(9998, 3);
 			RandomIS();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		case 3:
 			return -1;
 		case 4:
@@ -1180,9 +1233,23 @@ int SMT_Music1() {
 	FUNCTION_0005();
 	switch (selection) {
 		case 0:
-			return SMT1();
+			if (!BIT_CHK(586)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return SMT1();
+			}
 		case 1:
-			return SMT3();
+			if (!BIT_CHK(587)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return SMT3();
+			}
 		case 2:
 			SET_CNT(9998, 2);
 			RandomSMT();
@@ -1452,13 +1519,41 @@ int SpinSMT_Music_1() {
 	FUNCTION_0005();
 	switch (selection) {
 		case 0:
-			return MJ();
+			if (!BIT_CHK(588)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return MJ();
+			}
 		case 1:
-			return MJ2();
+			if (!BIT_CHK(589)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return MJ2();
+			}
 		case 2:
-			return DDS();
+			if (!BIT_CHK(590)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return DDS();
+			}
 		case 3:
-			return Raidou();
+			if (!BIT_CHK(591)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return Raidou();
+			}
 		case 4:
 			return 2;
 		case 5:
@@ -1491,7 +1586,14 @@ int SpinSMT_Music_2() {
 	FUNCTION_0005();
 	switch (selection) {
 		case 0:
-			return Other();
+			if (!BIT_CHK(592)) {
+				OPEN_MSG_WIN();
+				MSG(No_Album);
+				return 4;
+			}
+			else {
+				return Other();
+			}
 		case 1:
 			SET_CNT(9998, 2);
 			RandomSpin();
