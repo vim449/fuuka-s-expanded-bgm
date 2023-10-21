@@ -248,6 +248,9 @@
 [msg No_SpinMusic [Fuuka]]
 [f 0 8 65278][f 1 31]You don't own any SMT Spin-Off soundtracks.[n][f 0 4][e]
 
+[msg No_Album [Fuuka]]
+[f 0 8 65278][f 1 31]You don't own this soundtrack.[n][f 0 4][e]
+
 [msg sebec]
 [f 0 8 65278][f 1 31]  Persona 1[n]  The Snow Queen[n][f 0 21 45][e]
 
