@@ -73,3 +73,12 @@
 [sel SpinShop2]
 [f 0 8 -258][f 1 31]Raidou 1 & 2 Soundtrack[e]
 [f 0 8 -258][f 1 31]Others Soundtrack[e]
+
+[msg RecordPage1of1]
+[f 0 8 65278][f 1 31]  Page 1 of 1.[n][f 0 21 9999][e]
+
+[msg RecordPage1of2]
+[f 0 8 65278][f 1 31]  Page 1 of 2.[n][f 0 21 9999][e]
+
+[msg RecordPage2of2]
+[f 0 8 65278][f 1 31]  Page 2 of 2.[n][f 0 21 9999][e]
