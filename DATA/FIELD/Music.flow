@@ -9,7 +9,7 @@ const int SpinEndID = 592;
 
 void BGMorder_for_huka() {
 	//Enable Music for Answer
-	if (FUNCTION_01E9() == 0) {
+	if (FUNCTION_01E9() == 1) {
 		AnswerMusic();
 	}
 	// Mask some	Random stuff out

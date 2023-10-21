@@ -1,0 +1,4 @@
+patch=1,EE,003C88E8,word,24040460 // Allocate more memory for navi structure
+patch=1,EE,003c8908,word,24040054 
+patch=1,EE,003c8440,word,2A210050 // Expand check
+
