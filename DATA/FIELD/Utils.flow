@@ -58,618 +58,251 @@ const int persona_games = 7;
 const int smt_games = 2;
 const int spin_games = 5;
 
+const int PersonaStID = 579;
+const int PersonaEdID = 585;
+const int SMTStID = 586;
+const int SMTEdID = 587;
+const int SpinStID = 588;
+const int SpinEdID = 592;
+
+const int bigRandomNum = 1000;
+
 void Random() {
-	int selection = AI_RND(series);
-	SET_CNT(ShufflePool, ShuffleAll);
-	switch (selection) {
-		case 0:
-			RandomPersona();
-			return;
-		case 1:
-			RandomSMT();
-			return;
-		case 2:
-			RandomSpin();
-			return;
-		default:
-			return;
-	}
-}
-
-void RandomPersona() {
-	if (GET_CNT(ShuffleInit) == 2) {
-		SET_CNT(ShufflePool, ShufflePersona);
-	}
-	int selection = AI_RND(persona_games);
-	switch (selection) {
-		case 0:
-			RandomP1();
-			return;
-		case 1:
-			RandomIS();
-			return;
-		case 2:
-			RandomEP();
-			return;
-		case 3:
-			RandomP3();
-			return;
-		case 4:
-			RandomP4();
-			return;
-		case 5:
-			RandomP5();
-			return;
-		case 6:
-			RandomPQ();
-			return;
-		default:
-			return;
-	}
-}
-
-void RandomSMT() {
-	if (GET_CNT(ShuffleInit) == 2) {
-		SET_CNT(ShufflePool, ShuffleSMT);
-	}
-	int selection = AI_RND(smt_games);
-	switch (selection) {
-		case 0:
-			RandomSMT1();
-			return;
-		case 1:
-			RandomSMT3();
-			return;
-		default:
-			return;
-	}
-}
-
-void RandomSpin() {
-	if (GET_CNT(ShuffleInit) == 2) {
-		SET_CNT(ShufflePool, ShuffleSpin);
-	}
-	int selection = AI_RND(spin_games);
-	switch (selection) {
-		case 0:
-			RandomMJ();
-			return;
-		case 1:
-			RandomMJ2();
-			return;
-		case 2:
-			RandomDDS();
-			return;
-		case 3:
-			RandomRaidou();
-			return;
-		case 4:
-			RandomOther();
-			return;
-		default:
-			return;
-	}
-}
-
-void RandomP1() {
-	if (BIT_CHK(579) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShufflePersona) {
-			RandomPersona();
-		}
-		else {
-			return;
+	bool notFound = true;
+	while (notFound)
+	{
+		SET_CNT(ShufflePool, ShuffleAll);
+		int randNum = AI_RND(bigRandomNum);
+		int selection = randNum % series;
+		switch (selection) {
+			case 0:
+				for (int i = PersonaStID ; i <= PersonaEdID; i++) {
+					if (BIT_CHK(i)) {
+						notFound = RandomPersona();
+						break;
+					}
+				}
+				break;
+			case 1:
+				for (int i = SMTStID ; i <= SMTEdID; i++) {
+					if (BIT_CHK(i)) {
+						notFound = RandomSMT();
+						break;
+					}
+				}
+				break;
+			case 2:
+				for (int i = SpinStID; i <= SpinEdID; i++) {
+					if (BIT_CHK(i)) {
+						notFound = RandomSpin();
+						break;
+					}
+				}
+				break;
+			default:
+				break;
 		}
 	}
-	else {
-		int randomsong = AI_RND(p1_len) + p1_start;
+	
+}
+
+bool RandomPersona() {
+	int notFound = 1;
+
+	while (notFound) {
+		if (GET_CNT(ShuffleInit) == 2) {
+			SET_CNT(ShufflePool, ShufflePersona);
+		}
+		int randNum = AI_RND(bigRandomNum);
+		int selection = randNum % persona_games;
+		switch (selection) {
+			case 0:
+				if (BIT_CHK(579)) {
+					notFound = RandomGame(p1_len, p1_start, ShuffleP1, ShufflePersona);
+				}
+				break;
+			case 1:
+				if (BIT_CHK(580)) {
+					notFound = RandomGame(is_len, is_start, ShuffleIS, ShufflePersona);
+				}
+				break;
+			case 2:
+				if (BIT_CHK(581)) {
+					notFound = RandomGame(ep_len, ep_start, ShuffleEP, ShufflePersona);
+				}
+				break;
+			case 3:
+				if (BIT_CHK(582)) {
+					notFound = RandomGame(p3_len, p3_start, ShuffleP3, ShufflePersona);
+				}
+				break;
+			case 4:
+				if (BIT_CHK(583)) {
+					notFound = RandomGame(p4_len, p4_start, ShuffleP4, ShufflePersona);
+				}
+				break;
+			case 5:
+				if (BIT_CHK(584)) {
+					notFound = RandomGame(p5_len, p5_start, ShuffleP5, ShufflePersona);
+				}
+				break;
+			case 6:
+				if (BIT_CHK(585)) {
+					notFound = RandomGame(pq_len, pq_start, ShufflePQ, ShufflePersona);
+				}
+				break;
+			default:
+				break;
+		}
+
+		if (notFound == -1) return true;
+	}
+	
+	return false;
+}
+
+bool RandomSMT() {
+	int notFound = 1;
+	
+	while (notFound) {
+		if (GET_CNT(ShuffleInit) == 2) {
+			SET_CNT(ShufflePool, ShuffleSMT);
+		}
+		int randNum = AI_RND(bigRandomNum);
+		int selection = randNum % smt_games;
+		switch (selection) {
+			case 0:
+				if (BIT_CHK(586)) {
+					notFound = RandomGame(smt1_len, smt1_start, ShuffleSMT1, ShuffleSMT);
+				}
+				break;
+			case 1:
+				if (BIT_CHK(587)) {
+					notFound = RandomGame(smt3_len, smt3_start, ShuffleSMT3, ShuffleSMT);
+				}
+				break;
+			default:
+				break;
+		}
+		if (notFound == -1) return true;
+	}
+	return false;
+}
+
+bool RandomSpin() {
+	int notFound = 1;
+	
+	while (notFound) {
+		if (GET_CNT(ShuffleInit) == 2) {
+			SET_CNT(ShufflePool, ShuffleSpin);
+		}
+		int randNum = AI_RND(bigRandomNum);
+		int selection = randNum % spin_games;
+		switch (selection) {
+			case 0:
+				if (BIT_CHK(588)) {
+					notFound = RandomGame(mj_len, mj_start, ShuffleMJ, ShuffleSpin);
+				}
+				break;
+			case 1:
+				if (BIT_CHK(589)) {
+					notFound = RandomGame(mj2_len, mj2_start, ShuffleMJ2, ShuffleSpin);
+				}
+				break;
+			case 2:
+				if (BIT_CHK(590)) {
+					notFound = RandomGame(dds_len, dds_start, ShuffleDDS, ShuffleSpin);
+				}
+				break;
+			case 3:
+				if (BIT_CHK(591)) {
+					notFound = RandomGame(rai_len, rai_start, ShuffleRaidou, ShuffleSpin);
+				}
+				break;
+			case 4:
+				if (BIT_CHK(592)) {
+					notFound = RandomGame(misc_len, misc_start, ShuffleOther, ShuffleSpin);
+				}
+				break;
+			default:
+				break;
+		}
+
+		if (notFound == -1) return true;
+	}
+	return false;
+}
+
+int RandomGame(int game_len, int game_start, int game_shuffle, int series_shuffle) {
+	bool notFound = true;
+	while (notFound) {
+		int randNum = AI_RND(bigRandomNum);
+		int randomsong = (randNum % game_len) + game_start;
 		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleP1);
+			SET_CNT(ShufflePool, game_shuffle);
 		}
 		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
 			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
+				return -1;
 			}
-			else if (GET_CNT(ShufflePool) == ShufflePersona) {
-				RandomPersona();
-			}
-			else {
-				RandomP1();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
-}
-
-void RandomIS() {
-	if (BIT_CHK(580) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShufflePersona) {
-			RandomPersona();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(is_len) + is_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleIS);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShufflePersona) {
-				RandomPersona();
+			else if (GET_CNT(ShufflePool) == series_shuffle) {
+				return 1;
 			}
 			else {
-				RandomIS();
+				notFound = true;
 			}
 		}
 		else {
-		playRandomBGM(randomsong);
+			notFound = false;
+			playRandomBGM(randomsong);
 		}
 	}
-}
-
-void RandomEP() {
-	if (BIT_CHK(581) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShufflePersona) {
-			RandomPersona();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(ep_len) + ep_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleEP);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShufflePersona) {
-				RandomPersona();
-			}
-			else {
-				RandomEP();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
-}
-
-void RandomP3() {
-	if (BIT_CHK(582) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShufflePersona) {
-			RandomPersona();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(p3_len) + p3_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleP3);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShufflePersona) {
-				RandomPersona();
-			}
-			else {
-				RandomP3();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
-}
-
-void RandomP4() {
-	if (BIT_CHK(583) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShufflePersona) {
-			RandomPersona();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(p4_len) + p4_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleP4);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShufflePersona) {
-				RandomPersona();
-			}
-			else {
-				RandomP4();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
-}
-
-void RandomPQ() {
-	if (BIT_CHK(584) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShufflePersona) {
-			RandomPersona();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(pq_len) + pq_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShufflePQ);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShufflePersona) {
-				RandomPersona();
-			}
-			else {
-				RandomPQ();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
-}
-
-void RandomP5() {
-	if (BIT_CHK(585) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShufflePersona) {
-			RandomPersona();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(p5_len) + p5_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleP5);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShufflePersona) {
-				RandomPersona();
-			}
-			else {
-				RandomP5();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
-}
-
-void RandomSMT1() {
-	if (BIT_CHK(586) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShuffleSMT) {
-			RandomSMT();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(smt1_len) + smt1_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleSMT1);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShuffleSMT) {
-				RandomSMT();
-			}
-			else {
-				RandomSMT1();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
-}
-
-void RandomSMT3() {
-	if (BIT_CHK(587) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShuffleSMT) {
-			RandomSMT();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(smt3_len) + smt3_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleSMT3);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShuffleSMT) {
-				RandomSMT();
-			}
-			else {
-				RandomSMT3();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
-}
-
-void RandomMJ() {
-	if (BIT_CHK(588) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-			RandomSpin();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(mj_len) + mj_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleMJ);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-				RandomSpin();
-			}
-			else {
-				RandomMJ();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
-}
-
-void RandomMJ2() {
-	if (BIT_CHK(589) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-			RandomSpin();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(mj2_len) + mj2_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleMJ2);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-				RandomSpin();
-			}
-			else {
-				RandomMJ2();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
-}
-
-void RandomDDS() {
-	if (BIT_CHK(590) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-			RandomSpin();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(dds_len) + dds_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleDDS);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-				RandomSpin();
-			}
-			else {
-				RandomDDS();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
-}
-
-void RandomRaidou() {
-	if (BIT_CHK(591) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-			RandomSpin();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(rai_len) + rai_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleRaidou);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-				RandomSpin();
-			}
-			else {
-				RandomRaidou();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
-}
-
-void RandomOther() {
-	if (BIT_CHK(592) == 0) {
-		if (GET_CNT(ShufflePool) == ShuffleAll) {
-			Random();
-		}
-		else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-			RandomSpin();
-		}
-		else {
-			return;
-		}
-	}
-	else {
-		int randomsong = AI_RND(misc_len) + misc_start;
-		if (GET_CNT(ShuffleInit) == 3) {
-			SET_CNT(ShufflePool, ShuffleOther);
-		}
-		if (randomsong == GET_CNT(1) || randomsong == GET_CNT(PreviousSong)) {
-			if (GET_CNT(ShufflePool) == ShuffleAll) {
-				Random();
-			}
-			else if (GET_CNT(ShufflePool) == ShuffleSpin) {
-				RandomSpin();
-			}
-			else {
-				RandomOther();
-			}
-		}
-		else {
-		playRandomBGM(randomsong);
-		}
-	}
+	return 0;
 }
 
 void ReRandom() {
 	switch (GET_CNT(ShufflePool)) {
 	case 9982:
-		RandomOther();
+		RandomGame(misc_len, misc_start, ShuffleOther, ShuffleSpin);
 		break;
 	case 9983:
-		RandomRaidou();
+		RandomGame(rai_len, rai_start, ShuffleRaidou, ShuffleSpin);
 		break;
 	case 9984:
-		RandomDDS();
+		RandomGame(dds_len, dds_start, ShuffleDDS, ShuffleSpin);
 		break;
 	case 9985:
-		RandomMJ2();
+		RandomGame(mj2_len, mj2_start, ShuffleMJ2, ShuffleSpin);
 		break;
 	case 9986:
-		RandomMJ();
+		RandomGame(mj_len, mj_start, ShuffleMJ, ShuffleSpin);
 		break;
 	case 9987:
-		RandomSMT3();
+		RandomGame(smt3_len, smt3_start, ShuffleSMT3, ShuffleSMT);
 		break;
 	case 9988:
-		RandomSMT1();
+		RandomGame(smt1_len, smt1_start, ShuffleSMT1, ShuffleSMT);
 		break;
 	case 9989:
-		RandomP5();
+		RandomGame(p5_len, p5_start, ShuffleP5, ShufflePersona);
 		break;
 	case 9990:
-		RandomPQ();
+		RandomGame(pq_len, pq_start, ShufflePQ, ShufflePersona);
 		break;
 	case 9991:
-		RandomP4();
+		RandomGame(p4_len, p4_start, ShuffleP4, ShufflePersona);
 		break;
 	case 9992:
-		RandomP3();
+		RandomGame(p3_len, p3_start, ShuffleP3, ShufflePersona);
 		break;
 	case 9993:
-		RandomEP();
+		RandomGame(ep_len, ep_start, ShuffleEP, ShufflePersona);
 		break;
 	case 9994:
-		RandomIS();
+		RandomGame(is_len, is_start, ShuffleIS, ShufflePersona);
 		break;
 	case 9995:
-		RandomP1();
+		RandomGame(p1_len, p1_start, ShuffleP1, ShufflePersona);
 		break;
 	case 9996:
 		RandomSpin();
