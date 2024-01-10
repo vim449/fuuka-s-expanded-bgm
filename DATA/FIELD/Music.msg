@@ -198,6 +198,10 @@
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
 
+[sel YesNo top]
+[f 0 8 65278][f 1 31]Yes[e]
+[f 0 8 65278][f 1 31]No[e]
+
 [msg BGMHUKA_ORDER_BGM_CHANGE [Fuuka]]
 [f 0 8 65278][f 1 31]Sure![n][f 0 4][e]
 [f 0 8 65278][f 1 31]...Here are the series I have.[n]Which one do you want?[n][f 0 4][e]
@@ -230,6 +234,9 @@
 [f 0 8 65278][f 1 31]There you go.[n][f 0 4][e]
 [f 0 8 65278][f 1 31]If you want to listen to something[n]else, please let me know.[n][f 0 4][e]
 
+[msg Unlock_Tutorial]
+[f 0 8 65278][f 1 31][f 2 2 65535 65535][f 2 3 65535 0]If you want to unlock all soundtracks for free,[n]press L3 before asking for a specific BGM.[n][f 0 4][e]
+
 [msg Fuuka_Tutorial]
 [f 0 8 65278][f 1 31][f 2 2 65535 65535][f 2 3 65535 0]You can press Left or Right on the D-Pad to go to the[n]Previous or Next Page.[n][f 0 4][e]
 [f 0 8 65278][f 1 31][f 2 2 65535 65535][f 2 3 65535 0]You can press Select to shuffle all[n]songs in the current section.[n][f 0 4][e]
@@ -250,6 +257,9 @@
 
 [msg No_Album [Fuuka]]
 [f 0 8 65278][f 1 31]You don't own this soundtrack.[n][f 0 4][e]
+
+[msg UnlockAll [Fuuka]]
+[f 0 8 65278][f 1 31]Are you sure you want to unlock all sountracks?[n][f 0 4][e]
 
 [msg sebec]
 [f 0 8 65278][f 1 31]  Persona 1[n]  SEBEC Above Ground[n][f 0 21 45][e]
