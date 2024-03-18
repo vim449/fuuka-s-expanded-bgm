@@ -52,7 +52,7 @@ void RecordShop()
 
 		//Close menu on Circle
 		SEL_CHK_PAD(6,20);
-		FUNCTION_011C(18, RecordPage1of1);
+		FUNCTION_011C(19, RecordPage1of1);
 		int select = SEL( Record );
 		FUNCTION_0005();
 		FUNCTION_00B7(0);
@@ -79,9 +79,8 @@ void RecordShop()
 
 int PersonaShop()
 {
-	bool selecting = true;
 	int page = 1;
-	while(selecting)
+	while(true)
 	{
 		switch(page)
 		{	
@@ -90,8 +89,7 @@ int PersonaShop()
 			case -1:
 				return 1;
 			case 0:
-				selecting = false;
-				break;
+				return 0;
 			case 1:
 				page = PersonaShop1();
 				break;
@@ -115,7 +113,7 @@ int PersonaShop1()
 	SEL_CHK_PAD(13,4);
 	//Previous Page on D-Pad Left
 	SEL_CHK_PAD(15,5);
-	FUNCTION_011C(18, RecordPage1of2);
+	FUNCTION_011C(19, RecordPage1of2);
 	int select = SEL( PersonaShop1 );
 	FUNCTION_0005();
 	FUNCTION_00B7(0);
@@ -170,7 +168,7 @@ int PersonaShop2()
 	SEL_CHK_PAD(13,4);
 	//Previous Page on D-Pad Left
 	SEL_CHK_PAD(15,5);
-	FUNCTION_011C(18, RecordPage2of2);
+	FUNCTION_011C(19, RecordPage2of2);
 	int select = SEL( PersonaShop2 );
 	FUNCTION_0005();
 	FUNCTION_00B7(0);
@@ -221,7 +219,7 @@ int SMTShop()
 	MSG( ShopChoose1of1 );
 	//Close menu on Circle
 	SEL_CHK_PAD(6,20);
-	FUNCTION_011C(18, RecordPage1of1);
+	FUNCTION_011C(19, RecordPage1of1);
 	int select = SEL( SMTShop );
 	FUNCTION_0005();
 	FUNCTION_00B7(0);
@@ -264,9 +262,8 @@ int SMTShop()
 
 int SpinShop()
 {
-	bool selecting = true;
 	int page = 1;
-	while(selecting)
+	while(true)
 	{
 		switch(page)
 		{
@@ -275,8 +272,7 @@ int SpinShop()
 			case -1:
 				return 1;	
 			case 0:
-				selecting = false;
-				break;
+				return 0;
 			case 1:
 				page = SpinShop1();
 				break;
@@ -300,7 +296,7 @@ int SpinShop1()
 	SEL_CHK_PAD(13,4);
 	//Previous Page on D-Pad Left
 	SEL_CHK_PAD(15,5);
-	FUNCTION_011C(18, RecordPage1of2);
+	FUNCTION_011C(19, RecordPage1of2);
 	int select = SEL( SpinShop1 );
 	FUNCTION_0005();
 	FUNCTION_00B7(0);
@@ -355,7 +351,7 @@ int SpinShop2()
 	SEL_CHK_PAD(13,4);
 	//Previous Page on D-Pad Left
 	SEL_CHK_PAD(15,5);
-	FUNCTION_011C(18, RecordPage2of2);
+	FUNCTION_011C(19, RecordPage2of2);
 	int select = SEL( SpinShop2 );
 	FUNCTION_0005();
 	FUNCTION_00B7(0);
