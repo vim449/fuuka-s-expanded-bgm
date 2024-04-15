@@ -356,210 +356,61 @@ void playRandomBGM(int songid) {
 }
 
 void musicNavi() {
-	switch (GET_CNT(1)) {
-		case 500:
-			FUNCTION_011C(19, sebec);
-			break;
-		case 501:
-			FUNCTION_011C(19, kandori);
-			break;
-		case 502:
-			FUNCTION_011C(19, karmaPSX);
-			break;
-		case 503:
-			FUNCTION_011C(19, karmaPSP);
-			break;
-		case 504:
-			FUNCTION_011C(19, school);
-			break;
-		case 505:
-			FUNCTION_011C(19, butterfly);
-			break;
-		case 550:
-			FUNCTION_011C(19, zodiacISPSX);
-			break;
-		case 551:
-			FUNCTION_011C(19, goldPSX);
-			break;
-		case 552:
-			FUNCTION_011C(19, kasuISPSX);
-			break;
-		case 553:
-			FUNCTION_011C(19, mayaPSX);
-			break;
-		case 554:
-			FUNCTION_011C(19, katatISPSX);
-			break;
-		case 555:
-			FUNCTION_011C(19, zodiacISPSP);
-			break;
-		case 556:
-			FUNCTION_011C(19, goldPSP);
-			break;
-		case 557:
-			FUNCTION_011C(19, kasuISPSP);
-			break;
-		case 558:
-			FUNCTION_011C(19, mayaPSP);
-			break;
-		case 559:
-			FUNCTION_011C(19, katatISPSP);
-			break;
-		case 600:
-			FUNCTION_011C(19, factoryPSX);
-			break;
-		case 601:
-			FUNCTION_011C(19, zodiacEPPSX);
-			break;
-		case 602:
-			FUNCTION_011C(19, kasuEPPSX);
-			break;
-		case 603:
-			FUNCTION_011C(19, katatEPPSX);
-			break;
-		case 604:
-			FUNCTION_011C(19, factoryPSP);
-			break;
-		case 605:
-			FUNCTION_011C(19, zodiacEPPSP);
-			break;
-		case 606:
-			FUNCTION_011C(19, kasuEPPSP);
-			break;
-		case 607:
-			FUNCTION_011C(19, katatEPPSP);
-			break;
-		case 608:
-			FUNCTION_011C(19, shiori);
-			break;
-		case 650:
-			FUNCTION_011C(19, sauna);
-			break;
-		case 651:
-			FUNCTION_011C(19, game);
-			break;
-		case 652:
-			FUNCTION_011C(19, heaven);
-			break;
-		case 653:
-			FUNCTION_011C(19, longWay);
-			break;
-		case 700:
-			FUNCTION_011C(19, beneathMask);
-			break;
-		case 701:
-			FUNCTION_011C(19, maskInst);
-			break;
-		case 702:
-			FUNCTION_011C(19, cake);
-			break;
-		case 703:
-			FUNCTION_011C(19, life);
-			break;
-		case 704:
-			FUNCTION_011C(19, believe);
-			break;
-		case 750:
-			FUNCTION_011C(19, danger);
-			break;
-		case 751:
-			FUNCTION_011C(19, maze);
-			break;
-		case 752:
-			FUNCTION_011C(19, voice);
-			break;
-		case 800:
-			FUNCTION_011C(19, cathedral);
-			break;
-		case 801:
-			FUNCTION_011C(19, disco);
-			break;
-		case 802:
-			FUNCTION_011C(19, makai);
-			break;
-		case 803:
-			FUNCTION_011C(19, cityMakai);
-			break;
-		case 850:
-			FUNCTION_011C(19, amala);
-			break;
-		case 851:
-			FUNCTION_011C(19, soundTest);
-			break;
-		case 852:
-			FUNCTION_011C(19, tokyo);
-			break;
-		case 853:
-			FUNCTION_011C(19, ikebukuro);
-			break;
-		case 900:
-			FUNCTION_011C(19, flame);
-			break;
-		case 901:
-			FUNCTION_011C(19, devil);
-			break;
-		case 902:
-			FUNCTION_011C(19, chaotic);
-			break;
-		case 950:
-			FUNCTION_011C(19, ad);
-			break;
-		case 951:
-			FUNCTION_011C(19, smash);
-			break;
-		case 952:
-			FUNCTION_011C(19, evolution);
-			break;
-		case 953:
-			FUNCTION_011C(19, assault);
-			break;
-		case 954:
-			FUNCTION_011C(19, sourpuss);
-			break;
-		case 1050:
-			FUNCTION_011C(19, sahasrara);
-			break;
-		case 1051:
-			FUNCTION_011C(19, samsara);
-			break;
-		case 1052:
-			FUNCTION_011C(19, madMart);
-			break;
-		case 1053:
-			FUNCTION_011C(19, egg);
-			break;
-		case 1100:
-			FUNCTION_011C(19, tsukudo);
-			break;
-		case 1101:
-			FUNCTION_011C(19, go);
-			break;
-		case 1102:
-			FUNCTION_011C(19, tsukigata);
-			break;
-		case 1103:
-			FUNCTION_011C(19, adventure);
-			break;
-		case 1150:
-			FUNCTION_011C(19, algon);
-			break;
-		case 1151:
-			FUNCTION_011C(19, ezekiel);
-			break;
-		case 1152:
-			FUNCTION_011C(19, belly);
-			break;
-		case 1200:
-			FUNCTION_011C(19, snow);
-			break;
-		case 1201:
-			FUNCTION_011C(19, mayaP3);
-			break;
-		case 1202:
-			FUNCTION_011C(19, persona);
-			break;
-		case 1203:
-			FUNCTION_011C(19, castle);
-			break;
-	}
+    int starts[] = {p1_len,is_len,ep_len,p4_len,p5_len,pq_len,smt1_len,smt3_len,mj_len,mj2_len,0,dds_len,rai_len,misc_len,p3_len};
+    int catCount = (GET_CNT(1) - 500) / 50;
+    int remainder = (GET_CNT(1) - 500) % 50;
+    int selectedSong = 0;
+    int temp_track;
+    for(int x = 0; x < catCount; x++){
+        switch(x){
+            case 0:
+                temp_track = starts[0];
+                break;
+            case 1:
+                temp_track = starts[1];
+                break;
+            case 2:
+                temp_track = starts[2];
+                break;
+            case 3:
+                temp_track = starts[3];
+                break;
+            case 4:
+                temp_track = starts[4];
+                break;
+            case 5:
+                temp_track = starts[5];
+                break;
+            case 6:
+                temp_track = starts[6];
+                break;
+            case 7:
+                temp_track = starts[7];
+                break;
+            case 8:
+                temp_track = starts[8];
+                break;
+            case 9:
+                temp_track = starts[9];
+                break;
+            case 10:
+                temp_track = starts[10];
+                break;
+            case 11:
+                temp_track = starts[11];
+                break;
+            case 12:
+                temp_track = starts[12];
+                break;
+            case 13:
+                temp_track = starts[13];
+                break;
+            case 14:
+                temp_track = starts[14];
+                break;
+        }
+        selectedSong = selectedSong + temp_track;
+    }
+    selectedSong = selectedSong + remainder + sebec;
+    FUNCTION_011C(19, selectedSong);
 }
