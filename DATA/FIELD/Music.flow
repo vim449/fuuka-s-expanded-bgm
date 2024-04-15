@@ -9,7 +9,7 @@ const int SpinEndID = 592;
 
 void BGMorder_for_huka() {
 	//Enable Music for Answer
-	if (FUNCTION_01E9() == 1) {
+	if (FUNCTION_01E9()) {
 		AnswerMusic();
 	}
 	// Mask some	Random stuff out
@@ -28,7 +28,7 @@ void BGMorder_for_huka() {
 			MSG(HUKA_ORDER_ESCAPE);
 			SEL_CHK_PAD(6, 1);
 
-			if (FUNCTION_01E9() == 1) {
+			if (FUNCTION_01E9()) {
 				selection = SEL(FES_ESCAPE_SEL);
 			} else {
 				selection = SEL(ESCAPE_SEL);
@@ -51,7 +51,7 @@ void BGMorder_for_huka() {
 			return;
 		case 2: // go back to tartarus music
 			// Checks if answer
-			if (FUNCTION_01E9() == 1) {
+			if (FUNCTION_01E9) {
 
 				if ((GET_FLOOR_ID() >= 2) && (GET_FLOOR_ID() <= 20)) {
 				playBGM(94);
@@ -2205,8 +2205,8 @@ bool SpinSongs() {
 
 
 void AnswerMusic() {
-	if (!BIT_CHK(579)) {
-		for (int i = 579; i <= 592; i++) {
+	if (!BIT_CHK(PersonaStartID)) {
+		for (int i = PersonaStartID; i <= SpinEndID; i++) {
 			if (!BIT_CHK(i)) {
 				BIT_ON(i);
 			 }
