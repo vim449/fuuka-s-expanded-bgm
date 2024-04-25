@@ -1,0 +1,275 @@
+patch=1,EE,00a03420,word,00a03400 // New address shop
+patch=1,EE,00a03424,word,00000004
+
+patch=1,EE,00a033f0,word,5f6c6366 // Shop file name to load for anm/sprs "fcl_precord.pak"
+patch=1,EE,00a033f4,word,63657270
+patch=1,EE,00a033f8,word,2e64726f
+patch=1,EE,00a033fc,word,006b6170
+
+
+patch=1,EE,00a03400,word,00000007 // New shop references
+patch=1,EE,00a03404,word,00a033f0 // Shop file name reference
+patch=1,EE,00a03408,word,00000002
+patch=1,EE,00a03410,word,00000003
+patch=1,EE,00a03414,word,006a68f0
+patch=1,EE,00a03418,word,00000006
+
+patch=1,EE,00a03430,word,00100000 // Modified money address
+patch=1,EE,00a03434,word,00000002
+patch=1,EE,00a03438,word,0000ffff
+patch=1,EE,00a0343c,word,000007d0
+patch=1,EE,00a03440,word,00000002
+patch=1,EE,00a03444,word,00000004
+
+
+patch=1,EE,00A03460,word,00640000 // New shop item list pointer
+patch=1,EE,00A03464,word,00100000 // Number of elements of the list
+patch=1,EE,00A03468,word,00A03470 // Address with first item element of the list
+patch=1,EE,00A0346C,word,00000040
+patch=1,EE,00A03470,word,000013CB // Persona 1 Soundtrack item
+patch=1,EE,00A03474,word,00010800
+patch=1,EE,00A03478,word,000013CC // Persona 2: IS Soundtrack item
+patch=1,EE,00A0347C,word,00010800
+patch=1,EE,00A03480,word,000013CD // Persona 2: EP Soundtrack item
+patch=1,EE,00A03484,word,00010800
+patch=1,EE,00A03488,word,000013CE // Persona 3 Soundtrack item
+patch=1,EE,00A0348C,word,00010800
+patch=1,EE,00A03490,word,000013CF // Persona 4 Soundtrack item
+patch=1,EE,00A03494,word,00010800
+patch=1,EE,00A03498,word,000013D0 // Persona Q Soundtrack item
+patch=1,EE,00A0349C,word,00010800
+patch=1,EE,00A034A0,word,000013D1 // Persona 5 Soundtrack item
+patch=1,EE,00A034A4,word,00010800
+patch=1,EE,00A034A8,word,000013D2 // SMT 1,2, & if... Soundtrack item
+patch=1,EE,00A034AC,word,00010800
+patch=1,EE,00A034B0,word,000013D3 // SMT 3 & 4 Soundtrack item
+patch=1,EE,00A034B4,word,00010800
+patch=1,EE,00A034B8,word,000013D4 // Majin Tensei 1 Soundtrack item
+patch=1,EE,00A034BC,word,00010800
+patch=1,EE,00A034C0,word,000013D5 // Majin Tensei 2 Soundtrack item
+patch=1,EE,00A034C4,word,00010800
+patch=1,EE,00A034C8,word,000013D6 // DDS Soundtrack item
+patch=1,EE,00A034CC,word,00010800
+patch=1,EE,00A034D0,word,000013D7 // Raidou 1 & 2 Soundtrack item
+patch=1,EE,00A034D4,word,00010800
+patch=1,EE,00A034D8,word,000013D8 // Others Soundtrack item
+patch=1,EE,00A034DC,word,00010800
+
+patch=1,EE,003e8800,word,08280D3D // Jump to decide address shop
+patch=1,EE,003e8804,word,00641821
+patch=1,EE,00a034f4,word,3c1700a0 // Save address shop
+patch=1,EE,00a034f8,word,26f73450
+patch=1,EE,00a034fc,word,8ef70000
+patch=1,EE,00a03504,word,12E00003
+patch=1,EE,00a03508,word,00000000
+patch=1,EE,00a0350c,word,3c0300a0
+patch=1,EE,00a03510,word,24633420
+patch=1,EE,00a03514,word,ac430050
+patch=1,EE,00a03518,word,080fa202
+patch=1,EE,00a03534,word,00000000
+
+
+patch=1,EE,003C5880,word,0C280D6F // Fake shop 3 when we are shop 0xA
+patch=1,EE,003C5850,word,0C280D6F
+patch=1,EE,003C5820,word,0C280D6F
+patch=1,EE,003C57F0,word,0C280D6F
+patch=1,EE,003E06C0,word,0C280D6E
+
+patch=1,EE,00a035b8,word,00121021
+patch=1,EE,00a035bc,word,27BDFFF0
+patch=1,EE,00a035c0,word,FFBF0000
+
+patch=1,EE,00a035c4,word,8F95B998
+patch=1,EE,00a035c8,word,8EB50024
+patch=1,EE,00a035cc,word,8EB5000C
+
+patch=1,EE,00a035d0,word,2417000a
+patch=1,EE,00a035d4,word,8EB60000
+patch=1,EE,00a035d8,word,16f60006
+patch=1,EE,00a035e0,word,24170003
+patch=1,EE,00a035e4,word,AEB70000
+patch=1,EE,00a035e8,word,3c1600a0
+patch=1,EE,00a035ec,word,26d63450
+patch=1,EE,00a035f0,word,aed70000
+patch=1,EE,00a035f4,word,0040F809
+patch=1,EE,00a03604,word,3c1700a0
+patch=1,EE,00a03608,word,26f73450
+patch=1,EE,00a0360c,word,8ef60000
+patch=1,EE,00a03610,word,12c00004
+patch=1,EE,00a03618,word,2416000a
+patch=1,EE,00a0361c,word,aee00000
+patch=1,EE,00a03620,word,AEB60000
+
+patch=1,EE,00a03624,word,DFBF0000
+patch=1,EE,00a03628,word,27BD0010
+patch=1,EE,00a0362c,word,03E00008
+
+
+patch=1,EE,003f3504,word,08280da4 // Load custom shop items (Soundtracks)
+patch=1,EE,00a03690,word,0c0fc034
+patch=1,EE,00a03698,word,3c1600a0
+patch=1,EE,00a0369c,word,26d63450
+patch=1,EE,00a036a0,word,8ED60000
+patch=1,EE,00a036a4,word,12C00003
+patch=1,EE,00a036ac,word,3c0200a0
+patch=1,EE,00a036b0,word,24423460
+patch=1,EE,00a036b4,word,080fcd43
+
+patch=1,EE,0040d41c,word,08280dc0 // Fix flow CALL_FCL to take switch case of shop 0xA
+patch=1,EE,00a03700,word,0c0d7b48
+patch=1,EE,00a03708,word,2417000a
+patch=1,EE,00a0370c,word,af82ad10
+patch=1,EE,00a03710,word,14570008
+patch=1,EE,00a03718,word,3c04007c
+patch=1,EE,00a0371c,word,2484beb0
+patch=1,EE,00a03720,word,00021880
+patch=1,EE,00a03724,word,00641821
+patch=1,EE,00a03728,word,8c630000
+patch=1,EE,00a0372c,word,08103514
+patch=1,EE,00a03734,word,0810350a
+
+patch=1,EE,0040d4b8,word,08280dd8 // Fix flow FUNCTION_002B function to take switch case of shop 0xA
+patch=1,EE,0040d4bc,word,8f82ad10
+patch=1,EE,00a03760,word,2c410009
+patch=1,EE,00a03764,word,2417000a
+patch=1,EE,00a03768,word,16e20008
+patch=1,EE,00a03770,word,3c03007c
+patch=1,EE,00a03774,word,2463bee0
+patch=1,EE,00a03778,word,00021080
+patch=1,EE,00a0377c,word,00431021
+patch=1,EE,00a03780,word,8c420000
+patch=1,EE,00a03784,word,08103539
+patch=1,EE,00a0378c,word,08103530
+
+
+
+patch=1,EE,003f2840,word,08280de7 // Force "Sold Out" if you already have the soundtrack bought
+patch=1,EE,00a0379c,word,27bdffc0
+patch=1,EE,00a037a0,word,ffa20000
+patch=1,EE,00a037a4,word,ffa30010
+patch=1,EE,00a037a8,word,ffa40020
+patch=1,EE,00a037ac,word,ffa50030
+patch=1,EE,00a037b0,word,3c1700a0
+patch=1,EE,00a037b4,word,26f73450
+patch=1,EE,00a037b8,word,8ef70000
+patch=1,EE,00a037bc,word,12e00019
+patch=1,EE,00a037c0,word,00000000
+patch=1,EE,00a037c4,word,241713cb
+patch=1,EE,00a037c8,word,0297b822
+patch=1,EE,00a037cc,word,24040243
+patch=1,EE,00a037d0,word,00972021
+patch=1,EE,00a037d4,word,0c0e5474
+patch=1,EE,00a037dc,word,10400011
+patch=1,EE,00a037e0,word,00000000
+patch=1,EE,00a037e4,word,08280e02
+patch=1,EE,00a037ec,word,dfa20000
+patch=1,EE,00a037f0,word,dfa30010
+patch=1,EE,00a037f4,word,dfa40020
+patch=1,EE,00a037f8,word,dfa50030
+patch=1,EE,00a037fc,word,27bd0040
+patch=1,EE,00a03800,word,080FCA15
+patch=1,EE,00a03808,word,dfa20000
+patch=1,EE,00a0380c,word,dfa30010
+patch=1,EE,00a03810,word,dfa40020
+patch=1,EE,00a03814,word,dfa50030
+patch=1,EE,00a03818,word,27bd0040
+patch=1,EE,00a0381c,word,080FCA12
+patch=1,EE,00a03824,word,dfa20000
+patch=1,EE,00a03828,word,1440fff0
+patch=1,EE,00a03830,word,08280e02
+
+
+patch=1,EE,003f37bc,word,08280e10 // Don't reorder items of shop 0xA
+patch=1,EE,00a03840,word,3c1700a0
+patch=1,EE,00a03844,word,26f73450
+patch=1,EE,00a03848,word,8ef70000
+patch=1,EE,00a0384c,word,16e00003
+patch=1,EE,00a03854,word,0c0f1c00
+patch=1,EE,00a0385c,word,080fcdf1
+
+
+patch=1,EE,003e9f24,word,08280e18 // Replace buy function for BIT_ON in case we are buying from shop 0xA
+patch=1,EE,00a03868,word,27bdffd0
+patch=1,EE,00a0386c,word,ffa30000
+patch=1,EE,00a03870,word,ffa40010
+patch=1,EE,00a03874,word,ffa60020
+patch=1,EE,00a03878,word,3c1700a0
+patch=1,EE,00a0387c,word,26f73450
+patch=1,EE,00a03880,word,8ef70000
+patch=1,EE,00a03884,word,12E00014
+patch=1,EE,00a03888,word,0080902d
+patch=1,EE,00a0388c,word,0c0f9b70
+patch=1,EE,00a03890,word,00a0882d
+patch=1,EE,00a03894,word,3245ffff
+patch=1,EE,00a03898,word,0011343c
+patch=1,EE,00a0389c,word,0006343f
+patch=1,EE,00a038a0,word,24040003
+patch=1,EE,00a038a4,word,0c05f468 
+patch=1,EE,00a038a8,word,00000000
+patch=1,EE,00a038ac,word,0240102d
+patch=1,EE,00a038b0,word,241713cb
+patch=1,EE,00a038b4,word,0057b822
+patch=1,EE,00a038b8,word,24040243
+patch=1,EE,00a038bc,word,00972021
+patch=1,EE,00a038c0,word,0c0e545c
+patch=1,EE,00a038c4,word,00000000
+patch=1,EE,00a038c8,word,dfa30000
+patch=1,EE,00a038cc,word,dfa40010
+patch=1,EE,00a038d0,word,ffa50020
+patch=1,EE,00a038d4,word,080fa7cb
+patch=1,EE,00a038d8,word,27bd0030
+patch=1,EE,00a038dc,word,0c0fc5c8
+patch=1,EE,00a038e0,word,00000000
+patch=1,EE,00a038e4,word,080fa7cb
+
+
+patch=1,EE,003f2eb4,word,08280e3c // Update own value if BIT_CHK for soundtrack is true for shop 0xA
+patch=1,EE,003f2eb8,word,00000000
+patch=1,EE,00a038f0,word,27bdffc0
+patch=1,EE,00a038f4,word,ffa20000
+patch=1,EE,00a038f8,word,ffa30010
+patch=1,EE,00a038fc,word,ffa40020
+patch=1,EE,00a03900,word,ffa50030
+patch=1,EE,00a03904,word,3c1700a0
+patch=1,EE,00a03908,word,26f73450
+patch=1,EE,00a0390c,word,8ef70000
+patch=1,EE,00a03910,word,12e0000b
+patch=1,EE,00a03918,word,241713cb
+patch=1,EE,00a0391c,word,00B7B822
+patch=1,EE,00a03920,word,24040243
+patch=1,EE,00a03924,word,00972021
+patch=1,EE,00a03928,word,0c0e5474
+patch=1,EE,00a03930,word,24130000
+patch=1,EE,00a03934,word,10400002
+patch=1,EE,00a03938,word,00000000
+patch=1,EE,00a0393c,word,24130001
+patch=1,EE,00a03940,word,dfa20000
+patch=1,EE,00a03944,word,dfa30010
+patch=1,EE,00a03948,word,dfa40020
+patch=1,EE,00a0394c,word,dfa50030
+patch=1,EE,00a03950,word,27bd0040
+patch=1,EE,00a03954,word,a613000e
+patch=1,EE,00a03958,word,0013143c
+patch=1,EE,00a0395c,word,080fcbaf
+
+
+patch=1,EE,00171040,word,08280e5c // Point money address towards the modified one
+patch=1,EE,00a03970,word,3c1700a0
+patch=1,EE,00a03974,word,26f73450
+patch=1,EE,00a03978,word,8ef70000
+patch=1,EE,00a0397c,word,12e00003
+patch=1,EE,00a03984,word,3c0200a0
+patch=1,EE,00a03988,word,24423430
+patch=1,EE,00a0398c,word,0805c413
+
+
+patch=1,EE,003f1c04,word,08280e68 // More money address adjustments
+patch=1,EE,00a039a0,word,3c1700a0
+patch=1,EE,00a039a4,word,26f73450
+patch=1,EE,00a039a8,word,8ef70000
+patch=1,EE,00a039ac,word,12e00003
+patch=1,EE,00a039b4,word,080fc709
+patch=1,EE,00a039bc,word,10400003
+patch=1,EE,00a039c4,word,080fc703
+patch=1,EE,00a039cc,word,080fc709
+
