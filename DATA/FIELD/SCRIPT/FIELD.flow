@@ -22,3 +22,12 @@ void order_to_change_bgm_hook()
 {
 	BGMorder_to_change_bgm();
 }
+
+void fes_order_party_hook()
+{
+	//Enable Music for Answer
+	if (FUNCTION_01E9()) {
+		AnswerMusic();
+	}
+	fes_order_party_unhooked();
+}

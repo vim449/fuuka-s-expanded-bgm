@@ -8,10 +8,6 @@ const int SpinStartID = 588;
 const int SpinEndID = 592;
 
 void BGMorder_for_huka() {
-	//Enable Music for Answer
-	if (FUNCTION_01E9()) {
-		AnswerMusic();
-	}
 	// Mask some	Random stuff out
 	int mask = 0;
 	if (FUNCTION_018B(6, 339) == 0) {
