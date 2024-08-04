@@ -225,7 +225,7 @@
 [f 0 8 65278][f 1 31]Are you sure you want to unlock all sountracks?[n][f 0 4][e]
 
 [msg Fuukas]
-[f 0 8 65278][f 1 31]  Fuuka's Expanded[n]  Music Collection[n][f 0 21 45][e]
+[f 0 8 65278][f 1 31]  Fuuka's Expanded[n]  Music Collection[n][f 0 21 9999][e]
 
 [msg PersonaSeries]
 [f 0 8 65278][f 1 31]  Persona[n][f 0 21 9999][e]
