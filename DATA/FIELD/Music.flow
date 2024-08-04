@@ -51,7 +51,7 @@ void BGMorder_for_huka() {
 			return;
 		case 2: // go back to tartarus music
 			// Checks if answer
-			if (FUNCTION_01E9) {
+			if (FUNCTION_01E9()) {
 
 				if ((GET_FLOOR_ID() >= 2) && (GET_FLOOR_ID() <= 20)) {
 				playBGM(94);
@@ -152,10 +152,8 @@ void BGMorder_to_change_bgm() {
 		OPEN_MSG_WIN();
 		MSG(BGMHUKA_ORDER_BGM_CHANGE);
 		SEL_CHK_PAD(6, 99); // Exit menu, circle
-		SEL_CHK_PAD(8, 4);	// shuffle current menu, select
-		//SEL_CHK_PAD(13, 5); // next page, d-pad right
-		//SEL_CHK_PAD(15, 6); // prev page, d-pad left
-		FUNCTION_011C(19, BGMPage1of1);
+		SEL_CHK_PAD(8, 81);	// shuffle current menu, select
+		FUNCTION_011C(19, Fuukas);
 		int selection = SEL(BGMBGM_SEL);
 		switch (selection) {
 			case 0:
@@ -206,8 +204,8 @@ void BGMorder_to_change_bgm() {
 					stayOpen = SpinSMT_Music();
 				}
 				break;
-			case 3: //Skip to case 4
-			case 4:
+			case 3: //Skip to case 81
+			case 81:
 				SET_CNT(9998, 1);
 				Random();
 				MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -239,12 +237,6 @@ int P_Music()
 			case 1:
 				page = P_Music1();
 				break;
-			case 2:
-				page = P_Music2();
-				break;
-			case 3:
-				page = P_Music3();
-				break;
 			case 4:
 				goto case 1;
 			 default:
@@ -256,12 +248,10 @@ int P_Music()
 
 int P_Music1() {
 	MSG(HUKA_ORDER_BGM_CHANGE2);
-	FUNCTION_011C(19, BGMPage1of3);
+	FUNCTION_011C(19, PersonaSeries);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(P_Music);
 	FUNCTION_0005();
@@ -303,37 +293,6 @@ int P_Music1() {
 				return P3();
 			}
 		case 4:
-			return 2;
-		case 5:
-			return 3;
-		case 6:
-			return -1;
-		case 7:
-			SET_CNT(9998, 2);
-			RandomPersona();
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO); 
-			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int P_Music2() {
-	MSG(HUKA_ORDER_BGM_CHANGE2);
-	FUNCTION_011C(19, BGMPage2of3);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(P_Music2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
 			if (!BIT_CHK(583)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
@@ -342,7 +301,7 @@ int P_Music2() {
 			else {
 				return P4();
 			}
-		case 1:
+		case 5:
 			if (!BIT_CHK(584)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
@@ -351,7 +310,7 @@ int P_Music2() {
 			else {
 				return PQ();
 			}
-		case 2:
+		case 6:
 			if (!BIT_CHK(585)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
@@ -360,55 +319,20 @@ int P_Music2() {
 			else {
 				return P5();
 			}
-		case 4:
-			return 3;
-		case 5:
-			return 1;
-		case 6:
-			return -1;
 		case 7:
 			SET_CNT(9998, 2);
 			RandomPersona();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int P_Music3() {
-	MSG(HUKA_ORDER_BGM_CHANGE2);
-	FUNCTION_011C(19, BGMPage3of3);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(P_Music3);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-			SET_CNT(9998, 2);
-			RandomPersona();
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 1:
+		case 8:
 			return -1;
-		case 4:
-			return 1; // loop back to start of menu
-		case 5:
-			return 2;
-		case 6:
+		case 80:
 			return -1;
-		case 7:
+		case 81:
 			SET_CNT(9998, 2);
 			RandomPersona();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO); 
-			break;			
+			break;
 		default:
 			break;
 	}
@@ -433,9 +357,6 @@ int P1()
 			case 1:
 				page = P1_1();
 				break;
-			case 2:
-				page = P1_2();
-				break;
 			 default:
 				break;
 		}
@@ -445,12 +366,10 @@ int P1()
 
 int P1_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, Persona1);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(P1);
 	FUNCTION_0005();
@@ -459,60 +378,20 @@ int P1_1() {
 		case 1:
 		case 2:
 		case 3:
+		case 4:
+		case 5:
 			playBGM(p1_start + selection);
 			break;
-		case 4:
-			return 2;
-		case 5:
-			return 2;
 		case 6:
-			return -1;
-			break;
-		case 7:
 			SET_CNT(9998, 3);
 			RandomGame(p1_len, p1_start, ShuffleP1, ShufflePersona);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int P1_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(P1_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-		case 1:
-			playBGM(p1_start + selection + 4);
-			break;
-		case 2:
-			SET_CNT(9998, 3);
-			RandomGame(p1_len, p1_start, ShuffleP1, ShufflePersona);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 3:
-			P_Music();
-			break;
-		case 4:
-			return 1;
-		case 5:
-			return 1;
-		case 6:
-			return -1;
-			break;
 		case 7:
+			return -1;
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(p1_len, p1_start, ShuffleP1, ShufflePersona);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -541,12 +420,6 @@ int IS()
 			case 1:
 				page = IS_1();
 				break;
-			case 2:
-				page = IS_2();
-				break;
-			case 3:
-				page = IS_3();
-				break;
 			default:
 				break;
 		}
@@ -556,12 +429,10 @@ int IS()
 
 int IS_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of3);
+	FUNCTION_011C(19, PersonaIS);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(IS);
 	FUNCTION_0005();
@@ -570,15 +441,24 @@ int IS_1() {
 		case 1:
 		case 2:
 		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
 			playBGM(is_start + selection);
 			break;
-		case 4:
-			return 2;
-		case 5:
-			return 3;
-		case 6:
+		case 10:
+			SET_CNT(9998, 3);
+			RandomGame(is_len, is_start, ShuffleIS, ShufflePersona);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
+		case 11:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(is_len, is_start, ShuffleIS, ShufflePersona);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -587,85 +467,6 @@ int IS_1() {
 			break;
 	}
 
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int IS_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of3);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(IS_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-		case 1:
-		case 2:
-		case 3:
-			playBGM(is_start + selection + 4);
-			break;
-		case 4:
-			return 3;
-		case 5:
-			return 1;
-		case 6:
-			return -1;
-		case 7:
-			SET_CNT(9998, 3);
-			RandomGame(is_len, is_start, ShuffleIS, ShufflePersona);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int IS_3() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage3of3);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(IS_3);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-		case 1:
-			playBGM(is_start + selection + 8);
-			break;
-		case 2:
-			SET_CNT(9998, 3);
-			RandomGame(is_len, is_start, ShuffleIS, ShufflePersona);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 3:
-			return -1;
-		case 4:
-			return 1; // create new menu
-		case 5:
-			return 2;
-		case 6:
-			return -1;
-		case 7:
-			SET_CNT(9998, 3);
-			RandomGame(is_len, is_start, ShuffleIS, ShufflePersona);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-	default:
-			break;
-	}
 	CLOSE_MSG_WIN();
 	FUNCTION_00B7(0);
 	return 0;
@@ -687,12 +488,6 @@ int EP()
 			case 1:
 				page = EP_1();
 				break;
-			case 2:
-				page = EP_2();
-				break;
-			case 3:
-				page = EP_3();
-				break;
 			default:
 				break;
 		}
@@ -702,12 +497,10 @@ int EP()
 
 int EP_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of3);
+	FUNCTION_011C(19, PersonaEP);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(EP);
 	FUNCTION_0005();
@@ -716,99 +509,28 @@ int EP_1() {
 		case 1:
 		case 2:
 		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
 			playBGM(ep_start + selection);
 			break;
-		case 4:
-			return 2;
-		case 5:
-			return 3;
-		case 6:
+		case 9:
+			SET_CNT(9998, 3);
+			RandomGame(ep_len, ep_start, ShuffleEP, ShufflePersona);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
+		case 10:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(ep_len, ep_start, ShuffleEP, ShufflePersona);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int EP_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of3);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(EP_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-		case 1:
-		case 2:
-		case 3:
-			playBGM(ep_start + selection + 4);
-			break;
-		case 4:
-			return 3;
-		case 5:
-			return 1;
-		case 6:
-			return -1;
-		case 7:
-			SET_CNT(9998, 3);
-			RandomGame(ep_len, ep_start, ShuffleEP, ShufflePersona);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int EP_3() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage3of3);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(EP_3);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-			playBGM(ep_start + selection + 8);
-			break;
-		case 1:
-			SET_CNT(9998, 3);
-			RandomGame(ep_len, ep_start, ShuffleEP, ShufflePersona);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 2:
-			return -1;
-		//case 3:
-		case 4:
-			return 2;
-		case 5:
-			return 1;
-		case 6:
-			return -1;
-		case 7:
-			SET_CNT(9998, 3);
-			RandomGame(ep_len, ep_start, ShuffleEP, ShufflePersona);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-	default:
 			break;
 	}
 	CLOSE_MSG_WIN();
@@ -832,9 +554,6 @@ int P3()
 			case 1:
 				page = P3_1();
 				break;
-			case 2:
-				page = P3_2();
-				break;
 			default:
 				break;
 		}
@@ -844,12 +563,10 @@ int P3()
 
 int P3_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, Persona3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(P3);
 	FUNCTION_0005();
@@ -861,52 +578,15 @@ int P3_1() {
 			playBGM(p3_start + selection);
 			break;
 		case 4:
-			return 2;
-		case 5:
-			return 2;
-		case 6:
-			return -1;
-		case 7:
 			SET_CNT(9998, 3);
 			RandomGame(p3_len, p3_start, ShuffleP3, ShufflePersona);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int P3_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(P3_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-			SET_CNT(9998, 3);
-			RandomGame(p3_len, p3_start, ShuffleP3, ShufflePersona);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 1:
-			return -1;
-		//case 2:
-		//case 3:
-		case 4:
-			return 1;
 		case 5:
-			return 1;
-		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(p3_len, p3_start, ShuffleP3, ShufflePersona);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -935,9 +615,6 @@ int P4()
 			case 1:
 				page = P4_1();
 				break;
-			case 2:
-				page = P4_2();
-				break;
 			default:
 				break;
 		}
@@ -947,12 +624,10 @@ int P4()
 
 int P4_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, Persona4);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(P4);
 	FUNCTION_0005();
@@ -964,57 +639,19 @@ int P4_1() {
 			playBGM(p4_start + selection);
 			break;
 		case 4:
-			return 2;
+			SET_CNT(9998, 3);
+			RandomGame(p4_len, p4_start, ShuffleP4, ShufflePersona);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 		case 5:
-			return 2;
-		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(p4_len, p4_start, ShuffleP4, ShufflePersona);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int P4_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(P4_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-			SET_CNT(9998, 3);
-			RandomGame(p4_len, p4_start, ShuffleP4, ShufflePersona);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 1:
-			return -1;
-		//case 2:
-		//case 3:
-		case 4:
-			return 1;
-		case 5:
-			return 1;
-		case 6:
-			return -1;
-		case 7:
-			SET_CNT(9998, 3);
-			RandomGame(p4_len, p4_start, ShuffleP4, ShufflePersona);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-	default:
 			break;
 	}
 	CLOSE_MSG_WIN();
@@ -1038,9 +675,6 @@ int PQ()
 			case 1:
 				page = PQ_1();
 				break;
-			case 2:
-				page = PQ_2();
-				break;
 			default:
 				break;
 		}
@@ -1050,12 +684,10 @@ int PQ()
 
 int PQ_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, PersonaQ);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(PQ);
 	FUNCTION_0005();
@@ -1065,53 +697,16 @@ int PQ_1() {
 		case 2:
 			playBGM(pq_start + selection);
 			break;
-		//case 3:
-		case 4:
-			return 2;
-		case 5:
-			return 2;
-		case 6:
-			return -1;
-		case 7:
+		case 3:
 			SET_CNT(9998, 3);
 			RandomGame(pq_len, pq_start, ShufflePQ, ShufflePersona);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int PQ_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(PQ_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-			SET_CNT(9998, 3);
-			RandomGame(pq_len, pq_start, ShufflePQ, ShufflePersona);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 1:
-			return -1;
-		//case 2:
 		case 4:
-			return 1;
-		case 5:
-			return 1;
-		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(pq_len, pq_start, ShufflePQ, ShufflePersona);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -1140,9 +735,6 @@ int P5()
 			case 1:
 				page = P5_1();
 				break;
-			case 2:
-				page = P5_2();
-				break;
 			default:
 				break;
 		}
@@ -1152,12 +744,10 @@ int P5()
 
 int P5_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, Persona5);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(P5);
 	FUNCTION_0005();
@@ -1169,52 +759,15 @@ int P5_1() {
 			playBGM(p5_start + selection);
 			break;
 		case 4:
-			return 2;
-		case 5:
-			return 2;
-		case 6:
-			return -1;
-		case 7:
 			SET_CNT(9998, 3);
 			RandomGame(p5_len, p5_start, ShuffleP5, ShufflePersona);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int P5_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(P5_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-			SET_CNT(9998, 3);
-			RandomGame(p5_len, p5_start, ShuffleP5, ShufflePersona);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 1:
-			return -1;
-		//case 2:
-		//case 3:
-		case 4:
-			return 1;
 		case 5:
-			return 1;
-		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(p5_len, p5_start, ShuffleP5, ShufflePersona);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -1256,12 +809,10 @@ int SMT_Music()
 
 int SMT_Music1() {
 	MSG(HUKA_ORDER_BGM_CHANGE2);
-	FUNCTION_011C(19, BGMPage1of1);
+	FUNCTION_011C(19, SMTSeries);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	//SEL_CHK_PAD(13, 4); // next page, d-pad right
-	//SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(SMT_Music);
 	FUNCTION_0005();
@@ -1290,9 +841,10 @@ int SMT_Music1() {
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break; 
 		case 3:
-		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 2);
 			RandomSMT();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -1323,9 +875,6 @@ int SMT1()
 			case 1:
 				page = SMT1_1();
 				break;
-			case 2:
-				page = SMT1_2();
-				break;
 			default:
 				break;
 		}
@@ -1335,12 +884,10 @@ int SMT1()
 
 int SMT1_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, Shin1);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(SMT1);
 	FUNCTION_0005();
@@ -1352,52 +899,15 @@ int SMT1_1() {
 			playBGM(smt1_start + selection);
 			break;
 		case 4:
-			return 2;
-		case 5:
-			return 2;
-		case 6:
-			return -1;
-		case 7:
 			SET_CNT(9998, 3);
 			RandomGame(smt1_len, smt1_start, ShuffleSMT1, ShuffleSMT);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int SMT1_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(SMT1_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-			SET_CNT(9998, 3);
-			RandomGame(smt1_len, smt1_start, ShuffleSMT1, ShuffleSMT);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 1:
-			return -1;
-		//case 2:
-		//case 3:
-		case 4:
-			return 1;
 		case 5:
-			return 1;
-		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(smt1_len, smt1_start, ShuffleSMT1, ShuffleSMT);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -1426,9 +936,6 @@ int SMT3()
 			case 1:
 				page = SMT3_1();
 				break;
-			case 2:
-				page = SMT3_2();
-				break;
 			default:
 				break;
 		}
@@ -1438,12 +945,10 @@ int SMT3()
 
 int SMT3_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, Shin3);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(SMT3);
 	FUNCTION_0005();
@@ -1455,54 +960,17 @@ int SMT3_1() {
 			playBGM(smt3_start + selection);
 			break;
 		case 4:
-			return 2;
-		case 5:
-			return 2;
-		case 6:
-			return -1;
-		case 7:
-			SET_CNT(9998, 3);
-			RandomGame(smt3_len, smt3_start, ShuffleSMT3, ShuffleSMT);
-			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int SMT3_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(SMT3_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
 			SET_CNT(9998, 3);
 			RandomGame(smt3_len, smt3_start, ShuffleSMT3, ShuffleSMT);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-		case 1:
-			return -1;
-		//case 2:
-		//case 3:
-		case 4:
-			return 1;
 		case 5:
-			return 1;
-		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(smt3_len, smt3_start, ShuffleSMT3, ShuffleSMT);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
 		default:
 			break;
@@ -1528,9 +996,6 @@ int SpinSMT_Music()
 			case 1:
 				page = SpinSMT_Music_1();
 				break;
-			case 2:
-				page = SpinSMT_Music_2();
-				break;
 			case 4:
 				goto case 1;
 			default:
@@ -1542,12 +1007,10 @@ int SpinSMT_Music()
 
 int SpinSMT_Music_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE2);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, SpinSeries);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(SpinSMT_Music);
 	FUNCTION_0005();
@@ -1589,37 +1052,6 @@ int SpinSMT_Music_1() {
 				return Raidou();
 			}
 		case 4:
-			return 2;
-		case 5:
-			return 2;
-		case 6:
-			return -1;
-		case 7:
-			SET_CNT(9998, 2);
-			RandomSpin();
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int SpinSMT_Music_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE2);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(SpinSMT_Music2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
 			if (!BIT_CHK(592)) {
 				OPEN_MSG_WIN();
 				MSG(No_Album);
@@ -1628,21 +1060,16 @@ int SpinSMT_Music_2() {
 			else {
 				return Other();
 			}
-		case 1:
+		case 5:
 			SET_CNT(9998, 2);
 			RandomSpin();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-		case 2:
-			return -1;
-		//case 3:
-		case 4:
-			return 1;
-		case 5:
-			return 1;
 		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 2);
 			RandomSpin();
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -1671,9 +1098,6 @@ int MJ()
 			case 1:
 				page = MJ_1();
 				break;
-			case 2:
-				page = MJ_2();
-				break;
 			default:
 				break;
 		}
@@ -1683,12 +1107,10 @@ int MJ()
 
 int MJ_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, SpinMJ);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(MJ);
 	FUNCTION_0005();
@@ -1698,57 +1120,20 @@ int MJ_1() {
 		case 2:
 			playBGM(mj_start + selection);
 			break;
-		//case 3:
+		case 3:
+			SET_CNT(9998, 3);
+			RandomGame(mj_len, mj_start, ShuffleMJ, ShuffleSpin);
+			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
+			break;
 		case 4:
-			return 2;
-		case 5:
-			return 2;
-		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(mj_len, mj_start, ShuffleMJ, ShuffleSpin);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break; 
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int MJ_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(MJ_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-			SET_CNT(9998, 3);
-			RandomGame(mj_len, mj_start, ShuffleMJ, ShuffleSpin);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 1:
-			return -1;
-		//case 2:
-		case 4:
-			return 1;
-		case 5:
-			return 1;
-		case 6:
-			return -1;
-		case 7:
-			SET_CNT(9998, 3);
-			RandomGame(mj_len, mj_start, ShuffleMJ, ShuffleSpin);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
 		default:
 			break;
 	}
@@ -1773,9 +1158,6 @@ int MJ2()
 			case 1:
 				page = MJ2_1();
 				break;
-			case 2:
-				page = MJ2_2();
-				break;
 			default:
 				break;
 		}
@@ -1785,12 +1167,10 @@ int MJ2()
 
 int MJ2_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, SpinMJ2);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(MJ2);
 	FUNCTION_0005();
@@ -1799,57 +1179,19 @@ int MJ2_1() {
 		case 1:
 		case 2:
 		case 3:
+		case 4:
 			playBGM(mj2_start + selection);
 			break;
-		case 4:
-			return 2;
 		case 5:
-			return 2;
-		case 6:
-			return -1;
-		case 7:
 			SET_CNT(9998, 3);
 			RandomGame(mj2_len, mj2_start, ShuffleMJ2, ShuffleSpin);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int MJ2_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(MJ2_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-			playBGM(mj2_start + selection + 4);
-			break;
-		case 1:
-			SET_CNT(9998, 3);
-			RandomGame(mj2_len, mj2_start, ShuffleMJ2, ShuffleSpin);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 2:
-			return -1;
-		//case 3:
-		case 4:
-			return 1;
-		case 5:
-			return 1;
 		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(mj2_len, mj2_start, ShuffleMJ2, ShuffleSpin);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -1878,9 +1220,6 @@ int DDS()
 			case 1:
 				page = DDS_1();
 				break;
-			case 2:
-				page = DDS_2();
-				break;
 			default:
 				break;
 		}
@@ -1890,12 +1229,10 @@ int DDS()
 
 int DDS_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, SpinDDS);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(DDS);
 	FUNCTION_0005();
@@ -1907,51 +1244,15 @@ int DDS_1() {
 			playBGM(dds_start + selection);
 			break;
 		case 4:
-			return 2;
-		case 5:
-			return 2;
-		case 6:
-			return -1;
-		case 7:
 			SET_CNT(9998, 3);
 			RandomGame(dds_len, dds_start, ShuffleDDS, ShuffleSpin);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int DDS_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(DDS_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-			SET_CNT(9998, 3);
-			RandomGame(dds_len, dds_start, ShuffleDDS, ShuffleSpin);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 1:
-			return -1;
-		//case 2:
-		case 4:
-			return 1;
 		case 5:
-			return 1;
-		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(dds_len, dds_start, ShuffleDDS, ShuffleSpin);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -1980,9 +1281,6 @@ int Raidou()
 			case 1:
 				page = Raidou_1();
 				break;
-			case 2:
-				page = Raidou_2();
-				break;
 			default:
 				break;
 		}
@@ -1992,12 +1290,10 @@ int Raidou()
 
 int Raidou_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, SpinRaidou);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(Raidou);
 	FUNCTION_0005();
@@ -2009,51 +1305,15 @@ int Raidou_1() {
 			playBGM(rai_start + selection);
 			break;
 		case 4:
-			return 2;
-		case 5:
-			return 2;
-		case 6:
-			return -1;
-		case 7:
 			SET_CNT(9998, 3);
 			RandomGame(rai_len, rai_start, ShuffleRaidou, ShuffleSpin);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int Raidou_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(Raidou_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-			SET_CNT(9998, 3);
-			RandomGame(rai_len, rai_start, ShuffleRaidou, ShuffleSpin);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 1:
-			return -1;
-		//case 2:
-		case 4:
-			return 1;
 		case 5:
-			return 1;
-		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(rai_len, rai_start, ShuffleRaidou, ShuffleSpin);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -2082,9 +1342,6 @@ int Other()
 			case 1:
 				page = Other_1();
 				break;
-			case 2:
-				page = Other_2();
-				break;
 			default:
 				break;
 		}
@@ -2094,12 +1351,12 @@ int Other()
 
 int Other_1() {
 	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage1of2);
+	FUNCTION_011C(19, SpinSeries);
 	SEL_CHK_PAD(6, 99); // Exit menu, circle
 	SEL_CHK_PAD(13, 4); // next page, d-pad right
 	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
+	SEL_CHK_PAD(11, 80); // up 1 page, start
+	SEL_CHK_PAD(8, 81);	// shuffle current menu, select
 
 	int selection = SEL(Other);
 	FUNCTION_0005();
@@ -2109,52 +1366,16 @@ int Other_1() {
 		case 2:
 			playBGM(misc_start + selection);
 			break;
-		//case 3:
-		case 4:
-			return 2;
-		case 5:
-			return 2;
-		case 6:
-			return -1;
-		case 7:
+		case 3:
 			SET_CNT(9998, 3);
 			RandomGame(misc_len, misc_start, ShuffleOther, ShuffleSpin);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
 			break;
-		default:
-			break;
-	}
-	CLOSE_MSG_WIN();
-	FUNCTION_00B7(0);
-	return 0;
-}
-
-int Other_2() {
-	MSG(HUKA_ORDER_BGM_CHANGE3);
-	FUNCTION_011C(19, BGMPage2of2);
-	SEL_CHK_PAD(6, 99); // Exit menu, circle
-	SEL_CHK_PAD(13, 4); // next page, d-pad right
-	SEL_CHK_PAD(15, 5); // prev page, d-pad left
-	SEL_CHK_PAD(11, 6); // up 1 page, start
-	SEL_CHK_PAD(8, 7);	// shuffle current menu, select
-
-	int selection = SEL(Other_2);
-	FUNCTION_0005();
-	switch (selection) {
-		case 0:
-			SET_CNT(9998, 3);
-			RandomGame(misc_len, misc_start, ShuffleOther, ShuffleSpin);
-			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
-			break;
-		case 1:
-			return -1;
 		case 4:
-			return 1;
-		case 5:
-			return 1;
-		case 6:
 			return -1;
-		case 7:
+		case 80:
+			return -1;
+		case 81:
 			SET_CNT(9998, 3);
 			RandomGame(misc_len, misc_start, ShuffleOther, ShuffleSpin);
 			MSG(BASE_HUKA_ORDER_BGM_CHANGE_DO);
@@ -2205,8 +1426,8 @@ bool SpinSongs() {
 
 
 void AnswerMusic() {
-	if (!BIT_CHK(PersonaStartID)) {
-		for (int i = PersonaStartID; i <= SpinEndID; i++) {
+	if (!BIT_CHK(579)) {
+		for (int i = 579; i <= 592; i++) {
 			if (!BIT_CHK(i)) {
 				BIT_ON(i);
 			 }
