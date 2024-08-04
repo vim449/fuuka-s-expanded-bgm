@@ -9,33 +9,30 @@
 [f 0 8 65278][f 1 31]Mainline SMT[e]
 [f 0 8 65278][f 1 31]SMT Spin-Offs[e]
 [f 0 8 65287][f 1 31]Pick for Me![e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel P_Music top]
 [f 0 8 65278][f 1 31]Persona 1[e]
 [f 0 8 65278][f 1 31]Persona 2: Innocent Sin[e]
 [f 0 8 65278][f 1 31]Persona 2: Eternal Punishment[e]
 [f 0 8 65278][f 1 31]Persona 3[e]
-
-[sel P_Music2 top]
 [f 0 8 65278][f 1 31]Persona 4[e]
 [f 0 8 65278][f 1 31]Persona Q[e]
 [f 0 8 65278][f 1 31]Persona 5[e]
-
-[sel P_Music3 top]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Series Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel P1 top]
 [f 0 8 65278][f 1 31]Track 1: SEBEC Above Ground[e]
 [f 0 8 65278][f 1 31]Track 2: Kandori's Theme -Silence-[e]
 [f 0 8 65278][f 1 31]Track 3: Karma palace (PSX)[e]
 [f 0 8 65278][f 1 31]Track 4: Karma Palace (PSP)[e]
-
-[sel P1_2 top]
 [f 0 8 65278][f 1 31]Track 5: School Days[e]
 [f 0 8 65278][f 1 31]Track 6: Let Butterflies Spread...[e]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 
 [sel IS top]
@@ -43,74 +40,64 @@
 [f 0 8 65278][f 1 31]Track 2: Gold (PSX)[e]
 [f 0 8 65278][f 1 31]Track 3: Kasugayama High (PSX)[e]
 [f 0 8 65278][f 1 31]Track 4: Maya's Theme (PSX)[e]
-
-[sel IS_2 top]
 [f 0 8 65278][f 1 31]Track 5: Mt. Katatsumuri (PSX)[e]
 [f 0 8 65278][f 1 31]Track 6: Club Zodiac (PSP)[e]
 [f 0 8 65278][f 1 31]Track 7: Gold (PSP)[e]
 [f 0 8 65278][f 1 31]Track 8: Kasugayama High (PSP)[e]
-
-[sel IS_3 top]
 [f 0 8 65278][f 1 31]Track 9: Maya's Theme (PSP)[e]
 [f 0 8 65278][f 1 31]Track 10: Mt. Katatsumuri (PSP)[e]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel EP top]
 [f 0 8 65278][f 1 31]Track 1: Abandoned Factory (PSX)[e]
 [f 0 8 65278][f 1 31]Track 2: Club Zodiac (PSX)[e]
 [f 0 8 65278][f 1 31]Track 3: Kasugayama High (PSX)[e]
 [f 0 8 65278][f 1 31]Track 4: Mt. Katatsumuri (PSX)[e]
-
-[sel EP_2 top]
 [f 0 8 65278][f 1 31]Track 5: Abandoned Factory (PSP)[e]
 [f 0 8 65278][f 1 31]Track 6: Club Zodiac (PSP)[e]
 [f 0 8 65278][f 1 31]Track 7: Kasugayama High (PSP)[e]
 [f 0 8 65278][f 1 31]Track 8: Mt. Katatsumuri (PSP)[e]
-
-[sel EP_3 top]
 [f 0 8 65278][f 1 31]Track 9: Shiori[e]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel P3 top]
 [f 0 8 65278][f 1 31]Track 1: Snow Queen[e]
 [f 0 8 65278][f 1 31]Track 2: Maya's Theme[e]
 [f 0 8 65278][f 1 31]Track 3: Persona[e]
 [f 0 8 65278][f 1 31]Track 4: Time Castle[e]
-
-[sel P3_2 top]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel P4 top]
 [f 0 8 65278][f 1 31]Track 1: Sauna[e]
 [f 0 8 65278][f 1 31]Track 2: Game[e]
 [f 0 8 65278][f 1 31]Track 3: Heaven[e]
 [f 0 8 65278][f 1 31]Track 4: Long Way[e]
-
-[sel P4_2 top]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel PQ top]
 [f 0 8 65278][f 1 31]Track 1: Looming Danger[e]
 [f 0 8 65278][f 1 31]Track 2: Maze Of Life[e]
 [f 0 8 65278][f 1 31]Track 3: The Voice Someone Calls[e]
-
-[sel PQ_2 top]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel P5 top]
 [f 0 8 65278][f 1 31]Track 1: Beneath the Mask[e]
 [f 0 8 65278][f 1 31]Track 2: Beneath the Mask (Inst)[e]
 [f 0 8 65278][f 1 31]Track 3: Layer Cake[e]
 [f 0 8 65278][f 1 31]Track 4: Life Will Change[e]
-
-[sel P5_2 top]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel SMT_Music top]
 [f 0 8 65278][f 1 31]SMT 1, 2, & if...[e]
@@ -123,80 +110,72 @@
 [f 0 8 65278][f 1 31]Track 2: Disco (SMT 2)[e]
 [f 0 8 65278][f 1 31]Track 3: 3D Makai (SMT 2)[e]
 [f 0 8 65278][f 1 31]Track 4: City Of The Makai (if...)[e]
-
-[sel SMT1_2 top]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel SMT3 top]
 [f 0 8 65278][f 1 31]Track 1: Labyrinth of Amala (SMT 3)[e]
 [f 0 8 65278][f 1 31]Track 2: Sound Test (SMT 3)[e]
 [f 0 8 65278][f 1 31]Track 3: Tokyo (SMT 4)[e]
 [f 0 8 65278][f 1 31]Track 4: Ikebukuro (SMT 4)[e]
-
-[sel SMT3_2 top]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel SpinSMT_Music top]
 [f 0 8 65278][f 1 31]Majin Tensei 1[e]
 [f 0 8 65278][f 1 31]Majin Tensei 2[e]
 [f 0 8 65278][f 1 31]Digital Devil Saga[e]
 [f 0 8 65278][f 1 31]Raidou 1 & 2[e]
-
-[sel SpinSMT_Music2 top]
 [f 0 8 65278][f 1 31]Others[e]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Series Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel MJ top]
 [f 0 8 65278][f 1 31]Track 1: Flame Up Fragment[e]
 [f 0 8 65278][f 1 31]Track 2: Devil Dance[e]
 [f 0 8 65278][f 1 31]Track 3: Chaotic Law[e]
-
-[sel MJ_2 top]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel MJ2 top]
 [f 0 8 65278][f 1 31]Track 1: A.D. 1995 Story[e]
 [f 0 8 65278][f 1 31]Track 2: Smash Up[e]
 [f 0 8 65278][f 1 31]Track 3: Evolution[e]
 [f 0 8 65278][f 1 31]Track 4: Assault[e]
-
-[sel MJ2_2 top]
 [f 0 8 65278][f 1 31]Track 5: Sourpuss[e]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel DDS top]
 [f 0 8 65278][f 1 31]Track 1: Sahasrara (DDS 1)[e]
 [f 0 8 65278][f 1 31]Track 2: River Of Samsara (DDS 1)[e]
 [f 0 8 65278][f 1 31]Track 3: Mad Mart (DDS 2)[e]
 [f 0 8 65278][f 1 31]Track 4: Egg Of The Universe (DDS 2)[e]
-
-[sel DDS_2 top]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel Raidou top]
 [f 0 8 65278][f 1 31]Track 1: Tsukudo-Cho (Raidou 1)[e]
 [f 0 8 65278][f 1 31]Track 2: Go! Raidou (Raidou 1)[e]
 [f 0 8 65278][f 1 31]Track 3: The Summoner... (Raidou 2)[e]
 [f 0 8 65278][f 1 31]Track 4: Adventure (Raidou 2)[e]
-
-[sel Raidou_2 top]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel Other top]
 [f 0 8 65278][f 1 31]Track 1: Algon HQ (Soul Hackers 1)[e]
 [f 0 8 65278][f 1 31]Track 2: Club Ezekiel (Devil Summoner)[e]
 [f 0 8 65278][f 1 31]Track 3: Dragon's Belly (Jack Bros.)[e]
-
-[sel Other_2 top]
 [f 0 8 65278][f 1 31]Pick for Me![e]
 [f 0 8 65278][f 1 31]Return to Game Selection[e]
+[f 0 8 65278][f 1 31]Exit[e]
 
 [sel YesNo top]
 [f 0 8 65278][f 1 31]Yes[e]
@@ -214,21 +193,6 @@
 
 [msg BGMPage1of1]
 [f 0 8 65278][f 1 31]  Page 1 of 1.[n][f 0 21 9999][e]
-
-[msg BGMPage1of2]
-[f 0 8 65278][f 1 31]  Page 1 of 2.[n][f 0 21 9999][e]
-
-[msg BGMPage2of2]
-[f 0 8 65278][f 1 31]  Page 2 of 2.[n][f 0 21 9999][e]
-
-[msg BGMPage1of3]
-[f 0 8 65278][f 1 31]  Page 1 of 3.[n][f 0 21 9999][e]
-
-[msg BGMPage2of3]
-[f 0 8 65278][f 1 31]  Page 2 of 3.[n][f 0 21 9999][e]
-
-[msg BGMPage3of3]
-[f 0 8 65278][f 1 31]  Page 3 of 3.[n][f 0 21 9999][e]
 
 [msg BASE_HUKA_ORDER_BGM_CHANGE_DO [Fuuka]]
 [f 0 8 65278][f 1 31]There you go.[n][f 0 4][e]
@@ -260,6 +224,60 @@
 
 [msg UnlockAll [Fuuka]]
 [f 0 8 65278][f 1 31]Are you sure you want to unlock all sountracks?[n][f 0 4][e]
+
+[msg Fuukas]
+[f 0 8 65278][f 1 31]  Fuuka's Expanded[n]  Music Collection[n][f 0 21 45][e]
+
+[msg PersonaSeries]
+[f 0 8 65278][f 1 31]  Persona[n][f 0 21 9999][e]
+
+[msg SMTSeries]
+[f 0 8 65278][f 1 31]  Shin Megami Tensei[n][f 0 21 9999][e]
+
+[msg SpinSeries]
+[f 0 8 65278][f 1 31]  Shin Megami Tensei[n]  Spin-Offs[f 0 21 9999][e]
+
+[msg Persona1]
+[f 0 8 65278][f 1 31]  Persona Series[n]  Persona 1[f 0 21 9999][e]
+
+[msg PersonaIS]
+[f 0 8 65278][f 1 31]  Persona Series[n]  Persona 2: Innocent Sin[f 0 21 9999][e]
+
+[msg PersonaEP]
+[f 0 8 65278][f 1 31]  Persona Series[n]  Persona 2: Eternal Punishment[f 0 21 9999][e]
+
+[msg Persona3]
+[f 0 8 65278][f 1 31]  Persona Series[n]  Persona 3[f 0 21 9999][e]
+
+[msg Persona4]
+[f 0 8 65278][f 1 31]  Persona Series[n]  Persona 4[f 0 21 9999][e]
+
+[msg PersonaQ]
+[f 0 8 65278][f 1 31]  Persona Series[n]  Persona Q[f 0 21 9999][e]
+
+[msg Persona5]
+[f 0 8 65278][f 1 31]  Persona Series[n]  Persona 5[f 0 21 9999][e]
+
+[msg Shin1]
+[f 0 8 65278][f 1 31]  SMT Series[n]  SMT 1[f 0 21 9999][e]
+
+[msg Shin3]
+[f 0 8 65278][f 1 31]  SMT Series[n]  SMT 3[f 0 21 9999][e]
+
+[msg SpinMJ]
+[f 0 8 65278][f 1 31]  SMT Spin-Offs[n]  Majin Tensei[f 0 21 9999][e]
+
+[msg SpinMJ2]
+[f 0 8 65278][f 1 31]  SMT Spin-Offs[n]  Majin Tensei 2[f 0 21 9999][e]
+
+[msg SpinDDS]
+[f 0 8 65278][f 1 31]  SMT Spin-Offs[n]  Digital Devil Saga[f 0 21 9999][e]
+
+[msg SpinRaidou]
+[f 0 8 65278][f 1 31]  SMT Spin-Offs[n]  Raidou Kuzunoha[f 0 21 9999][e]
+
+[msg SpinOthers]
+[f 0 8 65278][f 1 31]  SMT Spin-Offs[n]  Others[f 0 21 9999][e]
 
 [msg sebec]
 [f 0 8 65278][f 1 31]  Persona 1[n]  SEBEC Above Ground[n][f 0 21 45][e]
