@@ -1422,8 +1422,8 @@ bool SpinSongs() {
 
 
 void AnswerMusic() {
-	if (!BIT_CHK(579)) {
-		for (int i = 579; i <= 592; i++) {
+	if (!BIT_CHK(PersonaStartID)) {
+		for (int i = PersonaStartID; i <= SpinEndID; i++) {
 			if (!BIT_CHK(i)) {
 				BIT_ON(i);
 			 }
