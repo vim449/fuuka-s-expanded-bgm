@@ -222,7 +222,7 @@
 [f 0 8 65278][f 1 31]You don't own this soundtrack.[n][f 0 4][e]
 
 [msg UnlockAll [Fuuka]]
-[f 0 8 65278][f 1 31]Are you sure you want to unlock all sountracks?[n][f 0 4][e]
+[f 0 8 65278][f 1 31]Are you sure you want to unlock all soundtracks?[n][f 0 4][e]
 
 [msg Fuukas]
 [f 0 8 65278][f 1 31]  Fuuka's Expanded[n]  Music Collection[n][f 0 21 9999][e]
